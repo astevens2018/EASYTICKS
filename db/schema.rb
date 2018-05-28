@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_135326) do
+ActiveRecord::Schema.define(version: 2018_05_28_143808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "reportings", force: :cascade do |t|
+  create_table "reports", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reportings_on_user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2018_05_28_135326) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "reportings", "users"
+  add_foreign_key "reports", "users"
   add_foreign_key "requests", "users"
   add_foreign_key "tickets", "users"
 end
