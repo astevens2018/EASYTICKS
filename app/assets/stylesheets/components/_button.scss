@@ -1,0 +1,30 @@
+.btn-buy {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6ad58b;
+  transition: background 0.3s ease;
+  position: absolute;
+  left: 700px;
+  top: 25px;
+}
+.btn-buy:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-info {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #f3c340;
+  transition: background 0.3s ease;
+  position: absolute;
+  position: absolute;
+  left: 825px;
+  top: 25px;
+}
