@@ -9,4 +9,3 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
 
 end
-
