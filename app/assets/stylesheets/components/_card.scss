@@ -85,6 +85,36 @@ button {
   color: green;
 }
 
+.list__label__itinerary {
+  position: absolute;
+  left: 250px;
+  top: 17px;
+}
+
+.list__label__itinerary__details {
+  position: absolute;
+  left: 250px;
+  top: 45px;
+  color: grey;
+  font-size: 12px;
+}
+
+.list__label__itinerary__details__second {
+  position: absolute;
+  left: 250px;
+  top: 65px;
+  color: grey;
+  font-size: 12px;
+}
+
+.list__label__date {
+  position: absolute;
+  left: 500px;
+  top: 35px;
+  color: black;
+  font-size: 16px;
+}
+
 /* MODULE ==================== */
 .list {
   display: flex;
