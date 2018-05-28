@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_143808) do
+ActiveRecord::Schema.define(version: 2018_05_28_145952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 2018_05_28_143808) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
     t.date "date"
     t.time "time"
     t.string "departing_city"
@@ -40,7 +41,8 @@ ActiveRecord::Schema.define(version: 2018_05_28_143808) do
     t.string "booking_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tickets_on_user_id"
+    t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
+    t.index ["seller_id"], name: "index_tickets_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +64,6 @@ ActiveRecord::Schema.define(version: 2018_05_28_143808) do
 
   add_foreign_key "reports", "users"
   add_foreign_key "requests", "users"
-  add_foreign_key "tickets", "users"
+  add_foreign_key "tickets", "users", column: "buyer_id"
+  add_foreign_key "tickets", "users", column: "seller_id"
 end
