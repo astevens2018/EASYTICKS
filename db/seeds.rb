@@ -39,4 +39,3 @@ t2 = Ticket.create!(
   price: 50,
   booking_reference: "AS7FZ2")
 
-

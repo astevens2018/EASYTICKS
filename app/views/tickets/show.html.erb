@@ -1,1 +1,21 @@
 <h1>Tickets show</h1>
+
+<div class="container ticket_box">
+  <div class="container ticket_header">
+    Get aboard the train from <%= @ticket[:departing_city] %> to <%= @ticket[:arrival_city] %>
+  </div>
+  <div class="container ticket_deets">
+      <div class="date">
+        Date: <%= @ticket[:date] %> | Time: <%= @ticket[:time] %>
+      </div>
+      <div class="price">
+        Cost: €<%= @ticket[:price] %>
+      </div>
+      <div>
+        PAYMENT API
+      </div>
+
+
+  </div>
+
+</div>
