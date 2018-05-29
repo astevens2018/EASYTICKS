@@ -6,4 +6,5 @@ class UsersController < ApplicationController
   def dashboard
     @tickets = Ticket.all
   end
+
 end
