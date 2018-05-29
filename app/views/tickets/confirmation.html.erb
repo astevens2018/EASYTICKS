@@ -1,15 +1,6 @@
-<div class="container booking_confirmation">
-  <div class="container booking_reference">
-    <p>Booking Reference <%= @ticket.booking_reference %> email/phone confirmation</p>
-  </div>
-  <div class="container confirming_details">
-     <div class="container ticket_details">
-        <div class="container_ticket_date">
-          <p> Date: <%= @ticket[:date] %> </p>
-        </div>
-        <div class="price">
-          <p>Cost: €<%= @ticket[:price] %> </p>
-        </div>
-      </div>
-   </div>
-</div>
+<h1>Welcome on board !</h1>
+
+<p>Your booking reference is <%= @ticket.booking_reference %> under the last name <%= @ticket[:name] %></p>
+<p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
+<p><i class="far fa-clock"></i> <%= @ticket[:time] %></p>
+<p><i class="fas fa-euro-sign"></i> <%= @ticket[:price] %> </p>
