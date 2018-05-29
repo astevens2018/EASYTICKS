@@ -1,10 +1,15 @@
-
-
 <div class="container booking_reference">
-  Booking Reference <%= @ticket[:booking_reference] %> email/phone confirmation
+  Booking Reference <%= @ticket.booking_reference %> email/phone confirmation
 </div>
 
 
 <div class="container confirming_details">
-
+   <div class="container ticket_deets">
+      <div class="date">
+        Date: <%= @ticket[:date] %> | Time: <%= @ticket[:time] %>
+      </div>
+      <div class="price">
+        Cost: €<%= @ticket[:price] %>
+      </div>
+  </div>
 </div>
