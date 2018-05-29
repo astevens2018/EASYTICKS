@@ -38,3 +38,4 @@ t2 = Ticket.create!(
   arrival_city: "London",
   price: 50,
   booking_reference: "AS7FZ2")
+
