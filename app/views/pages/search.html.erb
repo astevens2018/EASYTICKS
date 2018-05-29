@@ -1,0 +1,8 @@
+<div>
+ <%= simple_form_for [@ticket] do |f| %>
+    <%= f.input :departing_city %>
+    <%= f.input :arriving_city %>
+    <%= f.input :date, as: :text, input_html: { class: 'datetimepicker' } %>
+    <%= f.submit "Search", class: "btn btn-primary_book" %>
+  <%= end %>
+</div>
