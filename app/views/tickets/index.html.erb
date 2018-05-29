@@ -17,7 +17,7 @@
         <h5><%= ticket.date %></h5>
       </div>
       <div class="card-description price">
-        <h5 id="ticket-price"><%= ticket.price %><span id="euro">€</span></h5>
+        <h5 id="ticket-price"><%= humanized_money_with_symbol(ticket.price) %>></h5>
       </div>
       <a href="#" class="card-category btn-treehouse">Buy now</a>
     </div>
