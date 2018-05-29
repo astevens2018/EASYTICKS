@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
-  resources :tickets
+  resources :tickets do
+  resources :confirmation, only: [:show]
+  end
   resource :requests, only: [:create, :destroy]
   resource :reports, only: [:create, :show]
 
   get '/dashboard', to: 'users#dashboard'
 
-end
+  get 'tickets/:id/confirm', to: "tickets#confirmation"
 
+end
