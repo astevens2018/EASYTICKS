@@ -7,13 +7,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-t1 = Ticket.create!(
-  buyer_id:
-  seller_id:
-  date: "15/06/2018"
-  time: "6:00PM"
-  departing_city: "Brussels"
-  arrival_city: "London"
-  price: "69€"
-  booking_reference: "TW6GZ2"
+# t1 = Ticket.create!(
+#   buyer: "John",
+#   seller: "Jane",
+#   departing_city: "Brussels",
+#   arrival_city: "London",
+#   price: 69,
+#   booking_reference: "TW6GZ2"
 
