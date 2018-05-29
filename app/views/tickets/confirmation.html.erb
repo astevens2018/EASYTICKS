@@ -1,6 +1,15 @@
-<h1>Welcome on board !</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
-<p>Your booking reference is <%= @ticket.booking_reference %> under the last name <%= @ticket[:name] %></p>
-<p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
-<p><i class="far fa-clock"></i> <%= @ticket[:time] %></p>
-<p><i class="fas fa-euro-sign"></i> <%= @ticket[:price] %> </p>
+      <h1>Welcome on board !</h1>
+
+      <p>Your booking reference is <%= @ticket.booking_reference %> under the last name <%= @ticket[:name] %></p>
+      <p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
+      <p><i class="far fa-clock"></i> <%= @ticket[:time] %></p>
+      <p><i class="fas fa-euro-sign"></i> <%= @ticket[:price] %> </p>
+
+   </div>
+  </div>
+</div>
+
