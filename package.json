@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
+    "bootstrap-datetime-picker": "^2.4.4",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
