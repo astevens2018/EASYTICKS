@@ -1,4 +1,4 @@
-User.destroy_all
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,7 +6,7 @@ User.destroy_all
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+puts 'Cleaning database...'
 User.destroy_all
 
 u1 = User.create!(
@@ -26,7 +26,7 @@ u2 = User.create!(
   phone: 494744448)
 
 t1 = Ticket.create!(
-  seller_id: 1,
+  seller_id: u1.id,
   date: DateTime.new(2018,5,27,18,30,0),
   departing_city: "Brussels",
   arrival_city: "London",
@@ -34,7 +34,7 @@ t1 = Ticket.create!(
   booking_reference: "TW6GZ2")
 
 t2 = Ticket.create!(
-  seller_id: 2,
+  seller_id: u2.id,
   date: DateTime.new(2018,6,27,7,0,0),
   departing_city: "Paris",
   arrival_city: "London",
