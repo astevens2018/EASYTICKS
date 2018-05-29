@@ -1,1 +1,12 @@
 <h1>Tickets new</h1>
+
+<%= simple_form_for [@ticket] do |f| %>
+
+  <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam] %>
+  <%= f.input :arriving_city, :collection => %w[London Brussels Paris Amsterdam] %>
+  <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' } %>
+  <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+
+  <%= f.submit "Put your ticket on sale", class: "btn btn-primary_host" %>
+  <% end %>
+</div>

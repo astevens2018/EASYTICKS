@@ -30,9 +30,13 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket = Ticket.find[params(:id)]
+    @ticket = Ticket.find(params[:id])
     @ticket.destroy
     redirect_to tickets_path
+  end
+
+  def confirmation
+    @ticket = Ticket.find(params[:id])
   end
 
   private
