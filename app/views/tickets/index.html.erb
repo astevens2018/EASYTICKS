@@ -1,11 +1,23 @@
-<div class="wrapper">
+ <div class="wrapper">
   <div class="container">
+
+    <div class = "search_update">
+    <%= form_tag tickets_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Update your search"
+    %>
+    <% end %>
+    </div>
+
   <% @tickets.each do |ticket| %>
+    <%= link_to tickets_path(ticket.id) do %>
     <div class="card">
       <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
       <a class="card-link" href="#" ></a>
       <div class="card-description">
-        <h2><%= ticket.seller.firstname %> <%= ticket.seller.lastname.chars.first %>.</h2>
+        <h2><%= ticket.seller.first_name %> <%= ticket.seller.last_name.chars.first %>.</h2>
         <p class="verified"><i class="fas fa-user-check"></i> Verified</p>
       </div>
       <div class="card-description destination">
@@ -22,11 +34,9 @@
       <a href="#" class="card-category btn-treehouse">Buy now</a>
     </div>
     <% end %>
+    <% end %>
   </div>
 </div>
-
-
-
 
 
 

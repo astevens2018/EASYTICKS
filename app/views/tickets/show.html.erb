@@ -1,46 +1,17 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700i|Tajawal:400,500,700" rel="stylesheets/layouts/_show">
-</head>
+<div class="ticket-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
 
-<div class="container_ticket_box">
-  <div class="container_ticket_header">
-    <p>🚆 Get aboard the train from
-      <%= @ticket[:departing_city] %> to
-        <%= @ticket[:arrival_city] %>
-    </p>
-  </div>
-  <div class="container_ticket_deets">
-    <div class="price">
-      <p>Date:
-        <%= @ticket[:date] %>
-      </p>
-    </div>
-    <div class="date">
-      <p> Date:
-        <%= @ticket[:date] %> | Time:
-          <%= @ticket[:time] %>
-      </p>
-    </div>
-    <div class="price">
-      <p>Cost: €
-        <%= @ticket[:price] %>
-      </p>
-    </div>
-    <div class="name_seller">
-      <p>Ticket Seller:
-        <%= "#{@ticket.seller.firstname} #{@ticket.seller.lastname}" %>
-      </p>
-    </div>
-    <%= form_tag edit_ticket_path do %>
-      <%= hidden_field_tag 'ticket_id', @ticket.id %>
-        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-          <% end %>
+    <h1>Ticket details</h1>
+
+    <p><i class="fas fa-train"></i> From <%= @ticket[:departing_city] %> to <%= @ticket[:arrival_city] %></p>
+    <p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
+    <p><i class="far fa-clock"></i> <%= @ticket[:time] %> </p>
+    <p><i class="fas fa-money-bill"></i> <%= @ticket[:price] %>€</p>
+    <p><i class="far fa-user"></i> <%= @ticket.seller.first_name %> <%= @ticket.seller.last_name.chars.first %> </p>
+
+   </div>
   </div>
 </div>
-<h1>Ticket details</h1>
 
-<p><i class="fas fa-train"></i> From <%= @ticket[:departing_city] %> to <%= @ticket[:arrival_city] %></p>
-<p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
-<p><i class="far fa-clock"></i> <%= @ticket[:time] %> </p>
-<p><i class="fas fa-money-bill"></i> <%= @ticket[:price] %>€</p>
-<p><i class="far fa-user"></i> <%= @ticket.seller.firstname %> <%= @ticket.seller.lastname.chars.first %> </p>
+
