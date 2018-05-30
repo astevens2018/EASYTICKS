@@ -8,7 +8,8 @@
   <div class="profile-header-wrapper">
     <div class="container profile-header-container text-center">
       <div class="profile-header-infos">
-        <img src="https://pbs.twimg.com/profile_images/962848809675051011/Q64FBwKg_400x400.jpg" alt="">
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
+          <%= image_tag avatar_url %>
         <h1>Lui</h1>
         <h2>Sold 12 tickets</h2>
       </div>
