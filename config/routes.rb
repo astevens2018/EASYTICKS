@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
   resource :requests, only: [:create, :destroy]
   resource :reports, only: [:create, :show]
-
+  resources :users do
+  resources :dashboard, only: [:show, :edit, :update]
+  end
   get '/dashboard', to: 'users#dashboard'
 
   get 'tickets/:id/confirm', to: "tickets#confirmation"

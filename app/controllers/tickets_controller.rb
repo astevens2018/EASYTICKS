@@ -31,9 +31,13 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:ticket_id])
+
+    @ticket.update(ticket_params)
+
     @ticket.buyer = current_user
     @ticket.save
     redirect_to new_ticket_payment_path(@ticket)
+
   end
 
   def destroy
