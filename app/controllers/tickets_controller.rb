@@ -28,7 +28,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:ticket_id])
     @ticket.buyer = current_user
     @ticket.save
-    redirect_to new_ticket_payment_path(@ticket)
+    redirect_to root_path
   end
 
   def destroy
