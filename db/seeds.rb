@@ -38,7 +38,7 @@ t1 = Ticket.create!(
   date: DateTime.new(2018,5,27,18,30,0),
   departing_city: "Brussels",
   arrival_city: "London",
-  price: 69,
+  price_cents: 6900,
   booking_reference: "TW6GZ2")
 
 t2 = Ticket.create!(
@@ -46,7 +46,7 @@ t2 = Ticket.create!(
   date: DateTime.new(2018,6,27,7,0,0),
   departing_city: "Paris",
   arrival_city: "London",
-  price: 50,
+  price_cents: 5000,
   booking_reference: "AS7FZ2")
 
 t3 = Ticket.create!(
@@ -54,5 +54,5 @@ t3 = Ticket.create!(
   date: DateTime.new(2018,6,01,10,30,0),
   departing_city: "Brussels",
   arrival_city: "Paris",
-  price: 100,
+  price_cents: 1000,
   booking_reference: "AS897D")
