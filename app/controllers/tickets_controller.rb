@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
 
    def update
     @ticket = Ticket.find(params[:ticket_id])
-    @ticket.update(host_params)
+    @ticket.update(ticket_params)
   end
 
   def destroy
