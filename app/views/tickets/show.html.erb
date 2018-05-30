@@ -34,7 +34,7 @@
         <article>
           <label class="amount">
             <span>Amount:
-              <%= humanized_money_with_symbol(@ticket.price) %>
+              <%= money_without_cents_and_with_symbol(@ticket.price) %>
             </span>
           </label>
         </article>
