@@ -43,8 +43,7 @@
             </div>
             <div class="card-description price">
               <h5 id="ticket-price">
-                <%= ticket.price_cents %>
-                  <span id="euro">€</span>
+                <%= money_without_cents_and_with_symbol(ticket.price) %>
               </h5>
             </div>
             <div class="card-category btn-treehouse">
