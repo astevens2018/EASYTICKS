@@ -17,6 +17,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'money-rails'
+gem 'stripe'
 gem 'omniauth-facebook'
 
 group :development do

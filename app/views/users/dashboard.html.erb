@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Product page</title>
 </head>
+
 <body>
   <div class="profile-header-wrapper">
     <div class="container profile-header-container text-center">
@@ -13,23 +14,77 @@
         <h1>Lui</h1>
         <h2>Sold 12 tickets</h2>
       </div>
-      <div class="tabs">
-        <a class="tab active" href="#">
-          <h3>Buying</h3>
-        </a>
-        <a class="tab" href="#">
-          <h3>Selling</h3>
-        </a>
-        <a class="tab" href="#">
-          <h3>Requesting</h3>
-        </a>
-        <a class="tab" href="#">
-          <h3>Reporting</h3>
+      <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="false">
+            <h3>Buy</h3>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">
+            <h3>Sell</h3>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">
+            <h3>Request</h3>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">
+            <h3>Report</h3>
+          </a>
+        </li>
+      </ul>
 
-        </a>
-      </div>
     </div>
   </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab">Buy</div>
+        <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">Sell</div>
+        <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">Request</div>
+        <div class="tab-pane fade" id="report" role="tabpanel" aria-labelledby="report-tab">Report</div>
+      </div>
+
+      <% @tickets.each do |ticket| %>
+        <div class="card">
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#"></a>
+          <div class="card-description">
+            <h2>
+              <%= ticket.seller.firstname %>
+                <%= ticket.seller.lastname.chars.first %>.</h2>
+            <p class="verified">
+              <i class="fas fa-user-check"></i> Verified</p>
+          </div>
+          <div class="card-description destination">
+            <h2>
+              <%= ticket.departing_city %> →
+                <%= ticket.arrival_city %>
+            </h2>
+            <p class="grey-text">○ London central station</p>
+            <p class="grey-text">○ Paris central station</p>
+          </div>
+          <div class="card-description date">
+            <h5>
+              <%= ticket.date %>
+            </h5>
+          </div>
+          <div class="card-description price">
+            <h5 id="ticket-price">
+              <%= ticket.price %>
+                <span id="euro">€</span>
+            </h5>
+          </div>
+          <a href="#" class="card-category btn-treehouse">Buy now</a>
+        </div>
+        <% end %>
+    </div>
+  </div>
+
 </body>
 
 </html>

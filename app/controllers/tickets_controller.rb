@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(host_params)
+    @ticket = Ticket.new(ticket_params)
     @ticket.save
     redirect_to tickets_path(@ticket.id)
   end
@@ -24,8 +24,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
-  def update
-    @ticket = Ticket.find(params[:id])
+   def update
+    @ticket = Ticket.find(params[:ticket_id])
     @ticket.update(host_params)
   end
 
