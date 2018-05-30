@@ -3,22 +3,18 @@
 <h1>Easyticks</h1>
 <p>Buy and sell unusued train tickets, fast and safe</p>
 
-<div>
- <%= simple_form_for [@ticket] do |f| %>
-    <%= f.input :departing_city, collection: ["Brussels", "London", "Paris", "Amsterdam"] %>
-    <%= f.input :arrival_city, collection: ["Brussels", "London", "Paris", "Amsterdam"] %>
-    <%= f.input :date, as: :text, input_html: { class: 'datetimepicker' } %>
-    <%= f.submit "Search", class: "btn btn-primary_book" %>
-  <% end %>
+
+<div class="search_form_home">
+  <%= form_tag tickets_path, method: :get do %>
+  <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
+  <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+  <%= text_field_tag :date, nil, id: "datepicker-input" %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
 </div>
 
-
-<a class="btn btn-primary btn-lg">Search</a>
-</div>
 </div>
 </div>
 
 
-select_tag "departing_city", options
-
-select_tag "departing_city", options_for_select([ "Brussels", "London", "Paris", "Amsterdam" ], "")
+<%= javascript_pack_tag 'datepicker' %>

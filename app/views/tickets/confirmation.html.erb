@@ -5,13 +5,13 @@
     <br>
     <p> Your booking reference is <%= @ticket.booking_reference %> under the name <%= @ticket.name_on_ticket %> </p>
     <p> <i class="far fa-calendar-alt"></i> <%= @ticket.date %> </p>
-    <p> <i class="far fa-clock"></i> <%= @ticket.date.strftime %></p>
+    <p> <i class="far fa-clock"></i> <%= @ticket.date.strftime("%I:%M%p") %></p>
     <p> <i class="fas fa-euro-sign"></i> <%= @ticket.price_cents %> </p>
   </div>
 
   <div class="animation">
-    <div class="wrapper">
-      <div class="background"></div>
+    <div class="wrapper-train">
+      <div class="background-train"></div>
       <div class="rocks_1"></div>
       <div class="rocks_2"></div>
       <div class="rails"></div>

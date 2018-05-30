@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   get 'tickets/:id/confirm', to: "tickets#confirmation"
 
+
 end
