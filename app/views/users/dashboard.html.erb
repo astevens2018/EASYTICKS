@@ -9,10 +9,10 @@
   <div class="profile-header-wrapper">
     <div class="container profile-header-container text-center">
       <div class="profile-header-infos">
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
           <%= image_tag avatar_url %>
-        <h1>Lui</h1>
-        <h2>Sold 12 tickets</h2>
+            <h1>Lui</h1>
+            <h2>Sold 12 tickets</h2>
       </div>
       <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -55,8 +55,8 @@
           <a class="card-link" href="#"></a>
           <div class="card-description">
             <h2>
-              <%= ticket.seller.firstname %>
-                <%= ticket.seller.lastname.chars.first %>.</h2>
+              <%= ticket.seller.first_name %>
+                <%= ticket.seller.last_name.chars.first %>.</h2>
             <p class="verified">
               <i class="fas fa-user-check"></i> Verified</p>
           </div>

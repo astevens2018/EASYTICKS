@@ -1,43 +1,53 @@
- <div class="wrapper">
+<div class="wrapper">
   <div class="container">
 
-    <div class = "search_update">
-    <%= form_tag tickets_path, method: :get do %>
-    <%= text_field_tag :query,
+    <div class="search_update">
+      <%= form_tag tickets_path, method: :get do %>
+        <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Update your search"
     %>
-    <% end %>
+          <% end %>
     </div>
 
-  <% @tickets.each do |ticket| %>
-    <%= link_to tickets_path(ticket.id) do %>
-    <div class="card">
-      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-      <a class="card-link" href="#" ></a>
-      <div class="card-description">
-        <h2><%= ticket.seller.first_name %> <%= ticket.seller.last_name.chars.first %>.</h2>
-        <p class="verified"><i class="fas fa-user-check"></i> Verified</p>
+    <% @tickets.each do |ticket| %>
+      <div class="card">
+
+
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <!-- <a class="card-link" href="#"></a> -->
+        <div class="card-description">
+          <h2>
+            <%= ticket.seller.first_name %>
+              <%= ticket.seller.last_name.chars.first %>.</h2>
+          <p class="verified">
+            <i class="fas fa-user-check"></i> Verified</p>
+        </div>
+        <div class="card-description destination">
+          <h2>
+            <%= ticket.departing_city %> →
+              <%= ticket.arrival_city %>
+          </h2>
+          <p class="grey-text">○ London central station</p>
+          <p class="grey-text">○ Paris central station</p>
+        </div>
+        <div class="card-description date">
+          <h5>
+            <%= ticket.date %>
+          </h5>
+        </div>
+        <div class="card-description price">
+          <h5 id="ticket-price">
+            <%= ticket.price_cents %>
+              <span id="euro">€</span>
+          </h5>
+        </div>
+        <div class="card-category btn-treehouse">
+          <%= link_to 'Buy now', ticket_path(ticket) %>
+
+        </div>
       </div>
-      <div class="card-description destination">
-        <h2><%= ticket.departing_city %> → <%= ticket.arrival_city %></h2>
-        <p class="grey-text">○ London central station</p>
-        <p class="grey-text">○ Paris central station</p>
-      </div>
-      <div class="card-description date">
-        <h5><%= ticket.date %></h5>
-      </div>
-      <div class="card-description price">
-        <h5 id="ticket-price"><%= ticket.price_cents %><span id="euro">€</span></h5>
-      </div>
-      <a href="#" class="card-category btn-treehouse">Buy now</a>
-    </div>
-    <% end %>
-    <% end %>
+      <% end %>
   </div>
 </div>
-
-
-
-
