@@ -25,10 +25,25 @@
         <%= @ticket.seller.first_name %>
           <%= @ticket.seller.last_name.chars.first %>
       </p>
-      <%= form_tag ticket_path(@ticket), method: "put" do %>
-        <%= hidden_field_tag 'ticket_id', @ticket.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-            <% end %>
+
+      <!-- app/views/payments/new.html.erb -->
+      <h1>Purchase of Ticket
+        <%= @ticket_id %>
+      </h1>
+      <%= form_tag ticket_payments_path(@ticket) do %>
+        <article>
+          <label class="amount">
+            <span>Amount:
+              <%= humanized_money_with_symbol(@ticket.price) %>
+            </span>
+          </label>
+        </article>
+
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="My Ticket" data-email="<%= current_user.email %>" data-description="Ticket <%= @ticket_id %>" data-amount="<%= @ticket.price %>"
+          data-currency="<%= @ticket.amount_cents %>"></script>
+        <% end %>
     </div>
   </div>
 </div>

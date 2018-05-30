@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   resource :requests, only: [:create, :destroy]
   resource :reports, only: [:create, :show]
 
-  get '/dashboard', to: 'users#dashboard'
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+  resources :users do
+  resources :dashboard, only: [:show, :edit, :update]
+  end
 
-  get 'tickets/:id/confirm', to: "tickets#confirmation"
+  get 'tickets/:id/confirm', to: "tickets#confirmation", as: 'confirm'
+  put 'tickets/:id/update', to: 'tickets#update', as: 'update'
 
 end
 

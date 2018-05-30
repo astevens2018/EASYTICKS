@@ -12,13 +12,13 @@ class PaymentsController < ApplicationController
 
   charge = Stripe::Charge.create(
     customer:     customer.id,   # You should store this customer id and re-use it.
-    amount:       @ticket.amount_cents,
+    amount:       @ticket.price_cents,
     description:  "Payment for ticket #{@ticket.id}",
-    currency:     @ticket.amount.currency
+    currency:     @ticket.price.currency
   )
 
-  @ticket.update(payment: charge.to_json, state: 'paid')
-  redirect_to dashboard_path
+  @ticket.update(payment: charge.to_json, buyer: current_user)
+  redirect_to confirm_path(params[:ticket_id])
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
@@ -28,6 +28,6 @@ class PaymentsController < ApplicationController
 private
 
   def set_ticket
-    @ticket = params[:ticket_id]
+    @ticket = Ticket.find(params[:ticket_id])
   end
 end
