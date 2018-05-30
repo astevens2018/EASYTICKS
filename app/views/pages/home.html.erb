@@ -3,14 +3,15 @@
 <h1>Easyticks</h1>
 <p>Buy and sell unusued train tickets, fast and safe</p>
 
-<%= form_tag tickets_path, method: :get do %>
- <%= text_field_tag :query,
-   params[:query],
-   class: "form-control",
-   placeholder: "Find a train ticket"
- %>
-<% end %>
-<br>
+<div>
+ <%= simple_form_for [@ticket] do |f| %>
+    <%= f.input :departing_city, collection: ["Brussels", "London", "Paris", "Amsterdam"] %>
+    <%= f.input :arrival_city, collection: ["Brussels", "London", "Paris", "Amsterdam"] %>
+    <%= f.input :date, as: :text, input_html: { class: 'datetimepicker' } %>
+    <%= f.submit "Search", class: "btn btn-primary_book" %>
+  <% end %>
+</div>
+
 
 <a class="btn btn-primary btn-lg">Search</a>
 </div>
@@ -18,3 +19,6 @@
 </div>
 
 
+select_tag "departing_city", options
+
+select_tag "departing_city", options_for_select([ "Brussels", "London", "Paris", "Amsterdam" ], "")
