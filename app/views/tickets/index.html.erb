@@ -1,19 +1,44 @@
-<div class="wrapper">
-  <div class="container">
+  <div class="search_form_index">
+    <%= form_tag tickets_path, method: :get do %>
+    <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
+    <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+    <%= text_field_tag :date, nil, id: "datepicker-input" %>
+    <%= submit_tag "Search", name: nil %>
+    <% end %>
+  </div>
 
-    <div class="search_update">
-      <%= form_tag tickets_path, method: :get do %>
-        <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Update your search"
-    %>
-          <% end %>
-    </div>
+  <div class="wrapper">
+    <div class="container">
 
     <% @tickets.each do |ticket| %>
+      <%= link_to tickets_path(ticket.id) do %>
       <div class="card">
-
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <a class="card-link" href="#" ></a>
+        <div class="card-description">
+          <h2><%= ticket.seller.first_name %> <%= ticket.seller.last_name.chars.first %>.</h2>
+          <p class="verified"><i class="fas fa-user-check"></i> Verified</p>
+        </div>
+        <div class="card-description destination">
+          <h2><%= ticket.departing_city %> → <%= ticket.arrival_city %></h2>
+          <p class="grey-text">○ London central station</p>
+          <p class="grey-text">○ Paris central station</p>
+        </div>
+        <div class="card-description date">
+          <h5><%= ticket.date %></h5>
+        </div>
+        <div class="card-description time">
+          <h5><%= ticket.date.strftime("%I:%M%p") %></h5>
+        </div>
+        <div class="card-description price">
+          <h5 id="ticket-price"><%= ticket.price_cents %><span id="euro">€</span></h5>
+        </div>
+        <a href="#" class="card-category btn-treehouse">Buy now</a>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 
         <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         <!-- <a class="card-link" href="#"></a> -->
