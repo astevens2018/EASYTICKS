@@ -7,7 +7,7 @@
     <p><i class="fas fa-train"></i> From <%= @ticket[:departing_city] %> to <%= @ticket[:arrival_city] %></p>
     <p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
     <p><i class="far fa-clock"></i> <%= @ticket[:time] %> </p>
-    <p><i class="fas fa-money-bill"></i> <%= @ticket[:price] %>€</p>
+    <p><i class="fas fa-money-bill"></i> <%= @ticket[:price_cents] %>€</p>
     <p><i class="far fa-user"></i> <%= @ticket.seller.first_name %> <%= @ticket.seller.last_name.chars.first %> </p>
 
    </div>
