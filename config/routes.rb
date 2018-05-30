@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tickets do
-  resources :confirmation, only: [:show]
+    resources :payments, only: [:new, :create]
+    resources :confirmation, only: [:show]
   end
   resource :requests, only: [:create, :destroy]
   resource :reports, only: [:create, :show]
@@ -13,5 +14,5 @@ Rails.application.routes.draw do
 
   get 'tickets/:id/confirm', to: "tickets#confirmation"
 
-
 end
+

@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @tickets= Ticket.all
@@ -29,9 +29,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
-   def update
+  def update
     @ticket = Ticket.find(params[:ticket_id])
-    @ticket.update(host_params)
+    @ticket.buyer = current_user
+    @ticket.save
+    redirect_to new_ticket_payment_path(@ticket)
   end
 
   def destroy
