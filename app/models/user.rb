@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :tickets# , dependent: :destroy
+  mount_uploader :photo, PhotoUploader
 
    def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

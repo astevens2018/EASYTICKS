@@ -1,18 +1,42 @@
-<html>
 
-<head>
-  <meta charset="utf-8">
-  <title>Product page</title>
-</head>
-
-<body>
-  <div class="profile-header-wrapper">
+<div class="profile-header-wrapper">
     <div class="container profile-header-container text-center">
       <div class="profile-header-infos">
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
-          <%= image_tag avatar_url %>
-        <h1>Lui</h1>
+
+          <img src="<%= @avatar_url %>" alt="">
+       <h1><%= current_user.first_name %></h1>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+           Edit Details
+        </button>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Details</h4>
+              </div>
+              <div class="modal-body">
+                ...
+                <%= simple_form_for(current_user) do |f| %>
+                  <!-- [...] -->
+                  <%= f.input :phone %>
+                  <%= f.input :first_name %>
+                  <%= f.input :last_name %>
+                  <%= f.input :photo %>
+                  <%= f.input :photo_cache, as: :hidden %>
+                  <%= f.button :submit %>
+                  <!-- [...] -->
+                <% end %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         <h2>Sold 12 tickets</h2>
+
       </div>
       <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -55,8 +79,8 @@
           <a class="card-link" href="#"></a>
           <div class="card-description">
             <h2>
-              <%= ticket.seller.firstname %>
-                <%= ticket.seller.lastname.chars.first %>.</h2>
+              <%= ticket.seller.first_name %>
+                <%= ticket.seller.last_name.chars.first %>.</h2>
             <p class="verified">
               <i class="fas fa-user-check"></i> Verified</p>
           </div>
@@ -75,7 +99,7 @@
           </div>
           <div class="card-description price">
             <h5 id="ticket-price">
-              <%= ticket.price %>
+              <%= ticket.price_cents %>
                 <span id="euro">€</span>
             </h5>
           </div>
@@ -83,8 +107,12 @@
         </div>
         <% end %>
     </div>
+
+</div>
+
   </div>
 
 </body>
 
 </html>
+
