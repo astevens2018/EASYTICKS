@@ -2,6 +2,7 @@
 <div class="profile-header-wrapper">
     <div class="container profile-header-container text-center">
       <div class="profile-header-infos">
+
           <img src="<%= @avatar_url %>" alt="">
        <h1><%= current_user.first_name %></h1>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -38,6 +39,12 @@
         </div>
 
         <h2>Sold 12 tickets</h2>
+
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
+          <%= image_tag avatar_url %>
+            <h1>Lui</h1>
+            <h2>Sold 12 tickets</h2>
+
       </div>
       <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -100,7 +107,7 @@
           </div>
           <div class="card-description price">
             <h5 id="ticket-price">
-              <%= ticket.price %>
+              <%= ticket.price_cents %>
                 <span id="euro">€</span>
             </h5>
           </div>
@@ -108,4 +115,12 @@
         </div>
         <% end %>
     </div>
+
 </div>
+
+  </div>
+
+</body>
+
+</html>
+

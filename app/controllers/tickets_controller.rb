@@ -1,8 +1,13 @@
 class TicketsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @tickets= Ticket.all
+    @tickets = Ticket.joins(:departing_city).joins(:arrival_city).joins(:date) if params[:ticket]
+    @tickets = Ticket.where("tickets.departing_city = ?", params[:departing_city]) if params[:departing_city].present?
+    @tickets = Ticket.where("arrival_city = ?", params[:arrival_city]) if params[:arrival_city].present?
+    @tickets = Ticket.where("date = ?", params[:date]) if params[:date].present?
+
     @users = User.all
   end
 
@@ -24,9 +29,15 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
-   def update
+  def update
     @ticket = Ticket.find(params[:ticket_id])
+
     @ticket.update(ticket_params)
+
+    @ticket.buyer = current_user
+    @ticket.save
+    redirect_to new_ticket_payment_path(@ticket)
+
   end
 
   def destroy

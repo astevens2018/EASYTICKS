@@ -1,14 +1,28 @@
-<div class="ticket-container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
+<div class="confirmation page">
 
-      <h1>Welcome on board !</h1>
-
-      <p>Your booking reference is <%= @ticket.booking_reference %> under the last name <%= @ticket[:name] %></p>
-      <p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
-      <p><i class="far fa-clock"></i> <%= @ticket[:time] %></p>
-      <p><i class="fas fa-euro-sign"></i> <%= @ticket[:price] %> </p>
-
-   </div>
+  <div class ="confirmation_box">
+    <h1><strong>Welcome on board !</strong></h1>
+    <br>
+    <p> Your booking reference is <%= @ticket.booking_reference %> under the name <%= @ticket.name_on_ticket %> </p>
+    <p> <i class="far fa-calendar-alt"></i> <%= @ticket.date %> </p>
+    <p> <i class="far fa-clock"></i> <%= @ticket.date.strftime("%I:%M%p") %></p>
+    <p> <i class="fas fa-euro-sign"></i> <%= @ticket.price_cents %> </p>
   </div>
+
+  <div class="animation">
+    <div class="wrapper-train">
+      <div class="background-train"></div>
+      <div class="rocks_1"></div>
+      <div class="rocks_2"></div>
+      <div class="rails"></div>
+      <div class="train"></div>
+      <div class="ground"></div>
+      <div class="lights"></div>
+      <div class="moon"></div>
+    </div>
+  </div>
+
 </div>
+
+
+

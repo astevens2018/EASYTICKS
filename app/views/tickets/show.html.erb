@@ -2,16 +2,33 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
 
-    <h1>Ticket details</h1>
+      <h1>Ticket details</h1>
 
-    <p><i class="fas fa-train"></i> From <%= @ticket[:departing_city] %> to <%= @ticket[:arrival_city] %></p>
-    <p><i class="far fa-calendar-alt"></i> <%= @ticket[:date] %> </p>
-    <p><i class="far fa-clock"></i> <%= @ticket[:time] %> </p>
-    <p><i class="fas fa-money-bill"></i> <%= @ticket[:price] %>€</p>
-    <p><i class="far fa-user"></i> <%= @ticket.seller.first_name %> <%= @ticket.seller.last_name.chars.first %> </p>
-
-   </div>
+      <p>
+        <i class="fas fa-train"></i> From
+        <%= @ticket[:departing_city] %> to
+          <%= @ticket[:arrival_city] %>
+      </p>
+      <p>
+        <i class="far fa-calendar-alt"></i>
+        <%= @ticket[:date] %>
+      </p>
+      <p>
+        <i class="far fa-clock"></i>
+        <%= @ticket[:time] %>
+      </p>
+      <p>
+        <i class="fas fa-money-bill"></i>
+        <%= @ticket[:price_cents] %>€</p>
+      <p>
+        <i class="far fa-user"></i>
+        <%= @ticket.seller.first_name %>
+          <%= @ticket.seller.last_name.chars.first %>
+      </p>
+      <%= form_tag ticket_path(@ticket), method: "put" do %>
+        <%= hidden_field_tag 'ticket_id', @ticket.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <% end %>
+    </div>
   </div>
 </div>
-
-
