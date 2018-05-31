@@ -3,16 +3,18 @@
 @import url('components/profile_header.css');
 body {
   margin: 0;
-  font-family: Open-sans, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Raleway, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-a {
+a:hover,
+a:focus {
+  color: #01121b;
   text-decoration: none;
 }
 

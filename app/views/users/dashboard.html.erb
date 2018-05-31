@@ -68,7 +68,7 @@
         <!-- Rails buy content -->
         <% @tickets.each do |ticket| %>
           <% if ticket.buyer_id == current_user.id %>
-            <%= link_to root_path do %>
+            <%= link_to ticket_path(ticket) do %>
               <div class="card">
                 <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                 <div class="card-description">
@@ -93,11 +93,12 @@
                 </div>
                 <div class="card-description price">
                   <h5 id="ticket-price">
-                    <%= ticket.price_cents %>
-                      <span id="euro">€</span>
+                    <%= money_without_cents_and_with_symbol(ticket.price) %>
                   </h5>
                 </div>
-                <a href="#" class="card-category btn-treehouse">Buy now</a>
+                <div class="card-category btn-treehouse">
+                  <%= link_to 'Buy now', ticket_path(ticket) %>
+                </div>
               </div>
               <% end %>
                 <% end %>
@@ -108,40 +109,42 @@
       <div class="tab-pane" id="sell" role="tabpanel" aria-labelledby="sell-tab">
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id %>
-            <div class="card">
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#"></a>
-              <div class="card-description">
-                <h2>
-                  <%= ticket.seller.first_name %>
-                    <%= ticket.seller.last_name.chars.first %>.</h2>
-                <p class="verified">
-                  <i class="fas fa-user-check"></i> Verified</p>
+            <%= link_to ticket_path(ticket) do %>
+              <div class="card">
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-description">
+                  <h2>
+                    <%= ticket.seller.first_name %>
+                      <%= ticket.seller.last_name.chars.first %>.</h2>
+                  <p class="verified">
+                    <i class="fas fa-user-check"></i> Verified</p>
+                </div>
+                <div class="card-description destination">
+                  <h2>
+                    <%= ticket.departing_city %> →
+                      <%= ticket.arrival_city %>
+                  </h2>
+                  <p class="grey-text">○ London central station</p>
+                  <p class="grey-text">○ Paris central station</p>
+                </div>
+                <div class="card-description date">
+                  <h5>
+                    <%= ticket.date %>
+                  </h5>
+                </div>
+                <div class="card-description price">
+                  <h5 id="ticket-price">
+                    <%= money_without_cents_and_with_symbol(ticket.price) %>
+                  </h5>
+                </div>
+                <div class="card-category btn-treehouse">
+                  <%= link_to 'Buy now', ticket_path(ticket) %>
+                </div>
               </div>
-              <div class="card-description destination">
-                <h2>
-                  <%= ticket.departing_city %> →
-                    <%= ticket.arrival_city %>
-                </h2>
-                <p class="grey-text">○ London central station</p>
-                <p class="grey-text">○ Paris central station</p>
-              </div>
-              <div class="card-description date">
-                <h5>
-                  <%= ticket.date %>
-                </h5>
-              </div>
-              <div class="card-description price">
-                <h5 id="ticket-price">
-                  <%= ticket.price_cents %>
-                    <span id="euro">€</span>
-                </h5>
-              </div>
-              <a href="#" class="card-category btn-treehouse">Buy now</a>
-            </div>
-            <% end %>
               <% end %>
-                <!-- Rails sell content ends -->
+                <% end %>
+                  <% end %>
+                    <!-- Rails sell content ends -->
       </div>
       <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">Looking for London -> Paris on Tuesday</div>
       <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">Alexander ripped me off!</div>
