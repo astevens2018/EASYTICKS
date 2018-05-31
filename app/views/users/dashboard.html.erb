@@ -36,6 +36,19 @@
 
           </div>
         </div>
+
+        <div class="container if_verified">
+        <p>Account Status: <% if current_user.verified? %> ✅ Verified<% else -%>Not Verified<% end -%>
+        <% if !current_user.verified? %>
+        <p>
+          <button type="button" class="btn btn-primary btn-lg"> <%= link_to "Get Verified", validation_path %>
+        </p>
+      </button>
+        <% end -%>
+      </div>
+        <h2>Sold 12 tickets</h2>
+
+
       </div>
     </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
