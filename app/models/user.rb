@@ -9,6 +9,14 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :identitycard, PhotoUploader
 
+  def name
+    return "#{first_name} #{last_name}"
+  end
+
+  def verified?
+    return verified
+  end
+
    def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
