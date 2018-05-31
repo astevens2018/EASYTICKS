@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   def home
   end
 
+  def all
+    @users = User.all
+  end
+
   def dashboard
     @tickets = Ticket.all
 
