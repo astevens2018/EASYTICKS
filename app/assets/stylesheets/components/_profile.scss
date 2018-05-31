@@ -3,16 +3,18 @@
 @import url('components/profile_header.css');
 body {
   margin: 0;
-  font-family: Open-sans, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Raleway, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-a {
+a:hover,
+a:focus {
+  color: #01121b;
   text-decoration: none;
 }
 
@@ -25,16 +27,104 @@ a {
   margin: 0 auto;
 }
 
-.nav-item:hover {
-  background-color: #06486fba;
+.nav-tabs>li>a {
+  background-color: #054164;
+  color: #F4F4F4;
+  border: none;
 }
 
-.nav>li>a:hover,
-.nav>li>a:focus {
-  background-color: #FFC417;
+.nav-tabs>li>a:hover {
+  background-color: #F4F4F4;
+  color: #054164;
+  border: none;
 }
 
+<<<<<<< HEAD
 .if_verified {
   color: white;
+=======
+.edit-profile {
+  border-radius: 3px;
+  background-color: #042233;
+  color: #F4F4F4;
+  font-size: 14px;
 }
 
+.edit-profile:hover {
+  border-radius: 3px;
+  background-color: #F4F4F4;
+  color: #054164;
+  font-size: 14px;
+}
+
+.profile-information {
+  margin: 10px;
+}
+
+.profile-header-container img {
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+  border: #004066 1px solid;
+>>>>>>> master
+}
+
+// .nav-item:hover {
+//   background-color: #06486fba;
+// }
+// .nav>li>a:hover,
+// .nav>li>a:focus {
+//   background-color: #06486fba;
+// }
+// .dashboard-tab {
+//   color: white;
+// }
+// .dashboard-tab:hover {
+//   color: #054164 !important;
+//   background-color: white;
+// }
+// .nav-link .dashboard-tab {
+//   margin: 0px;
+// }
+// .nav-tabs>li.active>a {
+//   color: blue;
+// }
+// .nav>li>a {
+//   color: red;
+// }
+// #buy-tab {
+//   margin: 0px;
+//   border: none;
+//   border-radius: 0px;
+// }
+// #buy-tab:hover {
+//   border-bottom: 1px solid #054164;
+//   background-color: white;
+//   color: #054164;
+//   border-radius: 0px;
+// }
+// #buy-tab:visited {
+//   // border-bottom: 1px solid #054164;
+//   // background-color: white !important;
+//   // color: #054164 !important;
+//   // border-radius: 0px;
+// }
+// #sell-tab {
+//   margin: 0px;
+//   border: none;
+// }
+// #sell-tab:hover {
+//   border-bottom: 1px solid #054164;
+//   background-color: white;
+//   color: #054164;
+//   border-radius: none;
+// }
+// .nav-link .active {
+//   color: #054164 !important;
+// }
+// #request-tab {
+//   margin: 0px;
+// }
+// #report-tab {
+//   margin: 0px;
+// }
