@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   resource :requests, only: [:create, :destroy]
   resource :reports, only: [:create, :show]
 
+  get "users/verify", to: 'users#show_verify', as: 'show_verify'
+  post "users/verify", to: 'users#verify', as: 'verify'
+  post "users/resend", to: 'users#verify', as: 'resend'
+
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
   resources :users do
-  resources :dashboard, only: [:show, :edit, :update]
+    resources :dashboard, only: [:show, :edit, :update]
   end
 
   get '/validation', to: 'users#validation', as: 'validation'
