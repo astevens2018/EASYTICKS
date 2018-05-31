@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2018_05_30_133311) do
     t.string "booking_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price_cents", default: 0, null: false
     t.string "name_on_ticket"
+    t.integer "price_cents", default: 0, null: false
     t.integer "amount_cents", default: 0, null: false
     t.jsonb "payment"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"

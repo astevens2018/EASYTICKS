@@ -11,7 +11,7 @@
         <%= f.input :date, as: :string, input_html: { id: 'datepicker-input' } %>
         <%= f.input :booking_reference, as: :string %>
         <%= f.input :name_on_ticket, as: :string %>
-        <%= f.input :price_cents, input_html: { min: '0', step: 'any' } %>
+        <%= f.input :price, input_html: { min: '0', step: 'any' } %>
 
         <%= f.submit "Confirm", class: "ticket-action" %>
       <% end %>

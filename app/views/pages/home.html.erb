@@ -5,10 +5,13 @@
 
 <div class="search_form_home">
   <%= form_tag tickets_path, method: :get do %>
-  <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
-  <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
-  <%= text_field_tag :date, nil, id: "datepicker-input" %>
-  <%= submit_tag "Search", name: nil %>
+  <span>From:</span>
+  <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ]) %>
+  <span>To:</span>
+  <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ]) %>
+  <span>Date:</span>
+  <%= text_field_tag :date, nil, id: "datepicker-input", placeholder: "Select departure date" %>
+  <%= submit_tag "Search", name: nil%>
 <% end %>
 
 </div>
@@ -27,7 +30,7 @@
         </svg>
       </i>
       <h3 class="bold primary-color">Easy</h3>
-      <p class="paragraph secondary-color">It's easy to buy and sell tickets</p>
+      <p class="paragraph secondary-color">Buy and sell tickets in three steps</p>
     </div>
     <div class="col-4 text-center flex flex-column center-horizontal">
       <i class="icon mobile-center-icon secondary-bg">
@@ -45,7 +48,7 @@
         </svg>
       </i>
       <h3 class="bold primary-color">Safe</h3>
-      <p class="paragraph secondary-color">We verify all users</p>
+      <p class="paragraph secondary-color">We verify all users and tickets</p>
     </div>
   </div>
 </section>
@@ -55,26 +58,33 @@
       <h3 class="heading primary-color">
         Why use Easyticks?
       </h3>
-      <p class="subheading secondary-color mt20">Can't find an answer? Don't hesitate to reach out!.</p>
+      <p class="subheading secondary-color mt20">Can't find an answer? Don't hesitate to reach out!</p>
     </div>
   </div>
   <div class="container">
     <div class="col-12 mt40">
       <div class="faq pad20">
         <b class="bold primary-color">
-          Is it secure?
+          How secure is it ?
         </b>
         <p class="paragraph secondary-color">
-          Yes, all tickets in our marketplace are automatically checked to ensure that they are legitimate and ready to be used. Our sellers are verified and we monitor closely to ensure no fraudulent sales.
+          All tickets in our marketplace are automatically checked to ensure that they are legitimate and ready to be used. Sellers go through ID and phone verification and we monitor them closely to ensure no fraudulent sales. Users can report any problems and we'll make sure to mediate it.
         </p>
       </div>
       <div class="faq pad20">
         <b class="bold primary-color">
-          How is it quick?
+          How easy is it?
         </b>
         <p class="paragraph secondary-color">
-          In three steps: search, buy and download ticket.
-
+          Three steps only, each way. Buyers search, pay and download their new ticket. Sellers get verified, list the ticket and get paid once it is sold.
+        </p>
+      </div>
+      <div class="faq pad20">
+        <b class="bold primary-color">
+          How quick is it ?
+        </b>
+        <p class="paragraph secondary-color">
+          No more hassle finding the ticket you need on Facebook groups. Find it fast thanks to our search form. Find one? Just pay and download your new ticket instantly. Bon voyage !
         </p>
       </div>
     </div>
