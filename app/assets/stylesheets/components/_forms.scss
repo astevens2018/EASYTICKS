@@ -55,9 +55,12 @@
 
 .search_form_index {
   color: black;
-  margin-top: 100px;
-  margin-left: 100px;
-  margin: 40px;
+  box-shadow: 1px 1px 3px 4px #0000001a;
+  margin-top: 10px;
+  padding: 25px;
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  text-align: center;
 }
 
 select {

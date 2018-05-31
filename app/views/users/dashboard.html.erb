@@ -20,17 +20,14 @@
               <h4 class="modal-title" id="myModalLabel">Edit Details</h4>
             </div>
             <div class="modal-body">
-              ...
               <%= simple_form_for(current_user) do |f| %>
-                <!-- [...] -->
-                <%= f.input :phone %>
-                  <%= f.input :first_name %>
-                    <%= f.input :last_name %>
-                      <%= f.input :photo %>
-                        <%= f.input :photo_cache, as: :hidden %>
-                          <%= f.button :submit %>
-                            <!-- [...] -->
-                            <% end %>
+                <%= f.input :first_name %>
+                  <%= f.input :last_name %>
+                    <%= f.input :photo %>
+                      <%= f.input :photo_cache, as: :hidden %>
+                         <%= f.input :phone, placeholder: "Insert new number" %>
+                        <%= f.button :submit %>
+                          <% end %>
 
             </div>
 
@@ -148,6 +145,7 @@
       </div>
       <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">Looking for London -> Paris on Tuesday</div>
       <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">Alexander ripped me off!</div>
+
     </div>
   </div>
 </div>

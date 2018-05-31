@@ -1,105 +1,22 @@
-<<<<<<< HEAD
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(112, 114, 115, 0.6) 0%, rgba(32, 36, 39, 0.6) 50%), url('https://images.unsplash.com/photo-1505832018823-50331d70d237?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=264782b5bf241111af67f141861ec356&auto=format&fit=crop&w=2582&q=80');">
-=======
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1506818144585-74b29c980d4b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6fcc448f1c3bf2c4fac6ae51ae7b981c&auto=format&fit=crop&w=2100&q=80');">
 
->>>>>>> master
   <div class="banner-content">
     <h1>Easyticks</h1>
     <p>Buy and sell unusued train tickets, fast and safe</p>
 
-<<<<<<< HEAD
     <div class="search_form_home">
       <%= form_tag tickets_path, method: :get do %>
         <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
           <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
-            <%= text_field_tag :date, "Departing at",xp id: "datepicker-input" %>
+            <%= text_field_tag :date, "Departing at", id: "datepicker-input" %>
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
     </div>
   </div>
-=======
-<div class="search_form_home">
-  <%= form_tag tickets_path, method: :get do %>
-  <span>From:</span>
-  <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ]) %>
-  <span>To:</span>
-  <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ]) %>
-  <span>Date:</span>
-  <%= text_field_tag :date, nil, id: "datepicker-input", placeholder: "Select departure date" %>
-  <%= submit_tag "Search", name: nil%>
-<% end %>
-
 </div>
-</div>
->>>>>>> master
-</div>
-
 
 <%= javascript_pack_tag 'datepicker' %>
 
-<<<<<<< HEAD
-  <section id="feature-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
-    <div class="container-lrg flex">
-      <div class="col-4 text-center flex flex-column center-horizontal">
-        <i class="icon mobile-center-icon secondary-bg">
-          <svg class="svg-fill" viewBox="0 0 23 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.003 7.71c-.147.001-.293.017-.436.049-2.739.603-6.347 1.011-6.347 1.011a1.002 1.002 0 0 1-1.199-.98V2.08A2.082 2.082 0 0 0 10.936 0a2.147 2.147 0 0 0-2.118 1.736C8.266 4.64 6.608 8.77 4.829 9.779A1.494 1.494 0 0 0 3.522 9h-2a1.5 1.5 0 0 0-1.5 1.5v12a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5v-.992l3 1.492h10.76a3.004 3.004 0 0 0 2.928-2.315A55.778 55.778 0 0 0 23 9.791a2.01 2.01 0 0 0-1.997-2.08zM4.02 15.55L4 21l.021.01v1.49a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-12a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5.05z"></path>
-          </svg>
-        </i>
-        <h3 class="bold primary-color">Easy</h3>
-        <p class="paragraph secondary-color">It's easy to buy and sell tickets</p>
-      </div>
-      <div class="col-4 text-center flex flex-column center-horizontal">
-        <i class="icon mobile-center-icon secondary-bg">
-          <svg class="svg-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-            <path d="M20 22.494v1a.5.5 0 0 1-1 0v-1a.5.5 0 1 1 1 0zm-14.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-.5-.5zm7 1a10.924 10.924 0 0 1-2.494-.391l-.27 1.76a.528.528 0 0 0 .097.454.498.498 0 0 0 .387.183h4.56a.5.5 0 0 0 .49-.598l-.275-1.8a10.928 10.928 0 0 1-2.495.392zm9.06-7.44L18 11.995v9h2.5a1.5 1.5 0 0 0 1.5-1.5v-2.879a1.5 1.5 0 0 0-.44-1.06zM17 5.995v15a18.472 18.472 0 0 1-4 .974v-7.474a.5.5 0 0 0-1 0v7.474a18.47 18.47 0 0 1-4-.974v-15C8 3.67 11.553.244 12.5 0c.947.244 4.5 3.67 4.5 5.994zm-2.168 1.127A4.374 4.374 0 0 0 12.5 5.994a4.113 4.113 0 0 0-2.343 1.136.5.5 0 0 0 .686.729 3.213 3.213 0 0 1 1.657-.865 3.417 3.417 0 0 1 1.668.874.5.5 0 0 0 .664-.748zM3 16.614v2.88a1.5 1.5 0 0 0 1.5 1.5H7v-9l-3.56 3.56a1.5 1.5 0 0 0-.44 1.06z"></path>
-          </svg>
-        </i>
-        <h3 class="bold primary-color">Instant</h3>
-        <p class="paragraph secondary-color">No waiting, no hassle</p>
-      </div>
-      <div class="col-4 text-center flex flex-column center-horizontal">
-        <i class="icon mobile-center-icon secondary-bg">
-          <svg class="svg-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-            <path d="M12.5 0A12.489 12.489 0 0 0 5 22.483a12.432 12.432 0 0 0 14.999 0q.5-.376.96-.799A12.487 12.487 0 0 0 12.5 0zm0 5A3.5 3.5 0 1 1 9 8.5 3.504 3.504 0 0 1 12.5 5zm0 19a11.443 11.443 0 0 1-7.393-2.704 7.489 7.489 0 0 1 14.786 0A11.443 11.443 0 0 1 12.5 24z"></path>
-          </svg>
-        </i>
-        <h3 class="bold primary-color">Safe</h3>
-        <p class="paragraph secondary-color">We verify all users</p>
-      </div>
-    </div>
-  </section>
-  <section id="faq-2" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
-    <div class="container">
-      <div class="col-12 text-center">
-        <h3 class="heading primary-color">
-          Why use Easyticks?
-        </h3>
-        <p class="subheading secondary-color mt20">Can't find an answer? Don't hesitate to reach out!.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="col-12 mt40">
-        <div class="faq pad20">
-          <b class="bold primary-color">
-            Is it secure?
-          </b>
-          <p class="paragraph secondary-color">
-            Yes, all tickets in our marketplace are automatically checked to ensure that they are legitimate and ready to be used. Our
-            sellers are verified and we monitor closely to ensure no fraudulent sales.
-          </p>
-        </div>
-        <div class="faq pad20">
-          <b class="bold primary-color">
-            How is it quick?
-          </b>
-          <p class="paragraph secondary-color">
-            In three steps: search, buy and download ticket.
-
-          </p>
-        </div>
-=======
 <section id="feature-1" class="section lightblue-white" sitemeta="[object Object]" activepage="Landing">
   <div class="container-lrg flex">
     <div class="col-4 text-center flex flex-column center-horizontal">
@@ -165,7 +82,6 @@
         <p class="paragraph secondary-color">
           No more hassle finding the ticket you need on Facebook groups. Find it fast thanks to our search form. Find one? Just pay and download your new ticket instantly. Bon voyage !
         </p>
->>>>>>> master
       </div>
     </div>
   </section>

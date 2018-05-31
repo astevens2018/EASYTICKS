@@ -21,10 +21,8 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
-}
 
-.footer-wagon-brand img {
-  height: 80px;
+.footer-copyright {
+  display: flex;
+  align-items: center;
 }

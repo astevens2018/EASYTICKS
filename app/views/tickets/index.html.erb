@@ -1,18 +1,16 @@
+  <div class="wrapper">
+
   <div class="search_form_index">
-    <%= form_tag tickets_path, method: :get do %>
-      <span>From:</span>
-    <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
-     <span>To:</span>
-    <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
-     <span>Date:</span>
-    <%= text_field_tag :date, nil, id: "datepicker-input", placeholder: "Select departure date" %>
-    <%= submit_tag "Search", name: nil %>
-    <% end %>
-  </div>
+      <%= form_tag tickets_path, method: :get do %>
+        <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
+          <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+            <%= text_field_tag :date, "Departing at", id: "datepicker-input" %>
+              <%= submit_tag 'Search', class: "form_submit" %>
+                <% end %>
 
 <%= javascript_pack_tag 'datepicker' %>
 
-  <div class="wrapper">
+
     <div class="container">
 
     <% @tickets.each do |ticket| %>
