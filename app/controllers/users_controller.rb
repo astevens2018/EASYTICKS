@@ -31,6 +31,11 @@ class UsersController < ApplicationController
     redirect_to validation_path
   end
 
+  def update_form
+    @user = User.find(params[:id])
+    @user.update(user_params)
+  end
+
   def validation
     # Create user on Authy, will return an id on the object
   end
