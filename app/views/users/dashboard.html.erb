@@ -3,10 +3,11 @@
   <div class="container profile-header-container text-center">
     <div class="profile-header-infos">
       <img src="<%= @avatar_url %>" alt="">
-      <h1>
+      <h1 class="profile-information">
         <%= current_user.first_name %>
       </h1>
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      <h2 class="profile-information">Sold 12 tickets</h2>
+      <button type="button" class="btn btn-primary btn-xs edit-profile profile-information" data-toggle="modal" data-target="#myModal">
         Edit Details
       </button>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -36,28 +37,19 @@
           </div>
         </div>
       </div>
-      <h2>Sold 12 tickets</h2>
     </div>
-    <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="false">
-          <h3>Buy</h3>
-        </a>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item active">
+        <a class="nav-link active dashboard-tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">
-          <h3>Sell</h3>
-        </a>
+        <a class="nav-link dashboard-tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">
-          <h3>Request</h3>
-        </a>
+        <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">
-          <h3>Report</h3>
-        </a>
+        <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">Report</a>
       </li>
     </ul>
 
@@ -70,51 +62,50 @@
 
 <div class="wrapper">
   <div class="container">
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+    <div class="tab-content">
+      <div class="tab-pane active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
         <!-- BUY TAB -->
         <!-- Rails buy content -->
         <% @tickets.each do |ticket| %>
           <% if ticket.buyer_id == current_user.id %>
-            <div class="card">
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#"></a>
-              <div class="card-description">
-                <h2>
-                  <%= ticket.seller.first_name %>
-                    <%= ticket.seller.last_name.chars.first %>.</h2>
-                <p class="verified">
-                  <i class="fas fa-user-check"></i> Verified</p>
+            <%= link_to root_path do %>
+              <div class="card">
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-description">
+                  <h2>
+                    <%= ticket.seller.first_name %>
+                      <%= ticket.seller.last_name.chars.first %>.</h2>
+                  <p class="verified">
+                    <i class="fas fa-user-check"></i> Verified</p>
+                </div>
+                <div class="card-description destination">
+                  <h2>
+                    <%= ticket.departing_city %> →
+                      <%= ticket.arrival_city %>
+                  </h2>
+                  <p class="grey-text">○ London central station</p>
+                  <p class="grey-text">○ Paris central station</p>
+                </div>
+                <div class="card-description date">
+                  <h5>
+                    <%= ticket.date %>
+                  </h5>
+                </div>
+                <div class="card-description price">
+                  <h5 id="ticket-price">
+                    <%= ticket.price_cents %>
+                      <span id="euro">€</span>
+                  </h5>
+                </div>
+                <a href="#" class="card-category btn-treehouse">Buy now</a>
               </div>
-              <div class="card-description destination">
-                <h2>
-                  <%= ticket.departing_city %> →
-                    <%= ticket.arrival_city %>
-                </h2>
-                <p class="grey-text">○ London central station</p>
-                <p class="grey-text">○ Paris central station</p>
-              </div>
-              <div class="card-description date">
-                <h5>
-                  <%= ticket.date %>
-                </h5>
-              </div>
-              <div class="card-description price">
-                <h5 id="ticket-price">
-                  <%= ticket.price_cents %>
-                    <span id="euro">€</span>
-                </h5>
-              </div>
-              <a href="#" class="card-category btn-treehouse">Buy now</a>
-            </div>
-            <% end %>
               <% end %>
-                <!-- Rails buy content ends -->
+                <% end %>
+                  <% end %>
+                    <!-- Rails buy content ends -->
+                    <!-- BUY TAB ENDS -->
       </div>
-      <!-- BUY TAB ENDS -->
-      <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
-        <!-- SELL TAB -->
-        <!-- Rails sell content -->
+      <div class="tab-pane" id="sell" role="tabpanel" aria-labelledby="sell-tab">
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id %>
             <div class="card">
@@ -152,24 +143,10 @@
               <% end %>
                 <!-- Rails sell content ends -->
       </div>
-      <!-- SELL TAB ENDS -->
-
-
-
-
-
-
-
-
-
-
-      <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">Request</div>
-      <div class="tab-pane fade" id="report" role="tabpanel" aria-labelledby="report-tab">Report</div>
+      <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">Looking for London -> Paris on Tuesday</div>
+      <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">Alexander ripped me off!</div>
     </div>
   </div>
-
-</div>
-
 </div>
 <!-- Ending body -->
 
