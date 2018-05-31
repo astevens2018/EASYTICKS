@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'authy'
 gem 'bootsnap', require: false
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
@@ -11,6 +12,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
+gem 'twilio-ruby', '~>5.0.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -22,6 +24,7 @@ gem 'webpacker'
 gem 'money-rails'
 gem 'stripe'
 gem 'omniauth-facebook'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

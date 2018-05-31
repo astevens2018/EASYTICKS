@@ -1,7 +1,11 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
+<<<<<<< HEAD
     <%= image_tag "logo4.png", height: 80 %>
+=======
+    <%= image_tag "logo transparent.png", height: 50 %>
+>>>>>>> master
       <% end %>
 
         <!-- Right Navigation -->
@@ -10,8 +14,7 @@
           <% if user_signed_in? %>
 
             <!-- Links when logged in -->
-            <%= link_to "How does it work?", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-              <%= link_to "Buy", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
                 <%= link_to "Sell", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
                   <!-- Avatar with dropdown menu -->
