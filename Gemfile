@@ -24,6 +24,7 @@ gem 'webpacker'
 gem 'money-rails'
 gem 'stripe'
 gem 'omniauth-facebook'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
