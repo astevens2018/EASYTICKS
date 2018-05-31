@@ -1,7 +1,12 @@
- <%= simple_form_for(current_user) do |f| %>
-
-      <%= f.input :identitycard %>
+<div class="ticket-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+       <%= simple_form_for(current_user) do |f| %>
+       <%= f.input :identitycard %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.button :submit %>
                   <!-- [...] -->
                 <% end %>
+    </div>
+  </div>
+</div>
