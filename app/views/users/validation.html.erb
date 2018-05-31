@@ -4,7 +4,7 @@
        <%= simple_form_for(current_user) do |f| %>
        <%= f.input :identitycard %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= f.button :submit %>
+      <%= f.button :submit, 'Send ID Card' %>
                   <!-- [...] -->
                 <% end %>
     </div>
@@ -20,7 +20,7 @@
 <% end -%>
 
 <h1>We're going to be *BEST* friends</h1>
-<p> Thanks for your interest in signing up! Can you tell us a bit about yourself?</p>
+<p> Thanks for your interest in selling tickets! Let's get you verified</p>
 
 <% if current_user.errors.any? %>
   <h2>Oops, something went wrong!</h2>
@@ -35,25 +35,25 @@
 <%= form_for current_user do |f| %>
   <div class="form-group">
     <%= f.label :name, "Tell us your name:" %>
-    <%= f.text_field :name, class: "form-control", placeholder: "Zingelbert Bembledack" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "#{current_user.name}" %>
   </div>
   <div class="form-group">
     <%= f.label :email, "Enter Your E-mail Address:" %>
     <%= f.email_field :email, class: "form-control", placeholder: "me@mydomain.com" %>
   </div>
   <div class="form-group">
-    <%= f.label :password, "Enter a password:" %>
+    <%= f.label :password, "Change your password (only if you want):" %>
     <%= f.password_field :password, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :country_code %>
+    <%= f.label :country_code, "Country Code (please don't put a '+' sign)" %>
     <%= f.text_field :country_code, class: "form-control", id: "authy-countries" %>
   </div>
   <div class="form-group">
     <%= f.label :phone %>
     <%= f.text_field :phone, class: "form-control", id: "authy-cellphone" %>
   </div>
-  <button class="btn btn-primary">Sign up</button>
+  <button class="btn btn-primary">Get Verified</button>
 <% end -%>
 
 <h1><%= current_user.name %></h1>
