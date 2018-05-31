@@ -1,0 +1,7 @@
+ <%= simple_form_for(current_user) do |f| %>
+
+      <%= f.input :identitycard %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.button :submit %>
+                  <!-- [...] -->
+                <% end %>
