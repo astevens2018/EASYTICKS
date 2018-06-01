@@ -2,6 +2,10 @@ class TicketsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+     # if !params[:departing_city] && !params[:arrival_city] && !params[:date]
+      # redirect_to new_requests_path
+    # end
+
     @tickets= Ticket.all
     @tickets = Ticket.joins(:departing_city).joins(:arrival_city).joins(:date) if params[:ticket]
     @tickets = Ticket.where("tickets.departing_city = ?", params[:departing_city]) if params[:departing_city].present?

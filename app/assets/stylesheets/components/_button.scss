@@ -10,14 +10,43 @@
 
 .btn-treehouse:hover {
   opacity: 1;
-  background: rgb(252, 201, 48);
+  background: rgba(252, 201, 48, 0.781);
   text-decoration: none;
   color: white;
 }
 
-.btn-treehouse:hover {
-  opacity: 1;
-  background: rgb(252, 201, 48);
-  text-decoration: none !important;
+.verified-button {
+  background-color: #00c853;
+  border: none;
   color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 3px;
+  margin-left: 71%
+}
+
+.verified-button:hover {
+  background-color: #00c853b6;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 3px;
+}
+
+.not-verified-button {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
+  margin-top: 10px;
+}
+
+.not-verified-button:hover {
+  background-color: #e53835d8;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
 }
