@@ -56,7 +56,6 @@
 .search_form_index {
   color: black;
   box-shadow: 1px 1px 3px 4px #0000001a;
-  margin-top: 10px;
   padding: 25px;
   background-color: #f4f4f4;
   border-radius: 3px;
@@ -100,4 +99,9 @@ input {
   padding-right: 10px;
   font-family: "FontAwesome";
   content: "\f015";
+}
+
+.edit_user {
+  color: #00000082;
+  font-size: medium;
 }
