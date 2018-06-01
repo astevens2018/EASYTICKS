@@ -48,10 +48,15 @@
                             </h5>
                           </div>
                           <div class="card-category btn-treehouse">
-                            <%= link_to 'Buy now', ticket_path(ticket), class: 'buy-link' %>
+                            <%= link_to 'Buy now', ticket_path(ticket), class: 'buy-link' %> %>
                           </div>
                         </div>
                         <% end %>
                           <% end %>
+                            <% if @tickets.length == 0  %>
+                              <%= link_to "New request please", new_requests_path %>
+
+                                <% end %>
                   </div>
   </div>
+</div>
