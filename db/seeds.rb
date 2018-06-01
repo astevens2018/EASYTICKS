@@ -20,7 +20,7 @@ u2 = User.create!(
   phone: 494744448)
 
 u3 = User.create!(
-  email: "alexander.stevens@hotmail.com",
+  email: "lui.kohl@gmail.com",
   password: "Kingonrails",
   first_name: "Lui",
   last_name: "Joy",
@@ -32,7 +32,7 @@ t1 = Ticket.create!(
   date: DateTime.new(2018,5,27,18,30,0),
   departing_city: "Brussels",
   arrival_city: "London",
-  price_cents: 6900,
+  amount_cents: 6900,
   booking_reference: "TW6GZ2",
   name_on_ticket: "Stevens")
 
@@ -41,7 +41,7 @@ t2 = Ticket.create!(
   date: DateTime.new(2018,6,27,7,0,0),
   departing_city: "Paris",
   arrival_city: "London",
-  price_cents: 5000,
+  amount_cents: 5000,
   booking_reference: "AS7FZ2",
   name_on_ticket: "Patel")
 
@@ -50,7 +50,7 @@ t3 = Ticket.create!(
   date: DateTime.new(2018,6,01,10,30,0),
   departing_city: "Brussels",
   arrival_city: "Paris",
-  price_cents: 1000,
+  amount_cents: 1000,
   booking_reference: "AS897D",
   name_on_ticket: "Joy")
 
@@ -59,6 +59,6 @@ t4 = Ticket.create!(
   date: DateTime.new(2018,7,13,18,31,0),
   departing_city: "London",
   arrival_city: "Paris",
-  price_cents: 8000,
+  amount_cents: 8000,
   booking_reference: "SQMBOF",
   name_on_ticket: "Patel")
