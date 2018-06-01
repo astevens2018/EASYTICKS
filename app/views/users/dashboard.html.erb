@@ -6,10 +6,11 @@
       <h1 class="profile-information">
         <%= current_user.first_name %>
       </h1>
-      <h2 class="profile-information">Sold 12 tickets</h2>
-      <button type="button" class="btn btn-primary btn-xs edit-profile profile-information" data-toggle="modal" data-target="#myModal">
-        Edit Details
-      </button>
+      <h2>
+        <button type="button" class="settings" data-toggle="modal" data-target="#myModal">
+          Edit profile
+        </button>
+      </h2>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -25,47 +26,56 @@
                   <%= f.input :last_name %>
                     <%= f.input :photo %>
                       <%= f.input :photo_cache, as: :hidden %>
-                         <%= f.input :phone, placeholder: "Insert new number" %>
-                        <%= f.button :submit %>
-                          <% end %>
+                        <%= f.input :phone, placeholder: "Insert new number" %>
+                          <%= f.button :submit %>
+                            <% end %>
 
             </div>
 
           </div>
 
-          </div>
         </div>
-
-        <div class="container if_verified">
-        <p>Account Status: <% if current_user.verified? %> ✅ Verified<% else -%>Not Verified<% end -%>
-        <% if !current_user.verified? %>
-        <p>
-          <button type="button" class="btn btn-primary btn-lg"> <%= link_to "Get Verified", validation_path %>
-        </p>
-      </button>
-        <% end -%>
       </div>
-        <h2>Sold 12 tickets</h2>
 
-
+      <div class="container if_verified">
+        <% if current_user.verified? %>
+          <p>
+            <button type="button" class="verified-button">
+              Verified
+            </button>
+          </p>
+          <% else -%>
+            <% end -%>
+              <% if !current_user.verified? %>
+                <p>
+                  <button type="button" class="not-verified-button">
+                    <%= link_to "Get Verified", validation_path, class: 'verified-tag' %>
+                  </button>
+                </p>
+                <% end -%>
       </div>
+      <h2 class="profile-information">
+        <i class="fas fa-ticket-alt"></i> sold: 12</h2>
+
+
     </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item active">
-        <a class="nav-link active dashboard-tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link dashboard-tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">Report</a>
-      </li>
-    </ul>
-
   </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item active">
+      <a class="nav-link active dashboard-tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dashboard-tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">Report</a>
+    </li>
+  </ul>
+
+</div>
 </div>
 
 <!-- End of header -->
@@ -167,4 +177,5 @@
 <!-- Ending body -->
 
 </body>
+
 </html>

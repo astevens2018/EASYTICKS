@@ -27,13 +27,18 @@ a:focus {
   margin: 0 auto;
 }
 
-.nav-tabs > li > a {
-  background-color: #054164;
+.nav-tabs>li>a {
+  background-color: #054164d8;
   color: #f4f4f4;
-  border: none;
+  border: 1px solid #7777774d;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  font-weight: lighter;
+  box-shadow: 0 0 5px #0a0a0a52;
 }
 
-.nav-tabs > li > a:hover {
+.nav-tabs>li>a:hover {
   background-color: #f4f4f4;
   color: #054164;
   border: none;
@@ -86,8 +91,8 @@ a:focus {
   .nav-item:hover {
     background-color: #06486fba;
   }
-  .nav > li > a:hover,
-  .nav > li > a:focus {
+  .nav>li>a:hover,
+  .nav>li>a:focus {
     background-color: #06486fba;
   }
   .dashboard-tab {
@@ -100,10 +105,10 @@ a:focus {
   .nav-link .dashboard-tab {
     margin: 0px;
   }
-  .nav-tabs > li.active > a {
+  .nav-tabs>li.active>a {
     color: blue;
   }
-  .nav > li > a {
+  .nav>li>a {
     color: red;
   }
   #buy-tab {
@@ -136,4 +141,12 @@ a:focus {
   .nav-link .active {
     color: #054164 !important;
   }
+}
+
+.settings {
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+  color: #8a8a9a;
+  font-size: 14px;
 }

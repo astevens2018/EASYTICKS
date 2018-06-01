@@ -21,3 +21,40 @@
   text-decoration: none !important;
   color: white;
 }
+
+.verified-button {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
+}
+
+.verified-button:hover {
+  background-color: #e53835d8;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
+}
+
+.not-verified-button {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
+  margin-top: 10px;
+}
+
+.not-verified-button:hover {
+  background-color: #e53835d8;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 50px;
+  box-shadow: 1px 1px #00000036;
+}
