@@ -51,6 +51,12 @@ class TicketsController < ApplicationController
 
   def confirmation
     @ticket = Ticket.find(params[:id])
+    require 'scrapifier'
+    # bookingreference = @ticket.booking_reference
+    # lastname = @ticket.name_on_ticket
+    # url = "https://managebooking.eurostar.com/uk-en/dashboard?pnr=#{bookingreference}&surname=#{lastname}"
+    url = "https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
+    @ticket_info = url.scrapify
   end
 
   private
