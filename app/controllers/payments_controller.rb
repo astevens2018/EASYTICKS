@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
 
   charge = Stripe::Charge.create(
     customer:     customer.id,   # You should store this customer id and re-use it.
-    amount:       @ticket.price_cents,
+    amount:       @ticket.amount_cents,
     description:  "Payment for ticket #{@ticket.id}",
     currency:     @ticket.price.currency
   )
