@@ -27,14 +27,14 @@ a:focus {
   margin: 0 auto;
 }
 
-.nav-tabs>li>a {
+.nav-tabs > li > a {
   background-color: #054164;
-  color: #F4F4F4;
+  color: #f4f4f4;
   border: none;
 }
 
-.nav-tabs>li>a:hover {
-  background-color: #F4F4F4;
+.nav-tabs > li > a:hover {
+  background-color: #f4f4f4;
   color: #054164;
   border: none;
 }
@@ -44,12 +44,12 @@ a:focus {
   .edit-profile {
     border-radius: 3px;
     background-color: #042233;
-    color: #F4F4F4;
+    color: #f4f4f4;
     font-size: 14px;
   }
   .edit-profile:hover {
     border-radius: 3px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     color: #054164;
     font-size: 14px;
   }
@@ -65,12 +65,12 @@ a:focus {
   .edit-profile {
     border-radius: 3px;
     background-color: #042233;
-    color: #F4F4F4;
+    color: #f4f4f4;
     font-size: 14px;
   }
   .edit-profile:hover {
     border-radius: 3px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     color: #054164;
     font-size: 14px;
   }
@@ -86,8 +86,8 @@ a:focus {
   .nav-item:hover {
     background-color: #06486fba;
   }
-  .nav>li>a:hover,
-  .nav>li>a:focus {
+  .nav > li > a:hover,
+  .nav > li > a:focus {
     background-color: #06486fba;
   }
   .dashboard-tab {
@@ -100,10 +100,10 @@ a:focus {
   .nav-link .dashboard-tab {
     margin: 0px;
   }
-  .nav-tabs>li.active>a {
+  .nav-tabs > li.active > a {
     color: blue;
   }
-  .nav>li>a {
+  .nav > li > a {
     color: red;
   }
   #buy-tab {
@@ -136,9 +136,4 @@ a:focus {
   .nav-link .active {
     color: #054164 !important;
   }
-  #request-tab {
-    margin: 0px;
-  }
-  #report-tab {
-    margin: 0px;
-  }
+}
