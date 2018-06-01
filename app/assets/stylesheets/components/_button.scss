@@ -50,3 +50,14 @@
   border-radius: 50px;
   box-shadow: 1px 1px #00000036;
 }
+
+.stripe-button-el {
+  visibility: visible;
+  position: absolute;
+  top: 80px;
+  right: 10px;
+}
+
+.stripe-button-el span {
+  background-color: yellow;
+}
