@@ -118,3 +118,23 @@
   0% {background-position: 0px 0px;}
   100% {background-position:  1920px 0px;}
 }
+
+#download_button {
+  background-color: #42f456;
+  color: white;
+  transition: background 0.3s ease;
+  text-shadow: 0.5px 0.5px #a2a2a2;
+  border-radius: 6px;
+}
+
+#download_button:hover {
+  opacity: 1;
+  background-color: #a3ffad;
+  color: white;
+  text-shadow: 0.5px 0.5px #a2a2a2;
+}
+
+#download_button::before {
+  padding-right: 10px;
+  font-family: "FontAwesome";
+}
