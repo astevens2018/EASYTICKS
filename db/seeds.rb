@@ -4,7 +4,7 @@ Ticket.destroy_all
 User.destroy_all
 
 u1 = User.create!(
-  email: "alex@gmail.com",
+  email: "astev2018@gmail.com",
   password: "Rubyonrails",
   first_name: "Alexander",
   last_name: "Stevens",
@@ -12,7 +12,7 @@ u1 = User.create!(
   phone: 324744448)
 
 u2 = User.create!(
-  email: "uma@gmail.com",
+  email: "umabpatel@gmail.com",
   password: "Bitchonrails",
   first_name: "Uma",
   last_name: "Patel",
@@ -20,7 +20,7 @@ u2 = User.create!(
   phone: 494744448)
 
 u3 = User.create!(
-  email: "lui@gmail.com",
+  email: "alexander.stevens@hotmail.com",
   password: "Kingonrails",
   first_name: "Lui",
   last_name: "Joy",
