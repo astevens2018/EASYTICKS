@@ -20,7 +20,7 @@ u2 = User.create!(
   phone: 494744448)
 
 u3 = User.create!(
-  email: "alexander.stevens@hotmail.com",
+  email: "lui.kohl@gmail.com",
   password: "Kingonrails",
   first_name: "Lui",
   last_name: "Joy",
