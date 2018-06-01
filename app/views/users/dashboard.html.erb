@@ -168,8 +168,8 @@
                   <% end %>
                     <!-- Rails sell content ends -->
       </div>
-      <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">Looking for London -> Paris on Tuesday</div>
-      <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">Alexander ripped me off!</div>
+      <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab"><%= @requests.each do |request| request[2] end %> </div>
+      <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab"> Alex isn't very good </div>
 
     </div>
   </div>

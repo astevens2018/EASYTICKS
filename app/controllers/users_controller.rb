@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @tickets = Ticket.all
+    @requests = current_user.requests
 
     @currentUser = current_user.id
 
