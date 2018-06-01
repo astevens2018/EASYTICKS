@@ -13,12 +13,12 @@ class UsersController < ApplicationController
 
     @currentUser = current_user.id
 
-    if  current_user.facebook_picture_url
+    if current_user.facebook_picture_url
       @avatar_url = current_user.facebook_picture_url
     elsif @current_user.photo
       @avatar_url = @current_user.photo
     else
-       @avatar_url = 'http://placehold.it/70x70'
+       @avatar_url = 'https://vignette.wikia.nocookie.net/thomas-and-twilight-sparkles-adventures/images/d/db/MainGordonCGI2_%281%29.png/revision/latest?cb=20171025183603'
     end
   end
 

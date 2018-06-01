@@ -1,61 +1,65 @@
-  <div class="wrapper">
+<div class="wrapper">
 
   <div class="search_form_index">
-      <%= form_tag tickets_path, method: :get do %>
-        <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
-          <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
-            <%= text_field_tag :date, "Departing at", id: "datepicker-input" %>
-              <%= submit_tag 'Search', class: "form_submit" %>
-                <% end %>
+    <%= form_tag tickets_path, method: :get do %>
+      <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
+        <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+          <%= text_field_tag :date, "Departing at", id: "datepicker-input" %>
+            <%= submit_tag 'Search', class: "form_submit" %>
+              <% end %>
+
+                <%= javascript_pack_tag 'datepicker' %>
 
 
+                  <div class="container">
 
-    <div class="container">
+                    <% @tickets.each do |ticket| %>
+                      <%= link_to ticket_path(ticket) do %>
+                        <div class="card">
+                          <img class="card-user" src="http://i.pravatar.cc/300">
+                          <div class="card-description">
+                            <h2>
+                              <%= ticket.seller.first_name %>
+                                <%= ticket.seller.last_name.chars.first %>.</h2>
+                            <p class="verified">
+                              <i class="fas fa-user-check"></i> Verified</p>
+                          </div>
+                          <div class="card-description destination">
+                            <h2>
+                              <%= ticket.departing_city %> →
+                                <%= ticket.arrival_city %>
+                            </h2>
+                            <p class="grey-text">○ London central station</p>
+                            <p class="grey-text">○ Paris central station</p>
+                          </div>
+                          <div class="card-description date">
+                            <h5>
+                              <%= ticket.date %>
+                            </h5>
+                          </div>
+                          <div class="card-description time">
+                            <h5>
+                              <%= ticket.date.strftime("%I:%M%p") %>
+                            </h5>
+                          </div>
+                          <div class="card-description price">
+                            <h5 id="ticket-price">
+                              <%= money_without_cents_and_with_symbol(ticket.price) %>
+                            </h5>
+                          </div>
+                          <!-- <div class="card-category btn-treehouse">
+                            <%= link_to 'Buy now', ticket_path(ticket), class: 'buy-link' %> -->
+                          <!-- </div> -->
+                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                            data-name="My Ticket" data-email="<%= current_user.email %>" data-description="Ticket <%= ticket.id %>"
+                            data-amount="<%= ticket.price_cents %>" data-currency="<%= ticket.price.currency.id %>"></script>
+                        </div>
+                        <% end %>
+                          <% end %>
+                            <% if @tickets.length == 0  %>
+                              <%= link_to "No tickets available for your choice,  get notified if a ticket shows up", new_requests_path %>
 
-    <% @tickets.each do |ticket| %>
-      <%= link_to ticket_path(ticket) do %>
-      <div class="card">
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <div class="card-description">
-          <h2>
-            <%= ticket.seller.first_name %>
-              <%= ticket.seller.last_name.chars.first %>.</h2>
-          <p class="verified">
-            <i class="fas fa-user-check"></i> Verified</p>
-        </div>
-        <div class="card-description destination">
-          <h2>
-            <%= ticket.departing_city %> →
-              <%= ticket.arrival_city %>
-          </h2>
-          <p class="grey-text">○ London central station</p>
-          <p class="grey-text">○ Paris central station</p>
-        </div>
-        <div class="card-description date">
-          <h5>
-            <%= ticket.date %>
-          </h5>
-        </div>
-        <div class="card-description time">
-          <h5><%= ticket.date.strftime("%I:%M%p") %></h5>
-        </div>
-        <div class="card-description price">
-          <h5 id="ticket-price">
-            <%= ticket.price %>
-              <span id="euro">€</span>
-          </h5>
-        </div>
-        <div class="card-category btn-treehouse">
-          <%= link_to 'Buy now', ticket_path(ticket) %>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-    <% if @tickets.length == 0  %>
-    <%= link_to "New request please", new_requests_path %>
-
-    <% end %>
+                                <% end %>
+                  </div>
   </div>
 </div>
-
-<%= javascript_pack_tag 'datepicker' %>

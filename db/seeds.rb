@@ -1,16 +1,10 @@
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
+Ticket.destroy_all
 User.destroy_all
 
 u1 = User.create!(
-  email: "alex@gmail.com",
+  email: "astev2018@gmail.com",
   password: "Rubyonrails",
   first_name: "Alexander",
   last_name: "Stevens",
@@ -18,7 +12,7 @@ u1 = User.create!(
   phone: 324744448)
 
 u2 = User.create!(
-  email: "uma@gmail.com",
+  email: "umabpatel@gmail.com",
   password: "Bitchonrails",
   first_name: "Uma",
   last_name: "Patel",
@@ -26,7 +20,7 @@ u2 = User.create!(
   phone: 494744448)
 
 u3 = User.create!(
-  email: "lui@gmail.com",
+  email: "lui.kohl@gmail.com",
   password: "Kingonrails",
   first_name: "Lui",
   last_name: "Joy",
@@ -59,3 +53,12 @@ t3 = Ticket.create!(
   price_cents: 1000,
   booking_reference: "AS897D",
   name_on_ticket: "Joy")
+
+t4 = Ticket.create!(
+  seller_id: u2.id,
+  date: DateTime.new(2018,7,13,18,31,0),
+  departing_city: "London",
+  arrival_city: "Paris",
+  price_cents: 8000,
+  booking_reference: "SQMBOF",
+  name_on_ticket: "Patel")
