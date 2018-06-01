@@ -1,46 +1,44 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-3 col-md-6 ticket-row">
-      <h1 class="text-center">Ticket details</h1>
-      <p>
-        <i class="fas fa-train"></i> From
-        <%= @ticket[:departing_city] %> to
-          <%= @ticket[:arrival_city] %>
-      </p>
-      <p>
-        <i class="far fa-calendar-alt"></i>
-        <%= @ticket[:date] %>
-      </p>
-      <p>
-        <i class="far fa-clock"></i>
-        <%= @ticket[:time] %>
-      </p>
-      <p>
-        <i class="fas fa-money-bill"></i>
-        <%= @ticket[:amount_cents] %>€</p>
-      <p>
-        <i class="far fa-user"></i>
-        <%= @ticket.seller.first_name %>
-          <%= @ticket.seller.last_name.chars.first %>
-      </p>
-      <%= form_tag ticket_payments_path(@ticket) do %>
-        <article>
-          <label class="amount">
-            <span>Amount:
-              <%= money_without_cents_and_with_symbol(@ticket.price) %>
-            </span>
-          </label>
-        </article>
+        <h1 class="text-center">Ticket details</h1>
+        <div class = "show_ticket">
+        <p>
+          <i class="fas fa-train"></i> From
+          <%= @ticket[:departing_city] %> to
+            <%= @ticket[:arrival_city] %>
+        </p>
+        <p>
+          <i class="far fa-calendar-alt"></i>
+          <%= @ticket[:date] %>
+        </p>
+        <p>
+          <i class="far fa-clock"></i>
+          <%= @ticket.date.strftime("%I:%M%p") %>
+        </p>
+        <p>
+          <i class="fas fa-money-bill"></i>
+          <%= @ticket[:amount_cents] %>€</p>
+        <p>
+          <i class="far fa-user"></i>
+          <%= @ticket.seller.first_name %>
+            <%= @ticket.seller.last_name.chars.first %>
+        </p>
+        <%= form_tag ticket_payments_path(@ticket) do %>
+          <article>
+            <label class="amount">
+              <span>Amount:
+                <%= money_without_cents_and_with_symbol(@ticket.amount) %>
+              </span>
+            </label>
+          </article>
 
 
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="My Ticket" data-email="<%= current_user.email %>" data-description="Ticket <%= @ticket_id %>" data-amount="<%= @ticket.price %>"
-          data-currency="<%= @ticket.amount_cents %>"></script>
-        <% end %>
-    </div>
-    <div class="col-md-offset-3 col-md-6 ticket-row">
-      <br>
-      <br>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="My Ticket" data-email="<%= current_user.email %>" data-description="Ticket <%= @ticket_id %>" data-amount="<%= @ticket.amount %>"
+            data-currency="<%= @ticket.amount_cents %>"></script>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
