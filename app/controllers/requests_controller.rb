@@ -10,6 +10,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+    @request.user = current_user
     @request.save
     redirect_to dashboard_path
   end

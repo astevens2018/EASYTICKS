@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
     resources :confirmation, only: [:show]
   end
-  resource :requests, only: [:new, :create, :destroy]
+
+  resource :requests, only: [:new, :create, :destroy, :show]
   resource :reports, only: [:create, :show]
 
   get "users/verify", to: 'users#show_verify', as: 'show_verify'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   post "users/resend", to: 'users#verify', as: 'resend'
 
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
-
+  get '/request', to: 'users#dashboard'
   resources :users do
     resources :dashboard, only: [:show, :edit, :update]
   end

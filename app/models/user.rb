@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :tickets
+  has_many :requests
   after_create :send_welcome_email
   mount_uploader :photo, PhotoUploader
   mount_uploader :identitycard, PhotoUploader

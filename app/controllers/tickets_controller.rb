@@ -27,6 +27,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.seller = current_user
     @ticket.save
+    raise
     redirect_to tickets_path(@ticket.id)
   end
 
