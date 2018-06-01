@@ -59,3 +59,12 @@ t3 = Ticket.create!(
   price_cents: 1000,
   booking_reference: "AS897D",
   name_on_ticket: "Joy")
+
+t4 = Ticket.create!(
+  seller_id: u2.id,
+  date: DateTime.new(2018,7,13,18,31,0),
+  departing_city: "London",
+  arrival_city: "Paris",
+  price_cents: 8000,
+  booking_reference: "SQMBOF",
+  name_on_ticket: "Patel")
