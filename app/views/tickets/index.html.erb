@@ -8,7 +8,6 @@
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
 
-<%= javascript_pack_tag 'datepicker' %>
 
 
     <div class="container">
@@ -51,7 +50,12 @@
         </div>
       </div>
       <% end %>
-      <% end %>
+    <% end %>
+    <% if @tickets.length == 0  %>
+    <%= link_to "New request please", new_requests_path %>
+
+    <% end %>
   </div>
 </div>
 
+<%= javascript_pack_tag 'datepicker' %>
