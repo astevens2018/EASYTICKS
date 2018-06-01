@@ -1,5 +1,6 @@
 
 puts 'Cleaning database...'
+Ticket.destroy_all
 User.destroy_all
 
 u1 = User.create!(
