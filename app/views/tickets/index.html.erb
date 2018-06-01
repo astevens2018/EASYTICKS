@@ -50,9 +50,9 @@
                           <!-- <div class="card-category btn-treehouse">
                             <%= link_to 'Buy now', ticket_path(ticket), class: 'buy-link' %> -->
                           <!-- </div> -->
-                          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                            data-name="My Ticket" data-email="<%= current_user.email %>" data-description="Ticket <%= ticket.id %>"
-                            data-amount="<%= ticket.amount_cents %>" data-currency="<%= ticket.price.currency.id %>"></script>
+                          <div class="card-category btn-treehouse">
+                            <%= link_to 'Buy', ticket_path(ticket) %>
+                          </div>
                         </div>
                         <% end %>
                           <% end %>
