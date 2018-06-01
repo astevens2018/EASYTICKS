@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
     customer:     customer.id,   # You should store this customer id and re-use it.
     amount:       @ticket.amount_cents,
     description:  "Payment for ticket #{@ticket.id}",
-    currency:     @ticket.price.currency
+    currency:     @ticket.amount.currency
   )
 
   @ticket.update(payment: charge.to_json, buyer: current_user)
