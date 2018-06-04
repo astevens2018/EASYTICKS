@@ -25,3 +25,8 @@
   border-radius: 15px;
   font-family: 'Montserrat', sans-serif;
 }
+
+.confirmation,
+.animation {
+  transition: visibility 0s linear 0.7s, opacity 0.7s ease-in-out;
+}
