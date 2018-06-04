@@ -1,0 +1,17 @@
+<div class="request-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+
+      <h1>Get notified once a ticket is available for your selection</h1>
+
+      <div class="search_form_request">
+      <%= form_tag tickets_path, method: :get do %>
+        <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
+          <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+            <%= text_field_tag :date, "Departing at               📅", id: "datepicker-input", required: true, error: 'Date is required' %>
+              <%= submit_tag 'Confirm', class: "form_submit" %>
+                <% end %>
+      </div>
+    </div>
+  </div>
+</div>

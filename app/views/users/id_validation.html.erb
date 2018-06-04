@@ -1,0 +1,7 @@
+ <h5>Step 2: ID verification</h5>
+       <div class=" col-xs-12 col-sm-12 col-md-12 ">
+        <%= simple_form_for(current_user) do |f| %>
+          <%= f.input :identitycard %>
+            <%= f.input :photo_cache, as: :hidden %>
+              <%= f.button :submit, 'Add ID Card' %>
+        <% end %>

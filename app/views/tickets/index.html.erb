@@ -2,8 +2,8 @@
 
   <div class="search_form_index">
     <%= form_tag tickets_path, method: :get do %>
-      <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From") %>
-        <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To") %>
+      <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ]), prompt: "From", required: true %>
+        <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ]), prompt: "To", required: true %>
           <%= text_field_tag :date, "Departing at", id: "datepicker-input" %>
             <%= submit_tag 'Search', class: "form_submit" %>
               <% end %>
@@ -48,19 +48,18 @@
                                 <%= humanized_money_with_symbol(ticket.price) %>
                               </h5>
                             </div>
-                            <!-- <div class="card-category btn-treehouse">
-          <%= link_to 'Buy now', ticket_path(ticket), class: 'buy-link' %> -->
-                            <!-- </div> -->
                             <div class="card-category btn-treehouse">
                               <%= link_to 'Buy', ticket_path(ticket) %>
                             </div>
                           </div>
                           <% end %>
                             <% end %>
+                              <% end %>
+                              <br>
                               <% if @tickets.length == 0  %>
-                                <%= link_to "No tickets available for your choice,  get notified if a ticket shows up", new_requests_path %>
-                                  <% end %>
+                                <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path %>
                                     <% end %>
+
                   </div>
   </div>
 </div>
