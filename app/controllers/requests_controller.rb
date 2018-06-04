@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find(params[:departing_city, :arrival_city, :date])
   end
 
   def new
@@ -19,6 +19,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:preference)
+    params.require(:request).permit(params[:departing_city, :arrival_city, :date])
   end
 end
