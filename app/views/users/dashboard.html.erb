@@ -166,7 +166,7 @@
                   </h5>
                 </div>
                 <div class="card-category btn-treehouse">
-                  <%= link_to 'Cancel', delete_path(ticket.id) %>
+                  <%= link_to 'Delete', ticket_path(ticket), method: :delete %>
                 </div>
               </div>
               <% end %>
