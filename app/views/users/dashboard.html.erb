@@ -55,7 +55,16 @@
                 <% end -%>
       </div>
       <h2 class="profile-information">
-        <i class="fas fa-ticket-alt"></i> sold: 12</h2>
+      <% counter = 0 %>
+        <% @tickets.each do |ticket| %>
+          <% if ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
+            <% counter = counter + 1 %>
+          <% end %>
+
+        <% end %>
+        <i class="fas fa-ticket-alt"></i> <p>Sold: <%= "#{counter}" %></p>
+
+      </h2>
 
 
     </div>
