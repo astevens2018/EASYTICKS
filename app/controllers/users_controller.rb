@@ -10,9 +10,7 @@ class UsersController < ApplicationController
   def dashboard
     @tickets = Ticket.all
     @requests = current_user.requests
-
     @currentUser = current_user.id
-
     if current_user.facebook_picture_url
       @avatar_url = current_user.facebook_picture_url
     elsif @current_user.photo
