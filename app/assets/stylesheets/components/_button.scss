@@ -17,10 +17,19 @@
 
 .btn-sell {
   color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #FFC417;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: bolder;
+  background: #00c853;
+  transition: background 0.3s ease;
+}
+
+.btn-sell:hover {
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: bolder;
+  background: #00c853d2;
   transition: background 0.3s ease;
 }
 
