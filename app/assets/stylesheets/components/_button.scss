@@ -15,6 +15,24 @@
   color: white;
 }
 
+.btn-sell {
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: bolder;
+  background: #00c853;
+  transition: background 0.3s ease;
+}
+
+.btn-sell:hover {
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: bolder;
+  background: #00c853d2;
+  transition: background 0.3s ease;
+}
+
 .verified-button {
   background-color: #00c853;
   border: none;
