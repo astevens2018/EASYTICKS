@@ -26,8 +26,11 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.seller = current_user
-    @ticket.save
-    redirect_to tickets_path(@ticket.id)
+    if @ticket.save
+      redirect_to tickets_path(@ticket.id)
+    else
+      render :new
+    end
   end
 
   def edit
