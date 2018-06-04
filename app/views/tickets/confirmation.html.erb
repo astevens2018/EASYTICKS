@@ -1,16 +1,32 @@
 <div class="confirmation page">
 
-  <div class ="confirmation_box">
-    <h1><strong>Welcome on board !</strong></h1>
+  <div class="confirmation_box">
+    <h1>
+      <strong>Welcome on board !</strong>
+    </h1>
     <br>
-    <p> Booking reference: <%= @ticket.booking_reference %></p>
-    <p>Name on ticket: <%= @ticket.name_on_ticket %> </p>
+    <p> Booking reference:
+      <%= @ticket.booking_reference %>
+    </p>
+    <p>Name on ticket:
+      <%= @ticket.name_on_ticket %>
+    </p>
     <!-- <p><%= @ticket_info %></p> -->
-    <p> <i class="far fa-calendar-alt"></i>
-      <%= @ticket.date %> </p>
-    <p> <i class="far fa-clock"></i> <%= @ticket.date.strftime("%I:%M%p") %></p>
-    <p> <i class="fas fa-euro-sign"></i> <%= @ticket.amount %> </p>
-    <a id= "download_button" href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D" download> <i class="fas fa-download"></i> Download your ticket </a>
+    <p>
+      <i class="far fa-calendar-alt"></i>
+      <%= @ticket.date %>
+    </p>
+    <p>
+      <i class="far fa-clock"></i>
+      <%= @ticket.date.strftime("%I:%M%p") %>
+    </p>
+    <p>
+      <i class="fas fa-euro-sign"></i>
+      <%= @ticket.price %>
+    </p>
+    <a id="download_button" href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
+      download>
+      <i class="fas fa-download"></i> Download your ticket </a>
   </div>
 
   <div class="animation">
@@ -27,4 +43,3 @@
   </div>
 
 </div>
-

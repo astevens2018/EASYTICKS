@@ -45,8 +45,7 @@
                             </div>
                             <div class="card-description price">
                               <h5 id="ticket-price">
-                                <%= money_without_cents_and_with_symbol(ticket.price) %>
-                                  <% raise %>
+                                <%= humanized_money_with_symbol(ticket.price) %>
                               </h5>
                             </div>
                             <!-- <div class="card-category btn-treehouse">

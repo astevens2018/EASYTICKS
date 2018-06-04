@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_135408) do
+ActiveRecord::Schema.define(version: 2018_06_04_120215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_135408) do
     t.datetime "updated_at", null: false
     t.string "name_on_ticket"
     t.integer "price_cents", default: 0, null: false
-    t.integer "amount_cents", default: 0, null: false
     t.jsonb "payment"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["seller_id"], name: "index_tickets_on_seller_id"
