@@ -6,7 +6,7 @@
 
       <%= simple_form_for [@ticket] do |f| %>
 
-        <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam] %>
+        <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam], required: true %>
           <%= f.input :arrival_city, :collection => %w[London Brussels Paris Amsterdam] %>
             <%= f.input :date, as: :string, input_html: { id: 'datepicker-input' } %>
               <%= f.input :booking_reference, as: :string %>
