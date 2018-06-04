@@ -32,7 +32,7 @@ t1 = Ticket.create!(
   date: DateTime.new(2018,5,27,18,30,0),
   departing_city: "Brussels",
   arrival_city: "London",
-  amount_cents: 6900,
+  price_cents: 6900,
   booking_reference: "TW6GZ2",
   name_on_ticket: "Stevens")
 
@@ -41,7 +41,7 @@ t2 = Ticket.create!(
   date: DateTime.new(2018,6,27,7,0,0),
   departing_city: "Paris",
   arrival_city: "London",
-  amount_cents: 5000,
+  price_cents: 5000,
   booking_reference: "AS7FZ2",
   name_on_ticket: "Patel")
 
@@ -50,7 +50,7 @@ t3 = Ticket.create!(
   date: DateTime.new(2018,6,01,10,30,0),
   departing_city: "Brussels",
   arrival_city: "Paris",
-  amount_cents: 1000,
+  price_cents: 1000,
   booking_reference: "AS897D",
   name_on_ticket: "Joy")
 
@@ -59,8 +59,8 @@ t4 = Ticket.create!(
   date: DateTime.new(2018,7,13,18,31,0),
   departing_city: "London",
   arrival_city: "Paris",
-  amount_cents: 3000,
-  booking_reference: "DJEDOF",
+  price_cents: 8000,
+  booking_reference: "SQMBOF",
   name_on_ticket: "Patel")
 
 t5 = Ticket.create!(
@@ -68,7 +68,7 @@ t5 = Ticket.create!(
   date: DateTime.new(2018,7,13,12,30,0),
   departing_city: "London",
   arrival_city: "Paris",
-  amount_cents: 8000,
+  price_cents: 8000,
   booking_reference: "SBISHF",
   name_on_ticket: "Kohl")
 
@@ -77,6 +77,6 @@ t6 = Ticket.create!(
   date: DateTime.new(2018,7,13,14,00,0),
   departing_city: "London",
   arrival_city: "Paris",
-  amount_cents: 9000,
+  price_cents: 9000,
   booking_reference: "QUOTOF",
   name_on_ticket: "Stevens")

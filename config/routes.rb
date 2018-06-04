@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users,
-  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
   resources :tickets do
@@ -24,6 +23,6 @@ Rails.application.routes.draw do
   get '/validation', to: 'users#validation', as: 'validation'
   get 'tickets/:id/confirm', to: "tickets#confirmation", as: 'confirm'
   put 'tickets/:id/update', to: 'tickets#update', as: 'update'
-
+  delete '/tickets/:id', to: "tickets#destroy", as: 'delete'
 end
 
