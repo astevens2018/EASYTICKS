@@ -136,7 +136,8 @@
       </div>
       <div class="tab-pane" id="selling" role="tabpanel" aria-labelledby="selling-tab">
         <% @tickets.each do |ticket| %>
-          <% if ticket.seller.id == current_user.id %>
+          <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
+            <h3>Selling</h3>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
                 <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -169,9 +170,41 @@
                   <%= link_to 'Delete', ticket_path(ticket), method: :delete %>
                 </div>
               </div>
-              <% end %>
-                <% end %>
-                  <% end %>
+            <% end %>
+          <% elsif ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
+            <h3>Sold</h3>
+            <%= link_to ticket_path(ticket) do %>
+              <div class="card sold-card">
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-description">
+                  <h2>
+                    <%= ticket.seller.first_name %>
+                      <%= ticket.seller.last_name.chars.first %>.</h2>
+                  <p class="verified">
+                    <i class="fas fa-user-check"></i> Verified</p>
+                </div>
+                <div class="card-description destination">
+                  <h2>
+                    <%= ticket.departing_city %> →
+                      <%= ticket.arrival_city %>
+                  </h2>
+                  <p class="grey-text">○ London central station</p>
+                  <p class="grey-text">○ Paris central station</p>
+                </div>
+                <div class="card-description date">
+                  <h5>
+                    <%= ticket.date %>
+                  </h5>
+                </div>
+                <div class="card-description price">
+                  <h5 id="ticket-price">
+                    <%= money_without_cents_and_with_symbol(ticket.price) %>
+                  </h5>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
                     <!-- Rails selling content ends -->
       </div>
 
