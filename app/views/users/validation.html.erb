@@ -3,10 +3,10 @@
     <div class="row">
       <h4 class="text-center ">Account Verification</h4>
       <div class="col-md-offset-3 col-md-6">
-        <%= form_for current_user do |f| %>
+        <%= form_for(current_user, url: create_validation_path, method: "post") do |f| %>
           <div class="form-group ">
-            <%= f.label :name, "Full name " %>
-              <%= f.text_field :name, class: "form-control ", placeholder: "#{current_user.name} " %>
+            <%= f.label :first_name, "First name " %>
+              <%= f.text_field :first_name, class: "form-control ", placeholder: "#{current_user.name} " %>
           </div>
           <div class="form-group ">
             <%= f.label :country_code, "Country Code" %>
@@ -16,6 +16,7 @@
             <%= f.label :phone %>
               <%= f.text_field :phone, class: "form-control", id: "authy-cellphone", placeholder: "17621483811" %>
           </div>
+          <%= f.hidden_field :id, :value => current_user.id %>
           <button class="verified-button">Get Verified</button>
           <% end -%>
             <% if current_user.errors.any? %>
