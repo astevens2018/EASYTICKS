@@ -40,7 +40,6 @@ class TicketsController < ApplicationController
     @ticket.buyer = current_user_buyer
     @ticket.seller = current_user_seller
     @ticket.save
-    raise
     redirect_to ticket_confirmation_path(@ticket)
 
   end
