@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tickets do
-    resources :payments, only: [:new, :create]
+    resources :payments, only: [:new, :create, :destroy]
     resources :confirmation, only: [:show]
   end
 
@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   post '/create_validation', to: 'users#create_validation'
   get 'tickets/:id/confirm', to: "tickets#confirmation", as: 'confirm'
   put 'tickets/:id/update', to: 'tickets#update', as: 'update'
-  delete '/tickets/:id', to: "tickets#destroy", as: 'delete'
+
 end
 
