@@ -66,7 +66,7 @@
         aria-selected="true">Purchased</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="sold-tab" data-toggle="tab" href="#sold" role="tab" aria-controls="sold" aria-selected="false">Sold</a>
+      <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false">Selling</a>
     </li>
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
@@ -134,7 +134,7 @@
                     <!-- Rails buy content ends -->
                     <!-- BUY TAB ENDS -->
       </div>
-      <div class="tab-pane" id="sell" role="tabpanel" aria-labelledby="sell-tab">
+      <div class="tab-pane" id="selling" role="tabpanel" aria-labelledby="selling-tab">
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id %>
             <%= link_to ticket_path(ticket) do %>
@@ -166,13 +166,13 @@
                   </h5>
                 </div>
                 <div class="card-category btn-treehouse">
-                  <%= link_to 'Buy now', ticket_path(ticket) %>
+                  <%= link_to 'Cancel', delete_path(ticket.id) %>
                 </div>
               </div>
               <% end %>
                 <% end %>
                   <% end %>
-                    <!-- Rails sell content ends -->
+                    <!-- Rails selling content ends -->
       </div>
 
 

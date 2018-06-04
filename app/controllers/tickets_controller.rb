@@ -27,7 +27,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.seller = current_user
     @ticket.save
-    raise
     redirect_to tickets_path(@ticket.id)
   end
 
@@ -47,7 +46,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
-    redirect_to tickets_path
+    redirect_to dashboard_path
   end
 
   def confirmation
@@ -63,7 +62,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:user_id, :date, :time, :departing_city, :arrival_city, :price, :booking_reference)
+    params.require(:ticket).permit(:user_id, :date, :time, :departing_city, :arrival_city, :price_cents, :booking_reference)
   end
 
 end
