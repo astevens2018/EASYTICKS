@@ -18,7 +18,8 @@ class PaymentsController < ApplicationController
   )
 
   @ticket.update(payment: charge.to_json, buyer: current_user)
-  redirect_to confirm_path(params[:ticket_id])
+  redirect_to loading_path
+  # redirect_to confirm_path(params[:ticket_id])
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
