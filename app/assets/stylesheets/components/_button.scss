@@ -59,3 +59,20 @@
   border-radius: 50px;
   box-shadow: 1px 1px #00000036;
 }
+
+.btn-download {
+  background: #FFC417;
+  color: white;
+  padding-top: 10px;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-weight: bolder;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  top: 90px;
+  right: 20px;
+}
+
+.btn-download p {
+  font-size: 12px;
+}

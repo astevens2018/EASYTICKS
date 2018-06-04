@@ -62,10 +62,11 @@
   </div>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item active">
-      <a class="nav-link active dashboard-tab" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
+      <a class="nav-link active dashboard-tab" id="purchased-tab" data-toggle="tab" href="#purchased" role="tab" aria-controls="purchased"
+        aria-selected="true">Purchased</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Sell</a>
+      <a class="nav-link dashboard-tab" id="sold-tab" data-toggle="tab" href="#sold" role="tab" aria-controls="sold" aria-selected="false">Sold</a>
     </li>
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
@@ -85,9 +86,9 @@
 <div class="wrapper">
   <div class="container">
     <div class="tab-content">
-      <div class="tab-pane active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
-        <!-- BUY TAB -->
-        <!-- Rails buy content -->
+      <div class="tab-pane active" id="purchased" role="tabpanel" aria-labelledby="purchased-tab">
+        <!-- purchased TAB -->
+        <!-- Rails purchased content -->
         <% @tickets.each do |ticket| %>
           <% if ticket.buyer_id == current_user.id %>
             <%= link_to ticket_path(ticket) do %>
@@ -118,8 +119,13 @@
                     <%= money_without_cents_and_with_symbol(ticket.amount) %>
                   </h5>
                 </div>
-                <div class="card-category btn-treehouse">
-                  <%= link_to 'Buy now', ticket_path(ticket) %>
+                <div class="card-category label-green">
+                  <p>Paid</p>
+                </div>
+                <div class="card-category btn-download">
+                  <p>Download
+                    <i class="fas fa-download"></i>
+                  </p>
                 </div>
               </div>
               <% end %>
@@ -171,17 +177,29 @@
 
 
       <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">
-        <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/5Zesu5VPNGJlm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/5Zesu5VPNGJlm">via GIPHY</a></p>
+        <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+          <iframe src="https://giphy.com/embed/5Zesu5VPNGJlm" width="100%" height="100%" style="position:absolute" frameBorder="0"
+            class="giphy-embed" allowFullScreen></iframe>
+        </div>
+        <p>
+          <a href="https://giphy.com/gifs/5Zesu5VPNGJlm">via GIPHY</a>
+        </p>
       </div>
 
       <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">
-        <div style="width:100%;height:0;padding-bottom:64%;position:relative;"><iframe src="https://giphy.com/embed/xTiTnJ3BooiDs8dL7W" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/monkey-laptop-baboon-xTiTnJ3BooiDs8dL7W">via GIPHY</a></p>
+        <div style="width:100%;height:0;padding-bottom:64%;position:relative;">
+          <iframe src="https://giphy.com/embed/xTiTnJ3BooiDs8dL7W" width="100%" height="100%" style="position:absolute" frameBorder="0"
+            class="giphy-embed" allowFullScreen></iframe>
         </div>
+        <p>
+          <a href="https://giphy.com/gifs/monkey-laptop-baboon-xTiTnJ3BooiDs8dL7W">via GIPHY</a>
+        </p>
       </div>
-
-
     </div>
+
+
   </div>
+</div>
 </div>
 <!-- Ending body -->
 
