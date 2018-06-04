@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   get '/validation', to: 'users#validation', as: 'validation'
+  post '/create_validation', to: 'users#create_validation'
   get 'tickets/:id/confirm', to: "tickets#confirmation", as: 'confirm'
   put 'tickets/:id/update', to: 'tickets#update', as: 'update'
 
