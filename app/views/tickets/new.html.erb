@@ -1,23 +1,26 @@
-<div class="ticket-container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
+<div class="container">
+  <div class="ticket-container">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
 
-      <h1>Sell your ticket</h1>
+        <h2>Sell your ticket</h2>
 
-      <%= simple_form_for [@ticket] do |f| %>
+        <%= simple_form_for [@ticket] do |f| %>
 
-        <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam] %>
-        <%= f.input :arrival_city, :collection => %w[London Brussels Paris Amsterdam] %>
-        <%= f.input :date, as: :string, input_html: { id: 'datepicker-input' } %>
-        <%= f.input :booking_reference, as: :string %>
-        <%= f.input :name_on_ticket, as: :string %>
-        <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+          <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam], selected: "London" %>
+          <%= f.input :arrival_city, :collection => %w[London Brussels Paris Amsterdam], selected: "Paris" %>
+          <%= f.input :date, as: :string, input_html: { id: 'datepicker-input', value: "#{Time.new}" } %>
+          <%= f.input :booking_reference, as: :string, placeholder: 'AHDEHDH' %>
+          <%= f.input :name_on_ticket, as: :string, placeholder: 'Jane Doe' %>
+          <%= f.input :price, input_html: { value: 'eg. 67', min: '0', step: 'any' }, placeholder: " " %>
 
-        <%= f.submit "Confirm", class: "ticket-action" %>
-        <% end %>
+          <%= f.submit "Sell", class: "ticket-action" %>
 
-        <%= javascript_pack_tag 'datepicker' %>
+          <% end %>
 
+          <%= javascript_pack_tag 'datepicker' %>
+
+      </div>
     </div>
   </div>
 </div>

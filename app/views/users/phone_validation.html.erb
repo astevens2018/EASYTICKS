@@ -4,10 +4,10 @@
       <h4 class="text-center ">Account Verification</h4>
       <h5 class="text-center ">Step 1: Phone verification</h5>
       <div class="col-md-offset-3 col-md-6">
-        <%= form_for current_user do |f| %>
+        <%= form_for(current_user, url: create_validation_path, method: "post") do |f| %>
           <div class="form-group ">
-            <%= f.label :name, "Full name " %>
-              <%= f.text_field :name, class: "form-control ", placeholder: "#{current_user.name} " %>
+            <%= f.label :first_name, "First name " %>
+              <%= f.text_field :first_name, class: "form-control ", placeholder: "#{current_user.name} " %>
           </div>
           <div class="form-group ">
             <%= f.label :country_code, "Country Code" %>
@@ -17,7 +17,8 @@
             <%= f.label :phone %>
               <%= f.text_field :phone, class: "form-control", id: "authy-cellphone", placeholder: "Eg. 17621483811" %>
           </div>
-          <button class="verified-button">Send SMS</button>
+          <%= f.hidden_field :id, :value => current_user.id %>
+          <button class="verified-button">Get Verified</button>
           <% end -%>
             <% if current_user.errors.any? %>
               <h2>Oops, something went wrong!</h2>
@@ -40,4 +41,9 @@
           <%= f.input :identitycard %>
             <%= f.input :photo_cache, as: :hidden %>
               <%= f.button :submit, 'Add ID Card' %>
+<<<<<<< HEAD:app/views/users/phone_validation.html.erb
       <% end %> -->
+=======
+                <!- [...] -->
+<!-- <% end %> -->
+>>>>>>> 37347d1ab87c31e6c8cad470f189bf30f97d473d:app/views/users/validation.html.erb

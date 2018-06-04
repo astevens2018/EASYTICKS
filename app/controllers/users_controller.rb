@@ -29,7 +29,7 @@ class UsersController < ApplicationController
    def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to validation_path
+      redirect_to dashboard_path
   end
 
   def update_form
@@ -39,6 +39,13 @@ class UsersController < ApplicationController
 
   def validation
     # Create user on Authy, will return an id on the object
+  end
+
+  def create_validation
+    @user = User.find(params[:user][:id])
+    @user.update(user_params)
+    redirect_to show_verify_path
+
   end
 
   def show_verify
@@ -68,7 +75,7 @@ class UsersController < ApplicationController
       send_message("You did it! Signup complete :)")
 
       # Show the user profile
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash.now[:danger] = "Incorrect code, please try again"
       render :show_verify
