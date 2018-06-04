@@ -40,11 +40,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_120215) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
-<<<<<<< HEAD
-=======
     t.string "name_on_ticket"
-    t.integer "amount_cents", default: 0, null: false
->>>>>>> master
     t.jsonb "payment"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["seller_id"], name: "index_tickets_on_seller_id"
