@@ -1,7 +1,15 @@
 <div class="container-fluid no-padding">
   <div class="row">
   <div class="col-md-12 no-padding">
-    <img class="city-hero" src="https://content-static.eurostar.com/styles/1600x400/s3/2016-10/371_2G3A4313_ORIGINAL_crop_0.jpg?i=315?h=2038c31f" alt="placeholder 960" class="img-responsive"/>
+    <% if @ticket[:arrival_city].downcase == "paris" %>
+      <img class="city-hero" src="https://i.imgur.com/yHGEhDr.jpg" class="img-responsive"/>
+    <% elsif @ticket[:arrival_city].downcase == "london" %>
+      <img class="city-hero" src="https://i.imgur.com/OfTByzX.jpg" class="img-responsive"/>
+    <% elsif @ticket[:arrival_city].downcase == "brussels" %>
+      <img class="city-hero" src="https://i.imgur.com/H7RIjti.jpg" class="img-responsive"/>
+    <% elsif @ticket[:arrival_city].downcase == "amsterdam" %>
+      <img class="city-hero" src="https://i.imgur.com/5Y6OpZf.jpg" class="img-responsive"/>
+    <% end %>
   </div>
     </div>
 </div>
@@ -11,8 +19,7 @@
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6">
         <h2 class="text-center"><span class="lighter"><%= @ticket[:departing_city] %> → <%= @ticket[:arrival_city] %></span></h2>
-        <p class="text-center"><span class="lighter">Leaves: <%= @ticket[:date] %> at <%= @ticket.date.strftime("%I:%M%p") %></span></p>
-        <p class="text-center"><span class="lighter">Arrives: <%= @ticket[:date] %> at <%= @ticket.date.strftime("%I:%M%p") %></span></p>
+        <p class="text-center"><span class="lighter">Departs: <%= @ticket.date.strftime("%d %B %Y") %></span></p>
       </div>
       <div class="col-sm-offset-3 col-sm-6 text-center">
         <img class="card-user-show mx-auto d-block" src="http://i.pravatar.cc/300">
