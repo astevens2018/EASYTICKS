@@ -1,8 +1,8 @@
 .animation {
   body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
   }
   div {
     margin: 0 !important;
@@ -17,6 +17,7 @@
   background: #280744;
   overflow: hidden !important;
 }
+
 .background-train {
   height: 1080px;
   width: 1920px;
@@ -37,6 +38,7 @@
   background-size: contain;
   animation: translateX 100s infinite linear both;
 }
+
 .rocks_2 {
   position: absolute;
   bottom: -60px;
@@ -48,6 +50,7 @@
   background-size: contain;
   animation: translateX 30s infinite linear both;
 }
+
 .rails {
   position: absolute;
   bottom: -110px;
@@ -59,6 +62,7 @@
   background-size: contain;
   animation: translateX 5s infinite linear both;
 }
+
 .train {
   position: absolute;
   bottom: -105px;
@@ -70,6 +74,7 @@
   background-position: top center;
   background-size: contain;
 }
+
 .ground {
   position: absolute;
   width: 1920px;
@@ -77,6 +82,7 @@
   bottom: 0px;
   background: #16012f;
 }
+
 .lights {
   position: absolute;
   bottom: -39px;
@@ -88,6 +94,7 @@
   background-size: contain;
   animation: translateX 4s infinite linear both;
 }
+
 .moon {
   position: absolute;
   top: 20%;
@@ -101,8 +108,12 @@
 }
 
 @keyframes translateX {
-  0% {background-position: 0px 0px;}
-  100% {background-position:  1920px 0px;}
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 1920px 0px;
+  }
 }
 
 #download_button {
@@ -125,17 +136,9 @@
   font-family: "FontAwesome";
 }
 
-.confirmation_box {
-  position:absolute;
-  z-index:100;
-  left:40%;
-  top:0;
-  color: black;
-  box-shadow: 0px 0px 19px 0px black;
-  font-size: 30px;
-  padding: 40px;
-  margin-top: 150px;
-  text-align: center;
+.confirmation-container {
+  background-color: white;
+  border: 1px solid red;
 }
 
 // .confirming_details {
@@ -151,7 +154,6 @@
 //   border-radius: 15px;
 //   font-family: 'Montserrat', sans-serif;
 // }
-
 // .booking_reference {
 //   background-color: #004066;
 //   margin-right: auto;
@@ -165,8 +167,3 @@
 //   border-radius: 15px;
 //   font-family: 'Montserrat', sans-serif;
 // }
-
-.confirmation,
-.animation {
-  transition: visibility 0s linear 0.7s, opacity 0.7s ease-in-out;
-}
