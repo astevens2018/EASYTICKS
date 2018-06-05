@@ -161,6 +161,11 @@
 }
 
 .empty-card {
-  border: 1px dotted grey;
-  background-color: rgb(245, 241, 241);
+  border: 2px dashed rgba(160, 158, 158, 0.39);
+  background-color: rgb(255, 255, 255);
+}
+
+.empty-card-text {
+  margin: 0px;
+  padding-top: 15px;
 }
