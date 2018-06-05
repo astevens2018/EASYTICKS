@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     end
   end
 
+def index
+      if seller.facebook_picture_url
+      @avatar_url = seller.facebook_picture_url
+    elsif @seller.photo
+      @avatar_url = @seller.photo
+    else
+       @avatar_url = "https://vignette.wikia.nocookie.net/thomas-and-twilight-sparkles-adventures/images/d/db/MainGordonCGI2_%281%29.png/revision/latest?cb=20171025183603"
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
   end

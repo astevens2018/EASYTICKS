@@ -2,7 +2,7 @@
 <div class="profile-header-wrapper">
   <div class="container profile-header-container text-center">
     <div class="profile-header-infos">
-      <img src="<%= @avatar_url %>" alt="">
+      <img src="<%= @avatar_url %>" alt="please upload a picture">
       <h1 class="profile-information">
         <%= current_user.first_name %>
       </h1>
@@ -23,12 +23,12 @@
             <div class="modal-body">
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.input :first_name %>
-                  <%= f.input :last_name %>
-                    <%= f.input :photo %>
-                      <%= f.input :photo_cache, as: :hidden %>
-                        <%= f.input :phone, placeholder: "Insert new number" %>
-                          <%= f.button :submit %>
-                            <% end %>
+                <%= f.input :last_name %>
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+                <%= f.input :phone, placeholder: "Insert new number" %>
+                <%= f.button :submit %>
+                <% end %>
 
             </div>
 
