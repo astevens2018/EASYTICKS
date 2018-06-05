@@ -137,9 +137,17 @@
                   </p>
                 </div>
               </div>
-              <% end %>
-                <% end %>
-                  <% end %>
+            <% end %>
+          <% else %>
+            <% @toggle = 'on' %>
+          <% end %>
+        <% end %>
+
+        <% if @toggle == 'on' %>
+          <div class="card empty-card">
+              <p class="text-center">You haven't purchased any tickets yet.</p>
+          </div>
+        <% end %>
                     <!-- Rails buy content ends -->
                     <!-- BUY TAB ENDS -->
       </div>
