@@ -28,6 +28,7 @@ class User < ApplicationRecord
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
+  #  user_params[remote_avatar_url] = auth[:info][:image]
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
@@ -43,10 +44,22 @@ class User < ApplicationRecord
     return user
   end
 
+  def avatar_url
+    if facebook_picture_url
+      return facebook_picture_url
+    elsif photo_url
+      return photo_url
+    else
+      return "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
+    end
+  end
+
   private
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
+
+
 
 end
