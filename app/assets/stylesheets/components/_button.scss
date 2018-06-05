@@ -96,3 +96,24 @@
 .btn-download p {
   font-size: 12px;
 }
+
+.stripe-button-el {
+  width: 150px;
+  border-radius: 0.2em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background-color: #FFC417 !important;
+  font-weight: normal !important;
+}
+
+.stripe-button-el span {
+  font-family: sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal !important;
+  font-size: 1em !important;
+  border-radius: 0.2em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background: #FFC417 !important;
+  background-color: #FFC417 !important;
+}
