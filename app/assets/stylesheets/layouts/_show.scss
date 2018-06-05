@@ -1,0 +1,79 @@
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+  padding: 0px;
+}
+
+.col-md-12 .no-padding {
+  padding: 0px;
+}
+
+.show-container {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.city-hero {
+  margin-bottom: -70px;
+  box-shadow: 0px 3px 13px #8a8a8a82;
+}
+
+.wrapper-white {
+  background-color: white;
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+.card-user-show {
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px 0px #00000040;
+  margin-top: 15px;
+}
+
+.h3-name {
+  margin-top: 10px;
+}
+
+.text-center {
+  color: #353535;
+}
+
+.pay-col {
+  margin-bottom: 100px;
+}
+
+.divider {
+  position: relative;
+  margin-top: 400PX;
+  height: 1px;
+}
+
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(111, 112, 116), transparent);
+}
+
+.div-arrow-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-bottom: 1px solid rgba(181, 184, 187, 0.808);
+  border-right: 1px solid rgba(191, 193, 199, 0.801);
+}
