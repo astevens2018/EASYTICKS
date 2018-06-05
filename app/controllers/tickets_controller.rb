@@ -24,8 +24,9 @@ class TicketsController < ApplicationController
     @ticket_seller = ticket.seller_id
     counter = 0
     @ticket.seller_id.tickets.each do |ticket|
-    counter = counter + 1
-  end
+      counter = counter + 1
+    end
+    return counter
   end
 
   def new
