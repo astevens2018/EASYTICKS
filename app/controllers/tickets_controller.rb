@@ -10,11 +10,9 @@ class TicketsController < ApplicationController
     # end
 
     @tickets= Ticket.all
-    @tickets = Ticket.joins(:departing_city).joins(:arrival_city).joins(:date) if params[:ticket]
-    @tickets = Ticket.where("tickets.departing_city = ?", params[:departing_city]) if params[:departing_city].present?
-    @tickets = Ticket.where("arrival_city = ?", params[:arrival_city]) if params[:arrival_city].present?
-    @tickets = Ticket.where("date = ?", params[:date]) if params[:date].present?
-
+    if params[:ticket]
+    @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date])
+    end
     @users = User.all
   end
 
