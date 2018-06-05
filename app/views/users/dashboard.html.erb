@@ -60,7 +60,7 @@
           <% end %>
 
         <% end %>
-        <i class="fas fa-ticket-alt"></i> <p>Sold: <%= "#{counter}" %></p>
+        <p>Sold: <%= "#{counter}" %> <i class="fas fa-ticket-alt"></i></p>
 
       </h2>
 
@@ -70,16 +70,16 @@
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item active">
       <a class="nav-link active dashboard-tab" id="purchased-tab" data-toggle="tab" href="#purchased" role="tab" aria-controls="purchased"
-        aria-selected="true">Purchased</a>
+        aria-selected="true"><i class="fas fa-shopping-cart"></i> Purchased</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false">Selling</a>
+      <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false"><i class="far fa-handshake"></i> Selling</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">Request</a>
+      <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false"><i class="far fa-bell"></i> Alarm</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">Report</a>
+      <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false"><i class="far fa-flag"></i> Report</a>
     </li>
   </ul>
 
@@ -113,12 +113,12 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text">○ London central station</p>
-                  <p class="grey-text">○ Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  London central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  Paris central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
-                    <%= ticket.date.strftime("%d %B %Y") %>
+                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
 
                   </h5>
                 </div>
@@ -133,6 +133,11 @@
                 <div class="card-category btn-download">
                   <p>Download
                     <i class="fas fa-download"></i>
+                  </p>
+                </div>
+                <div class="card-category btn-report">
+                  <p>Report
+                    <i class="far fa-flag"></i>
                   </p>
                 </div>
               </div>
@@ -231,7 +236,9 @@
 
 
       <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">
+      <div class= "card"></div>
       </div>
+
 
       <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">
       </div>
@@ -240,8 +247,5 @@
   </div>
 </div>
 </div>
+
 <!-- Ending body -->
-
-</body>
-
-</html>
