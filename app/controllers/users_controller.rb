@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @currentUser = current_user.id
   end
 
-def index
+  def index
 
   end
 
