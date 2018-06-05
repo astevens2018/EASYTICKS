@@ -24,9 +24,10 @@
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.input :first_name %>
                 <%= f.input :last_name %>
+                <%= f.input :email, placeholder: "Insert new email" %>
+                <%= f.input :phone, placeholder: "Insert new phone number" %>
                 <%= f.input :photo, placeholder: "Insert new picture" %>
                 <%= f.input :photo_cache, as: :hidden %>
-                <%= f.input :phone, placeholder: "Insert new number" %>
                 <%= f.submit "Update", class: "ticket-action" %>
                 <% end %>
 
@@ -153,9 +154,9 @@
                     <!-- BUY TAB ENDS -->
       </div>
       <div class="tab-pane" id="selling" role="tabpanel" aria-labelledby="selling-tab">
+        <h3>Selling</h3>
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
-            <h3>Selling</h3>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
                 <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
