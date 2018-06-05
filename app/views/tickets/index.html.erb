@@ -17,14 +17,26 @@
                       <% if ticket.buyer_id == nil %>
                         <%= link_to ticket_path(ticket) do %>
                           <div class="card">
-                            <img class="card-user" src="seller.avatar_url">
-                            <div class="card-description">
+                            <div class="card-user">
+                            <%= image_tag ticket.seller.avatar_url  %>
+                          </div>
+                          <div class="card-description">
                               <h2>
                                 <%= ticket.seller.first_name %>
                                   <%= ticket.seller.last_name.chars.first %>.</h2>
                               <p class="verified">
+                                <% if ticket.seller.verified? %>
+                              </p>
                                 <i class="fas fa-user-check"></i> verified
                               </p>
+                               <% else -%>
+                            <% end -%>
+                              <% if !ticket.seller.verified? %>
+                            <p>
+                                <i class="fas fa-times"></i></i> seller not verified
+                              </p>
+                              <% end %>
+
                             </div>
                             <div class="card-description destination">
                               <h2>

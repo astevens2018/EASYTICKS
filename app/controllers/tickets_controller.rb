@@ -20,6 +20,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
+  def counter
+    @ticket_seller = ticket.seller_id
+    counter = 0
+    @ticket.seller_id.tickets.each do |ticket|
+    counter = counter + 1
+  end
+  end
+
   def new
     @ticket = Ticket.new
   end

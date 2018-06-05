@@ -11,19 +11,10 @@ class UsersController < ApplicationController
     @tickets = Ticket.all
     @requests = current_user.requests
     @currentUser = current_user.id
-    if current_user.facebook_picture_url
-      @avatar_url = current_user.facebook_picture_url
-    else @current_user.photo
-      @avatar_url = @current_user.photo
-    end
   end
 
 def index
-      if seller.facebook_picture_url
-      @avatar_url = seller.facebook_picture_url
-    else @seller.photo
-      @avatar_url = @seller.photo
-    end
+
   end
 
   def edit

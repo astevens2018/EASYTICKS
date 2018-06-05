@@ -23,13 +23,12 @@
             <div class="modal-body">
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.input :first_name %>
-
-                  <%= f.input :last_name %>
-                    <%= f.input :photo, placeholder: "Insert new picture" %>
-                      <%= f.input :photo_cache, as: :hidden %>
-                        <%= f.input :phone, placeholder: "Insert new number" %>
-                          <%= f.submit "Update", class: "ticket-action" %>
-                            <% end %>
+                <%= f.input :last_name %>
+                <%= f.input :photo, placeholder: "Insert new picture" %>
+                <%= f.input :photo_cache, as: :hidden %>
+                <%= f.input :phone, placeholder: "Insert new number" %>
+                <%= f.submit "Update", class: "ticket-action" %>
+                <% end %>
 
             </div>
           </div>
