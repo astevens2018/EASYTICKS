@@ -6,9 +6,10 @@
 
     <div class="search_form_home">
       <%= form_tag tickets_path, method: :get do %>
+       <%= hidden_field_tag 'ticket' %>
         <%= select_tag "departing_city", options_for_select([ "London", "Paris", "Brussels", "Amsterdam" ], "From"), prompt: "From", required: true %>
           <%= select_tag "arrival_city", options_for_select([ "Paris", "Brussels", "London", "Amsterdam" ], "To"), prompt: "To", required: true %>
-            <%= text_field_tag :date, "Departing at              📅", id: "datepicker-input", prompt: "Date", required: true %>
+            <%= text_field_tag :date, nil, required: true, id: "datepicker-input", placeholder: "Departing at              📅"%>
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
     </div>
