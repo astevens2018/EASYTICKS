@@ -1,3 +1,3 @@
 //= require rails-ujs
-//= require_tree .
 //= require cloudinary
+//= require_tree .
