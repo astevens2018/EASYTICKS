@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_105038) do
+ActiveRecord::Schema.define(version: 2018_06_04_120215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 2018_06_05_105038) do
     t.date "date"
     t.string "departing_city"
     t.string "arrival_city"
+    t.integer "price"
     t.string "booking_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_on_ticket"
-    t.integer "price_cents", default: 0, null: false
     t.jsonb "payment"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["seller_id"], name: "index_tickets_on_seller_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_105038) do
     t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
-    t.string "photo", default: "http://static.tvtropes.org/pmwiki/pub/images/320px-thomasandgordon26_1713.png"
+    t.string "photo"
     t.string "country_code"
     t.string "authy_id"
     t.boolean "verified"

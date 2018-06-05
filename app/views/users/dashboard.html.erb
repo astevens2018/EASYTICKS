@@ -2,7 +2,7 @@
 <div class="profile-header-wrapper">
   <div class="container profile-header-container text-center">
     <div class="profile-header-infos">
-      <img src="<%= @avatar_url %>" alt="please upload a picture">
+      <%= image_tag current_user.avatar_url %>
       <h1 class="profile-information">
         <%= current_user.first_name %>
       </h1>
