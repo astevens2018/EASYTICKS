@@ -49,7 +49,7 @@
               <% if !current_user.verified? %>
                 <p>
                   <button type="button" class="not-verified-button">
-                    <%= link_to "Get Verified", validation_path, class: 'verified-tag' %>
+                    <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
                   </button>
                 </p>
                 <% end -%>
