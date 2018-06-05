@@ -1,16 +1,24 @@
-<h1>Just To Be Safe...</h1>
-<p>
-    We need to make sure you're a human in control of the phone number you gave us. Can you please enter the verification code we just sent to your phone?
-</p>
-<%= form_tag verify_path do %>
-  <div class="form-group">
-    <%= label_tag :code, "Verification Code:" %>
-    <%= text_field_tag :token, '', class: "form-control" %>
-  </div>
-  <button type="submit" class="btn btn-primary">Verify Token</button>
-<% end -%>
+<div class="container">
+  <div class="ticket-container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
 
-<hr>
-<%= form_tag resend_path do %>
-  <button type="submit" class="btn">Resend code</button>
-<% end -%>
+      <h4 class="text-center ">Account Verification</h4>
+      <h5 class="text-center ">Step 2: Insert verification code</h5>
+        <p> Please enter the verification code we just sent to your phone.</p>
+        <%= form_tag verify_path do %>
+          <div class="form-group">
+            <%= label_tag :code, "Verification Code:" %>
+            <%= text_field_tag :token, '', class: "form-control" %>
+          </div>
+          <button type="submit" class="btn btn-primary">Verify Token</button>
+        <% end %>
+
+        <%= form_tag resend_path do %>
+          <button type="submit" class="btn btn-secondary">Resend code</button>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

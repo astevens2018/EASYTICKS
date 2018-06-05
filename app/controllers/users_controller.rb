@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
   end
 
-  def validation
+  def phone_validation
     # Create user on Authy, will return an id on the object
   end
 

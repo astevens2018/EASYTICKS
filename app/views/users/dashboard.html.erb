@@ -24,16 +24,13 @@
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.input :first_name %>
                   <%= f.input :last_name %>
-                    <%= f.input :photo %>
+                    <%= f.input :photo, placeholder: "Insert new picture" %>
                       <%= f.input :photo_cache, as: :hidden %>
                         <%= f.input :phone, placeholder: "Insert new number" %>
                           <%= f.button :submit %>
                             <% end %>
-
             </div>
-
           </div>
-
         </div>
       </div>
 
@@ -41,7 +38,7 @@
         <% if current_user.verified? %>
           <p>
             <button type="button" class="verified-button">
-              Verified
+              <i class="fas fa-check"></i> Verified
             </button>
           </p>
           <% else -%>
@@ -49,7 +46,7 @@
               <% if !current_user.verified? %>
                 <p>
                   <button type="button" class="not-verified-button">
-                    <%= link_to "Get Verified", validation_path, class: 'verified-tag' %>
+                    <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
                   </button>
                 </p>
                 <% end -%>
