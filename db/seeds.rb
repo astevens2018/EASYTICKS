@@ -1,4 +1,3 @@
-
 puts 'Cleaning database...'
 Ticket.destroy_all
 User.destroy_all
@@ -29,7 +28,8 @@ u3 = User.create!(
 
 t1 = Ticket.create!(
   seller_id: u1.id,
-  date: DateTime.new(2018,5,27,18,30,0),
+  date: Date.new(2018,5,27),
+  time: "18:30",
   departing_city: "Brussels",
   arrival_city: "London",
   price_cents: 6900,
@@ -38,7 +38,8 @@ t1 = Ticket.create!(
 
 t2 = Ticket.create!(
   seller_id: u2.id,
-  date: DateTime.new(2018,6,27,7,0,0),
+  date: Date.new(2018,6,27),
+  time: "7:00",
   departing_city: "Paris",
   arrival_city: "London",
   price_cents: 5000,
@@ -47,7 +48,8 @@ t2 = Ticket.create!(
 
 t3 = Ticket.create!(
   seller_id: u3.id,
-  date: DateTime.new(2018,6,01,10,30,0),
+  date: Date.new(2018,6,01),
+  time: "10:30",
   departing_city: "Brussels",
   arrival_city: "Paris",
   price_cents: 1000,
@@ -56,7 +58,8 @@ t3 = Ticket.create!(
 
 t4 = Ticket.create!(
   seller_id: u2.id,
-  date: DateTime.new(2018,7,13,18,31,0),
+  date: Date.new(2018,7,13),
+  time: "18:31",
   departing_city: "London",
   arrival_city: "Paris",
   price_cents: 8000,
@@ -65,7 +68,8 @@ t4 = Ticket.create!(
 
 t5 = Ticket.create!(
   seller_id: u3.id,
-  date: DateTime.new(2018,7,13,12,30,0),
+  date: Date.new(2018,7,13),
+  time: "12:30",
   departing_city: "London",
   arrival_city: "Paris",
   price_cents: 8000,
@@ -74,7 +78,8 @@ t5 = Ticket.create!(
 
 t6 = Ticket.create!(
   seller_id: u1.id,
-  date: DateTime.new(2018,7,13,14,00,0),
+  date: Date.new(2018,7,13),
+  time: "14:00",
   departing_city: "London",
   arrival_city: "Paris",
   price_cents: 9000,
