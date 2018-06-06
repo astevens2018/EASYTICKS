@@ -101,7 +101,9 @@
           <% if ticket.buyer_id == current_user.id %>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-user">
+                <%= image_tag ticket.seller.avatar_url  %>
+                </div>
                 <div class="card-description">
                   <h2>
                     <%= ticket.seller.first_name %>
@@ -114,13 +116,18 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text"><i class="fas fa-train"></i>  London central station</p>
-                  <p class="grey-text"><i class="fas fa-train"></i>  Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
                     <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
 
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">
@@ -158,7 +165,9 @@
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-user">
+                <%= image_tag ticket.seller.avatar_url  %>
+                </div>
                 <div class="card-description">
                   <h2>
                     <%= ticket.seller.first_name %>
@@ -171,12 +180,17 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text">○ London central station</p>
-                  <p class="grey-text">○ Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
-                    <%= ticket.date.strftime("%d %B %Y") %>
+                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">
@@ -206,12 +220,17 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text">○ London central station</p>
-                  <p class="grey-text">○ Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
-                    <%= ticket.date.strftime("%d %B %Y") %>
+                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">
