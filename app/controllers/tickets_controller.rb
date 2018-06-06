@@ -18,6 +18,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @seller_tickets_count = Ticket.where(seller_id: @ticket.seller.id).count
   end
 
   def counter

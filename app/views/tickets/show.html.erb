@@ -23,14 +23,14 @@
       </div>
       <div class="col-sm-offset-3 col-sm-6 text-center">
         <div class="card-user-show mx-auto d-block">
-          <%= image_tag @ticket.seller.avatar_url  %>
+          <%= image_tag(@ticket.seller.avatar_url)  %>
         </div>
       </div>
       <div class="col-sm-offset-3 col-sm-6">
         <h3 class="text-center h3-name"><span class="lighter"><%= @ticket.seller.first_name %> <%= @ticket.seller.last_name.chars.first %>.</span></h3>
       </div>
       <div class="col-sm-offset-3 col-sm-6">
-        <p class="text-center"><span class="lighter">Sold: 12 tickets</span></p>
+        <p class="text-center"><span class="lighter">Sold: <%= @seller_tickets_count %> tickets</span></p>
       </div>
       <div class="col-md-offset-3 col-md-3">
         <p class="text-center"><span class="lighter"><i class="fas fa-lock"></i> Secure payment</span></p>
