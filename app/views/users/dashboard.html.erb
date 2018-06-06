@@ -97,12 +97,12 @@
       <div class="tab-pane active" id="purchased" role="tabpanel" aria-labelledby="purchased-tab">
         <!-- purchased TAB -->
         <!-- Rails purchased content -->
-        <% if @sell_tickets.empty? %>
+        <% if @buy_tickets.empty? %>
           <div class="card empty-card">
               <p class="empty-card-text text-center">You haven't purchased any tickets yet.</p>
           </div>
         <% else %>
-          <% @tickets.each do |ticket| %>
+          <% @buy_tickets.each do |ticket| %>
               <%= link_to ticket_path(ticket) do %>
                 <div class="card">
                   <div class="card-user">
@@ -154,7 +154,6 @@
                 </div>
               <% end %>
           <% end %>
-
         <% end %>
                     <!-- Rails buy content ends -->
                     <!-- BUY TAB ENDS -->
@@ -212,7 +211,9 @@
             <h3>Sold</h3>
             <%= link_to ticket_path(ticket) do %>
               <div class="card sold-card">
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-user">
+                <%= image_tag ticket.seller.avatar_url  %>
+                </div>
                 <div class="card-description">
                   <h2>
                     <%= ticket.seller.first_name %>
