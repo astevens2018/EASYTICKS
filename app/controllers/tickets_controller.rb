@@ -9,9 +9,9 @@ class TicketsController < ApplicationController
       # redirect_to new_requests_path
     # end
 
-    @tickets= Ticket.all
+    @tickets = Ticket.all.order(date: :asc, time: :asc)
     if params[:ticket]
-    @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date])
+      @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date]).order(date: :asc, time: :asc)
     end
     @users = User.all
   end

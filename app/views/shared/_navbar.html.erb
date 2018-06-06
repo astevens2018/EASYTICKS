@@ -5,11 +5,25 @@
 
       <% end %>
 
+
+
         <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">
-          <div class="btn-sell">
-            <%= link_to "Sell", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link sell-link" %>
-          </div>
+          <% if current_user %>
+            <% if current_user.verified? %>
+            <div class="btn-sell">
+              <%= link_to "Sell", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link sell-link" %>
+            </div>
+            <% elsif !current_user.verified? %>
+              <div class="btn-sell">
+              <%= link_to "Sell", phone_validation_path, class: "navbar-wagon-item navbar-wagon-link sell-link" %>
+              </div>
+            <% end  %>
+            <% else  %>
+              <div class="btn-sell">
+              <%= link_to "Sell", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link sell-link" %>
+            </div>
+          <% end %>
 
           <% if user_signed_in? %>
 
