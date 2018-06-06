@@ -53,8 +53,10 @@
   left: 20px;
   top: 30px;
   width: 70px;
-  border-radius: 50%;
-  box-shadow: 1px 1px 10px 0px #00000040;
+  img {
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px 0px #00000040;
+  }
 }
 
 .card-category {
@@ -169,3 +171,4 @@
   margin: 0px;
   padding-top: 15px;
 }
+
