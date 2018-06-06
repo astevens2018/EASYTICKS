@@ -25,17 +25,8 @@
                                 <%= ticket.seller.first_name %>
                                   <%= ticket.seller.last_name.chars.first %>.</h2>
                               <p class="verified">
-                                <% if ticket.seller.verified? %>
-                              </p>
-
-                              </p>
-                               <% else %>
-                            <% end %>
-                              <% if !ticket.seller.verified? %>
-                            <p>
                                 <i class="fas fa-user-check"></i> verified
                               </p>
-                              <% end %>
 
                             </div>
                             <div class="card-description destination">
