@@ -1,7 +1,3 @@
-<% content_for :meta_title, "Buy your ticket easy and cheap with Easyticks" %>
-<% content_for :meta_description, "Ticket from <%= @ticket.departing_city %> → <%= @ticket.arrival_city %>" %>
-<% content_for :meta_image, "https://i.imgur.com/yHGEhDr.jpg" %>
-
 <div class="container-fluid no-padding">
   <div class="row">
   <div class="col-md-12 no-padding">
@@ -18,11 +14,11 @@
     </div>
 </div>
 
-<div class="wrapper-grey">
+<div class="wrapper-white">
   <div class="container show-container">
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6">
-        <h2 class="text-center"><span class="lighter"><%= @ticke.departing_city %> → <%= @ticket.arrival_city %></span></h2>
+        <h2 class="text-center"><span class="lighter"><%= @ticket[:departing_city] %> → <%= @ticket[:arrival_city] %></span></h2>
         <p class="text-center"><span class="lighter">Departs: <%= @ticket.date.strftime("%d %B %Y") %></span></p>
       </div>
       <div class="col-sm-offset-3 col-sm-6 text-center">

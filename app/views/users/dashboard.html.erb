@@ -141,7 +141,7 @@
                     <p>Paid</p>
                   </div>
                   <button class="card-category btn-report">
-                    <a href="#"><i class="far fa-flag"></i> Report</a>
+                    <a data-toggle="tab" href="#report" role="tab"><i class="far fa-flag"></i> Report</a>
                     </p>
                   </button>
                   <button class="card-category btn-download">
@@ -269,3 +269,7 @@
   </div>
 </div>
 </div>
+
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag "tabs" %>
+<% end %>
