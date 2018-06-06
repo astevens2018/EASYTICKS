@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!, :set_ticket
+  skip_before_action , only: [:index, :show]
 
   def new
   end
