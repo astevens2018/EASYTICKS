@@ -97,71 +97,75 @@
       <div class="tab-pane active" id="purchased" role="tabpanel" aria-labelledby="purchased-tab">
         <!-- purchased TAB -->
         <!-- Rails purchased content -->
-        <% @buy_toggle == 'off' %>
-        <% @tickets.each do |ticket| %>
-          <% if ticket.buyer_id == current_user.id %>
-            <%= link_to ticket_path(ticket) do %>
-              <div class="card">
-                <div class="card-user">
-                <%= image_tag ticket.seller.avatar_url  %>
-                </div>
-                <div class="card-description">
-                  <h2>
-                    <%= ticket.seller.first_name %>
-                      <%= ticket.seller.last_name.chars.first %>.</h2>
-                  <p class="verified">
-                    <i class="fas fa-user-check"></i> Verified</p>
-                </div>
-                <div class="card-description destination">
-                  <h2>
-                    <%= ticket.departing_city %> →
-                      <%= ticket.arrival_city %>
-                  </h2>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
-                </div>
-                <div class="card-description date">
-                  <h5>
-                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
-
-                  </h5>
-                </div>
-                <div class="card-description time">
-                  <h5>
-                    <i class="far fa-clock"></i> <%= ticket.time %>
-                  </h5>
-                </div>
-                <div class="card-description price">
-                  <h5 id="ticket-price">
-                    <%= humanized_money_with_symbol(ticket.price) %>
-                  </h5>
-                </div>
-                <div class="card-category label-green">
-                  <p>Paid</p>
-                </div>
-                <button class="card-category btn-report">
-                  <a href="#"><i class="far fa-flag"></i> Report</a>
-                  </p>
-                </button>
-                <button class="card-category btn-download">
-                  <a href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
-                  download>
-                  <i class="fas fa-download"> </i> Download</a>
-                </button>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-        <% if @buy_toggle == 'on' %>
+        <% if @sell_tickets.empty? %>
           <div class="card empty-card">
               <p class="empty-card-text text-center">You haven't purchased any tickets yet.</p>
           </div>
+        <% else %>
+          <% @tickets.each do |ticket| %>
+              <%= link_to ticket_path(ticket) do %>
+                <div class="card">
+                  <div class="card-user">
+                  <%= image_tag ticket.seller.avatar_url  %>
+                  </div>
+                  <div class="card-description">
+                    <h2>
+                      <%= ticket.seller.first_name %>
+                        <%= ticket.seller.last_name.chars.first %>.</h2>
+                    <p class="verified">
+                      <i class="fas fa-user-check"></i> Verified</p>
+                  </div>
+                  <div class="card-description destination">
+                    <h2>
+                      <%= ticket.departing_city %> →
+                        <%= ticket.arrival_city %>
+                    </h2>
+                    <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                    <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
+                  </div>
+                  <div class="card-description date">
+                    <h5>
+                      <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+
+                    </h5>
+                  </div>
+                  <div class="card-description time">
+                    <h5>
+                      <i class="far fa-clock"></i> <%= ticket.time %>
+                    </h5>
+                  </div>
+                  <div class="card-description price">
+                    <h5 id="ticket-price">
+                      <%= humanized_money_with_symbol(ticket.price) %>
+                    </h5>
+                  </div>
+                  <div class="card-category label-green">
+                    <p>Paid</p>
+                  </div>
+                  <button class="card-category btn-report">
+                    <a href="#"><i class="far fa-flag"></i> Report</a>
+                    </p>
+                  </button>
+                  <button class="card-category btn-download">
+                    <a href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
+                    download>
+                    <i class="fas fa-download"> </i> Download</a>
+                  </button>
+                </div>
+              <% end %>
+          <% end %>
+
         <% end %>
                     <!-- Rails buy content ends -->
                     <!-- BUY TAB ENDS -->
       </div>
       <div class="tab-pane" id="selling" role="tabpanel" aria-labelledby="selling-tab">
         <h3>Selling</h3>
+        <% if @sell_tickets.empty? %>
+          <div class="card empty-card">
+              <p class="empty-card-text text-center">You aren't selling any tickets yet.</p>
+          </div>
+        <% else %>
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
@@ -241,16 +245,9 @@
                 </div>
               </div>
             <% end %>
-          <% else %>
-            <% @sell_toggle = 'on' %>
           <% end %>
         <% end %>
-
-        <% if @sell_toggle == 'on' %>
-          <div class="card empty-card">
-              <p class="empty-card-text text-center">You are not selling any tickets yet.</p>
-          </div>
-        <% end %>
+      <% end %>
                     <!-- Rails selling content ends -->
       </div>
 

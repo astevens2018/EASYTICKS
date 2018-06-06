@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @tickets = Ticket.all
+    @tickets = Ticket.where(buyer: current_user)
+    @sell_tickets = Ticket.where(seller: current_user)
     @requests = current_user.requests
     @currentUser = current_user.id
   end
@@ -57,7 +58,6 @@ class UsersController < ApplicationController
 
   def verify
     @user = current_user
-
     # Use Authy to send the verification token
     token = Authy::API.verify(id: @user.authy_id, token: params[:token])
 
