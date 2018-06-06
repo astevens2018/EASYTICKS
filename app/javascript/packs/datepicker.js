@@ -1,7 +1,9 @@
 import flatpickr from "flatpickr";
 
-const myInput = document.getElementById("datepicker-input");
-console.log(myInput)
-const pickr = flatpickr(myInput, {});
+const dateInput = document.getElementById("datepicker-input");
+console.log(dateInput)
+const pickr = flatpickr(dateInput, {
+});
 console.log(pickr)
+
 

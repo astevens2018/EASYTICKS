@@ -50,7 +50,7 @@ class User < ApplicationRecord
     elsif photo_url
       return photo_url
     else
-      return "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
+      return "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-256.png"
     end
   end
 

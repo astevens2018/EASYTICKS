@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_143211) do
+ActiveRecord::Schema.define(version: 2018_06_06_083806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_143211) do
     t.string "name_on_ticket"
     t.jsonb "payment"
     t.integer "price_cents"
+    t.string "time"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["seller_id"], name: "index_tickets_on_seller_id"
   end
