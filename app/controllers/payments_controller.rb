@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_ticket
+  before_action :authenticate_user!, :set_ticket
 
   def new
   end
