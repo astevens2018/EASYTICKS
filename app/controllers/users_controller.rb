@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @tickets = Ticket.where(buyer: current_user)
+    @tickets = Ticket.all
+    @buy_tickets = Ticket.where(buyer: current_user)
     @sell_tickets = Ticket.where(seller: current_user)
     @requests = current_user.requests
     @currentUser = current_user.id
