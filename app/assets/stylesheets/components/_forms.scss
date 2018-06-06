@@ -28,6 +28,7 @@
   margin-bottom: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
   h2 {
     font-size: 25px;
     font-weight: lighter;
@@ -113,4 +114,8 @@ input {
 .edit_user {
   color: #00000082;
   font-size: medium;
+}
+
+.btn-secondary {
+  margin-top: 10px;
 }
