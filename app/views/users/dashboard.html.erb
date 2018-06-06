@@ -8,7 +8,7 @@
       </h1>
       <h2>
         <button type="button" class="settings" data-toggle="modal" data-target="#myModal">
-          Edit profile
+          <i class="fas fa-cog"></i> Edit profile
         </button>
       </h2>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -48,7 +48,7 @@
               <% if !current_user.verified? %>
                 <p>
                   <button type="button" class="not-verified-button">
-                    <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
+                    <i class="fas fa-exclamation-triangle"></i> <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
                   </button>
                 </p>
                 <% end -%>
@@ -61,7 +61,7 @@
           <% end %>
 
         <% end %>
-        <p>Sold: <%= "#{counter}" %> <i class="fas fa-ticket-alt"></i></p>
+        <p>Sold: <%= "#{counter}" %> tickets </p>
 
       </h2>
 
@@ -97,11 +97,14 @@
       <div class="tab-pane active" id="purchased" role="tabpanel" aria-labelledby="purchased-tab">
         <!-- purchased TAB -->
         <!-- Rails purchased content -->
+        <% @buy_toggle == 'off' %>
         <% @tickets.each do |ticket| %>
           <% if ticket.buyer_id == current_user.id %>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-user">
+                <%= image_tag ticket.seller.avatar_url  %>
+                </div>
                 <div class="card-description">
                   <h2>
                     <%= ticket.seller.first_name %>
@@ -114,13 +117,18 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text"><i class="fas fa-train"></i>  London central station</p>
-                  <p class="grey-text"><i class="fas fa-train"></i>  Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
                     <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
 
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">
@@ -131,16 +139,15 @@
                 <div class="card-category label-green">
                   <p>Paid</p>
                 </div>
-                <div class="card-category btn-download">
-                  <p>Download
-                    <i class="fas fa-download"></i>
+                <button class="card-category btn-report">
+                  <a href="#"><i class="far fa-flag"></i> Report</a>
                   </p>
-                </div>
-                <div class="card-category btn-report">
-                  <p>Report
-                    <i class="far fa-flag"></i>
-                  </p>
-                </div>
+                </button>
+                <button class="card-category btn-download">
+                  <a href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
+                  download>
+                  <i class="fas fa-download"> </i> Download</a>
+                </button>
               </div>
             <% end %>
           <% end %>
@@ -159,7 +166,9 @@
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
               <div class="card">
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                <div class="card-user">
+                <%= image_tag ticket.seller.avatar_url  %>
+                </div>
                 <div class="card-description">
                   <h2>
                     <%= ticket.seller.first_name %>
@@ -172,12 +181,17 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text">○ London central station</p>
-                  <p class="grey-text">○ Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
-                    <%= ticket.date.strftime("%d %B %Y") %>
+                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">
@@ -207,12 +221,17 @@
                     <%= ticket.departing_city %> →
                       <%= ticket.arrival_city %>
                   </h2>
-                  <p class="grey-text">○ London central station</p>
-                  <p class="grey-text">○ Paris central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
+                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
                 </div>
                 <div class="card-description date">
                   <h5>
-                    <%= ticket.date.strftime("%d %B %Y") %>
+                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+                  </h5>
+                </div>
+                <div class="card-description time">
+                  <h5>
+                    <i class="far fa-clock"></i> <%= ticket.time %>
                   </h5>
                 </div>
                 <div class="card-description price">

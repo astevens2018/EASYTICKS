@@ -11,47 +11,39 @@
   </div>
 </div>
 
-<div class="wrapper">
-  <div class="container confirmation-container">
+<div class="container-fluid no-padding">
+  <div class="row">
+  <div class="col-md-12 no-padding">
+      <img class="city-hero" src="https://i.imgur.com/yUNaVZb.jpg" class="img-responsive"/>
+  </div>
+    </div>
+</div>
+
+<div class="wrapper-white">
+  <div class="container show-container">
     <div class="row">
-      <div class="col-sm-offset-3 col-sm-6 text-center">
-        <h3>
-          <strong class="lighter">Welcome on board!</strong>
-        </h3>
+      <div class="col-sm-offset-3 col-sm-6">
+        <h2 class="text-center"><span class="lighter"> Booking confirmed! </span></h2>
+        <p class="text-center"><span class="lighter">You're journey from <strong><%= @ticket[:departing_city] %></strong> to <strong><%= @ticket[:arrival_city] %></strong> on <strong><%= @ticket.date.strftime("%d %B %Y") %></strong> is confirmed.</span></p>
       </div>
-      <div class="col-sm-offset-3 col-sm-3">
-        <p>Name on ticket:
-          <%= @ticket.name_on_ticket %>
-        </p>
+      <div class="col-sm-offset-3 col-sm-6">
+        <h4 class="text-center h3-name"><span class="lighter"><p>Name on ticket:
+          <%= @ticket.name_on_ticket.upcase %>
+        </p></span></h4>
       </div>
-      <div class="col-sm-offset-0 col-sm-3">
-        <p> Booking reference:
-          <%= @ticket.booking_reference %>
-        </p>
+      <div class="col-sm-offset-3 col-sm-6">
+        <h4 class="text-center"><span class="lighter">Booking reference:
+          <%= @ticket.booking_reference %></span></h4>
       </div>
-      <div class="col-sm-offset-3 col-sm-3">
-        <p>
-          <i class="far fa-calendar-alt"></i>
-          <%= @ticket.date %>
-        </p>
-      </div>
-      <div class="col-sm-offset-0 col-sm-3">
-        <p>
-          <i class="far fa-clock"></i>
-          <span class="lighter">Departs: <%= @ticket.date.strftime("%d %B %Y") %></span>
-        </p>
-      </div>
-      <div class="col-sm-offset-0 col-sm-3">
-        <p>
-          <i class="fas fa-euro-sign"></i>
-          <%= @ticket.price %>
-        </p>
-      </div>
-      <div class="col-sm-offset-3 col-sm-6 text-center">
-        <a class="btn-treehouse" href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
+      <div class="col-sm-offset-3 col-sm-6 text-center download-div">
+        <a class="btn-treehouse-confirmation" href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
         download>
         <i class="fas fa-download"></i> Download your ticket </a>
       </div>
-    </div>
+      <div class="text-center">
+        <div class="col-sm-offset-3 col-sm-6 text-center btn-treehouse dashboard-div">
+          <%= link_to 'Dashboard', dashboard_path %>
+        </div>
+      </div>
   </div>
 </div>

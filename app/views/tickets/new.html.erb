@@ -3,24 +3,29 @@
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6">
 
-        <h2>Sell your ticket</h2>
+        <h2><b>Sell your ticket</b></h2>
+
 
         <%= simple_form_for [@ticket] do |f| %>
 
-          <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam], prompt: "From" %>
-          <%= f.input :arrival_city, :collection => %w[London Brussels Paris Amsterdam], prompt: "To" %>
-          <%= f.input :date, as: :string, input_html: { id: 'datepicker-input', value: "#{Time.new}" } %>
-          <%= f.input :booking_reference, as: :string, input_html: { maxlength: 6 }, placeholder: 'Eg. ABCDEF', :hint => "Booking reference must be 6 letters" %>
-          <%= f.input :name_on_ticket, as: :string, placeholder: 'Eg. Smith', :hint => "Last name only" %>
-          <%= f.input :price, input_html: { min: '1.0', step: 'any' }, :hint => "Resale price cannot exceed face value of ticket"%>
+          <%= f.input :departing_city, :collection => %w[London Brussels Paris Amsterdam], prompt: "From", required: true %>
+          <%= f.input :arrival_city, :collection => %w[London Brussels Paris Amsterdam], prompt: "To", required: true %>
+          <%= f.input :date, as: :string, input_html: { id: 'datepicker-input'}, required: true %>
+          <%= f.input :time, as: :string, input_html: { id: 'timepicker-input' }, required: true %>
+          <%= f.input :booking_reference, as: :string, input_html: { maxlength: 6 }, placeholder: 'Eg. ABCDEF', :hint => "Booking reference must be 6 letters", required: true %>
+          <%= f.input :name_on_ticket, as: :string, placeholder: 'Eg. Smith', :hint => "Last name only", required: true %>
+          <%= f.input :price, input_html: { min: '1.0', step: 'any' }, :hint => "Resale price cannot exceed face value of ticket", required: true%>
 
           <%= f.submit "Sell", class: "ticket-action" %>
 
           <% end %>
 
-          <%= javascript_pack_tag 'datepicker' %>
-
       </div>
     </div>
   </div>
 </div>
+
+<%= content_for :after_js do %>
+<%= javascript_pack_tag 'datepicker' %>
+<%= javascript_pack_tag 'timepicker' %>
+<% end %>
