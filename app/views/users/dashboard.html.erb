@@ -8,7 +8,7 @@
       </h1>
       <h2>
         <button type="button" class="settings" data-toggle="modal" data-target="#myModal">
-          Edit profile
+          <i class="fas fa-cog"></i> Edit profile
         </button>
       </h2>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -48,7 +48,7 @@
               <% if !current_user.verified? %>
                 <p>
                   <button type="button" class="not-verified-button">
-                    <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
+                    <i class="fas fa-exclamation-triangle"></i> <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
                   </button>
                 </p>
                 <% end -%>
@@ -61,7 +61,7 @@
           <% end %>
 
         <% end %>
-        <p>Sold: <%= "#{counter}" %> <i class="fas fa-ticket-alt"></i></p>
+        <p>Sold: <%= "#{counter}" %> tickets </p>
 
       </h2>
 
