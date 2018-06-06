@@ -11,13 +11,14 @@
             <%= label_tag :code, "Verification Code:" %>
             <%= text_field_tag :token, '', class: "form-control" %>
           </div>
+          <div class="phone-buttons">
           <button type="submit" class="btn btn-primary">Verify Token</button>
         <% end %>
 
         <%= form_tag resend_path do %>
           <button type="submit" class="btn btn-secondary">Resend code</button>
         <% end %>
-
+      </div>
       </div>
     </div>
   </div>
