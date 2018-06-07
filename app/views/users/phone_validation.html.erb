@@ -2,6 +2,8 @@
   <div class="ticket-container">
     <div class="row">
       <h4 class="text-center ">Sell by getting verified in 2 quick steps</h4>
+      <br>
+      <br>
       <div class="col-md-offset-3 col-md-6">
         <h5 class="text-center"> <i class="far fa-id-card"></i><b> Step 1: ID and phone verification</b></h5>
           <%= simple_form_for(current_user) do |f| %>
@@ -26,7 +28,7 @@
               <%= f.text_field :phone, class: "form-control", id: "authy-cellphone", placeholder: "Eg. 17621483811", :hint => "Remove leading zero" %>
           </div>
           <%= f.hidden_field :id, :value => current_user.id %>
-          <button class="verified-button">Get Verified</button>
+          <button class="verified-button">Next step <i class="fas fa-arrow-right"></i></button>
           <% end -%>
             <% if current_user.errors.any? %>
               <h2>Oops, something went wrong!</h2>
