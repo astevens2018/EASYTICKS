@@ -35,13 +35,11 @@
           </div>
         </div>
 
-        <div class="container if_verified">
+        <div class="container if_verified text-center">
           <% if current_user.verified? %>
-            <p>
               <button type="button" class="verified-button">
                 <i class="fas fa-check"></i> Verified
               </button>
-            </p>
             <% else -%>
               <% end -%>
                 <% if !current_user.verified? %>
