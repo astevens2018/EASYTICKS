@@ -5,3 +5,28 @@ p .profile-text {
 .text-center .dash-h3 {
   padding: 33px;
 }
+
+.button-card {
+  display: flex;
+  #left {
+    padding: 0px 4px;
+    border-right: 1px solid #e3e7ed;
+    opacity: 0.75;
+  }
+  #right {
+    opacity: 0.75;
+    padding: 0px 4px;
+  }
+  #left p {
+    opacity: 0.75;
+  }
+  #right p {
+    opacity: 0.75;
+  }
+}
+
+.card-information {
+  #report {
+    opacity: 0.75;
+  }
+}

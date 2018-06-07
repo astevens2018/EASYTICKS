@@ -35,13 +35,11 @@
           </div>
         </div>
 
-        <div class="container if_verified">
+        <div class="container if_verified text-center">
           <% if current_user.verified? %>
-            <p>
               <button type="button" class="verified-button">
                 <i class="fas fa-check"></i> Verified
               </button>
-            </p>
             <% else -%>
               <% end -%>
                 <% if !current_user.verified? %>
@@ -77,6 +75,10 @@
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false">
         <i class="far fa-handshake"></i> Selling</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dashboard-tab" id="sold-tab" data-toggle="tab" href="#sold" role="tab" aria-controls="sold" aria-selected="false">
+        <i class="fas fa-money-bill"></i> Sold</a>
     </li>
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">
@@ -154,6 +156,7 @@
                         <%= currency_symbol %><%= humanized_money(ticket.price) %>
                       </h2>
                       <p>Incl. VAT</p>
+                      <p id="report"><i class="far fa-flag"></i> Report</p>
                     </div>
 
                   </div>
@@ -184,7 +187,6 @@
               <p class="empty-card-text text-center">You aren't selling any tickets yet.</p>
           </div>
         <% else %>
-        <h3 class="text-center dash-h3">Selling</h3>
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
@@ -233,7 +235,10 @@
                                   <h2>
                                     <%= currency_symbol %><%= humanized_money(ticket.price) %>
                                   </h2>
-                                  <p class="red">Cancel</p>
+                                  <div class="button-card">
+                                    <div id="left"><p class="red">Cancel</p></div>
+                                    <div id="right"><p class="orange">Edit</p></div>
+                                  </div>
                                 </div>
 
                               </div>
@@ -241,7 +246,8 @@
             <% end %>
              <% end %>
              <% end %>
- <h3 class="text-center dash-h3">Sold</h3>
+             </div>
+<div class="tab-pane" id="sold" role="tabpanel" aria-labelledby="sold-tab">
          <% @tickets.each do |ticket| %>
           <% if ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
             <%= link_to ticket_path(ticket) do %>
@@ -299,7 +305,6 @@
         <% end %>
 
         <% end %>
-
 
 
       </div>
