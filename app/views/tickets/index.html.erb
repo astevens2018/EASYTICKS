@@ -10,20 +10,19 @@
                 <% end %>
 
                 <%= javascript_pack_tag 'datepicker' %>
-<<<<<<< HEAD
-                 <% if @tickets.length == Ticket.all.length  %>
-                 <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
-                               <% end %>
 
-                  <%= javascript_pack_tag 'datepicker' %>
+
     </div>
-=======
->>>>>>> master
+
                     <div class="container">
                       <% if @tickets.length == 0  %>
                       <p class="empty-card-text-search">Your search has come up empty, we've put other options below
                       </p>
+                      <p class="empty-card-text-search">
+
                         <%= link_to "Click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                      </p>
+
                         <% @other_tickets.each do |ticket| %>
                           <% if ticket.buyer_id == nil %>
                             <%= link_to ticket_path(ticket) do %>
@@ -145,11 +144,9 @@
                                 <% end %>
 
 
-<<<<<<< HEAD
 
-=======
                                 <br>
->>>>>>> master
+
 
                                   <% end %>
 
