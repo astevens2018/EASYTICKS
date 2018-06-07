@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.seller = current_user
     if @ticket.save
-      redirect_to tickets_path(@ticket.id)
+      redirect_to dashboard_path
     else
       render :new
     end
