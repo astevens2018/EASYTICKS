@@ -28,7 +28,6 @@
   margin-bottom: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-
   h2 {
     font-size: 25px;
     font-weight: lighter;
@@ -61,11 +60,13 @@
 
 .search_form_index {
   color: black;
-  box-shadow: 1px 1px 3px 4px #0000001a;
   padding: 25px;
   background-color: #f4f4f4;
   border-radius: 3px;
   text-align: center;
+  form {
+    margin: 22px 0px;
+  }
 }
 
 select {
@@ -120,12 +121,9 @@ input {
   margin-top: 10px;
 }
 
-
-
 .phone-buttons {
-  .btn-primary, .btn-secondary {
-    display:inline-block;
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+  }
 }
-
-}
-
