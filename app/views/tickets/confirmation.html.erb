@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6">
         <h2 class="text-center"><span class="lighter"> Booking confirmed! </span></h2>
-        <p class="text-center"><span class="lighter">You're journey from <strong><%= @ticket[:departing_city] %></strong> to <strong><%= @ticket[:arrival_city] %></strong> on <strong><%= @ticket.date.strftime("%d %B %Y") %></strong> is confirmed.</span></p>
+        <p class="text-center"><span class="lighter">You're journey from <strong><%= @ticket[:departing_city] %></strong> to <strong><%= @ticket[:arrival_city] %></strong> on <strong><%= @ticket.date.strftime("%d %B %Y") %></strong> at <strong><%= @ticket.time %></strong> is confirmed.</span></p>
       </div>
       <div class="col-sm-offset-3 col-sm-6">
         <h4 class="text-center h3-name"><span class="lighter"><p>Name on ticket:

@@ -14,12 +14,12 @@
     </div>
 </div>
 
-<div class="wrapper-grey">
+<div class="wrapper-white">
   <div class="container show-container">
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6">
         <h2 class="text-center"><span class="lighter"><%= @ticket[:departing_city] %> → <%= @ticket[:arrival_city] %></span></h2>
-        <p class="text-center"><span class="lighter">Departs: <%= @ticket.date.strftime("%d %B %Y") %></span></p>
+        <p class="text-center"><span class="lighter">Departs: <%= @ticket.date.strftime("%d %B %Y") %> at <%= @ticket.time %></span></p>
       </div>
       <div class="col-sm-offset-3 col-sm-6 text-center">
         <div class="card-user-show mx-auto d-block">

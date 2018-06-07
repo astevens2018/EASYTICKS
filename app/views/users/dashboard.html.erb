@@ -17,7 +17,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Edit Details</h4>
+              <h4 class="modal-title profile-text" id="myModalLabel">Edit Details</h4>
             </div>
             <div class="modal-body">
               <%= simple_form_for(current_user) do |f| %>
@@ -141,7 +141,7 @@
                     <p>Paid</p>
                   </div>
                   <button class="card-category btn-report">
-                    <a href="#"><i class="far fa-flag"></i> Report</a>
+                    <a data-toggle="tab" href="#report" role="tab"><i class="far fa-flag"></i> Report</a>
                     </p>
                   </button>
                   <button class="card-category btn-download">
@@ -251,7 +251,6 @@
       </div>
 
       <div class="tab-pane" id="request" role="tabpanel" aria-labelledby="request-tab">
-        <h3>Alarms</h3>
         <div class="card empty-card">
               <p class="empty-card-text text-center">You haven't set any alarms yet.</p>
         </div>
@@ -259,7 +258,6 @@
 
 
       <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab">
-        <h3>Reports</h3>
         <div class="card empty-card">
               <p class="empty-card-text text-center">You haven't reported any issues yet.</p>
         </div>
@@ -269,3 +267,7 @@
   </div>
 </div>
 </div>
+
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag "tabs" %>
+<% end %>
