@@ -184,7 +184,7 @@
               <p class="empty-card-text text-center">You aren't selling any tickets yet.</p>
           </div>
         <% else %>
-        <h3>Selling</h3>
+        <h3 class="text-center dash-h3">Selling</h3>
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
@@ -239,8 +239,11 @@
                               </div>
                             </div>
             <% end %>
-          <% elsif ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
-            <h3>Sold</h3>
+             <% end %>
+             <% end %>
+ <h3 class="text-center dash-h3">Sold</h3>
+         <% @tickets.each do |ticket| %>
+          <% if ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
             <%= link_to ticket_path(ticket) do %>
                <div class="card-ticket mute">
                               <div class="card-detail card-detail-user">
@@ -294,7 +297,10 @@
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
+
+        <% end %>
+
+
 
       </div>
 

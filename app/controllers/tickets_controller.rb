@@ -9,9 +9,9 @@ class TicketsController < ApplicationController
       # redirect_to new_requests_path
     # end
 
-    @tickets = Ticket.all.order(date: :asc, time: :asc)
-    if params[:ticket]
-      @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date]).order(date: :asc, time: :asc)
+    @tickets = Ticket.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date]).order(date: :asc, time: :asc)
+    if @tickets.empty?
+      @other_tickets = Ticket.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city]).order(date: :asc, time: :asc)
     end
     @users = User.all
 

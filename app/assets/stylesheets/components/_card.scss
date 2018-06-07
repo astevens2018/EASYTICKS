@@ -181,6 +181,11 @@
   padding-top: 15px;
 }
 
+.empty-card-text-search {
+  margin: 0px;
+  padding-top: 15px;
+  text-align: center;
+}
 .wrapper-dashboard {
   flex: 1;
 }
@@ -188,9 +193,10 @@
 .card-ticket {
   display: flex;
   height: 200px;
+  width: 900px;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 
