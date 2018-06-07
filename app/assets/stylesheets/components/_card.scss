@@ -27,24 +27,29 @@
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.card::after {
-  content: "";
-  border-radius: 3px;
-  z-index: -1;
-  box-shadow: 3px 1px 4px 0px #b411112b;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+.card-ticket {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.card:hover {
-  -webkit-transform: scale(1.01, 1.01);
-  transform: scale(1.01, 1.01);
+.card-ticket::after {
+  content: "";
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 3px 3px 2px #c1c1c1bf;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.card:hover::after {
+.card-ticket:hover {
+  -webkit-transform: scale(1.01, 1.01);
+  transform: scale(1.01, 1.01);
+  box-shadow: 2px 2px 4px 2px #00000026;
+}
+
+.card-ticket:hover::after {
   opacity: 1;
 }
 
@@ -284,7 +289,7 @@
 .card-information-route {
   position: relative;
   .line {
-    height: 26px;
+    height: 25px;
     background: black;
     width: 2px;
     position: absolute;
