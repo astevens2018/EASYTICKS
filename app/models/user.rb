@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :tickets
-  has_many :requests
+  has_many :tickets, dependent: :destroy
+  has_many :requests, dependent: :destroy
   after_create :send_welcome_email
   mount_uploader :photo, PhotoUploader
   mount_uploader :identitycard, PhotoUploader
