@@ -15,9 +15,14 @@
     </div>
 
                     <div class="container">
-                      <% if @tickets.length == 0  %>
+                      <% if @tickets.length == 0 %>
+                        <% if @other_tickets.length == 0  %>
+                          <p class="empty-card-text-search">Your search has come up empty, sorry about that
+                        </p>
+                        <%else  %>
                       <p class="empty-card-text-search">Your search has come up empty, we've put other options below
                       </p>
+                      <% end  %>
                       <p class="empty-card-text-search">
 
                         <%= link_to "Click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>

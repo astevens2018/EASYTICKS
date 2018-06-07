@@ -330,3 +330,9 @@
 .red {
   color: red;
 }
+
+@media(max-width: 480px) {
+  .column {
+    width: 100%;
+  }
+}
