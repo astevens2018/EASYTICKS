@@ -78,8 +78,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="sold-tab" data-toggle="tab" href="#sold" role="tab" aria-controls="sold" aria-selected="false">
-        <% if Ticket.where(seller: current_user).count > 0 %>
-          <span class="notification-num"> <%= Ticket.where(seller: current_user).count %> </span>
+        <% @seller_ticket = Ticket.where(seller: current_user) %>
+        <% if @seller_ticket.count > 0 && @seller_ticket.first.buyer_id.present? %>
+          <span class="notification-num"> <%= 1 %> </span>
         <% end %>
         <i class="fas fa-money-bill"></i> Sold</a>
     </li>
