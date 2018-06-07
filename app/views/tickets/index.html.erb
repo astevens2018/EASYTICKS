@@ -10,77 +10,136 @@
                 <% end %>
 
                 <%= javascript_pack_tag 'datepicker' %>
-                 <% if @tickets.length == Ticket.all.length  %>
-                 <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
-                               <% end %>
-
-                  <%= javascript_pack_tag 'datepicker' %>
-
                     <div class="container">
-                       <% if @tickets.length == 0  %>
-                                <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
-                                <% end %>
-                      <% @tickets.each do |ticket| %>
-                        <% if ticket.buyer_id == nil %>
-                          <%= link_to ticket_path(ticket) do %>
-                            <div class="card-ticket">
-                              <div class="card-detail card-detail-user">
-                                <div class="card-information">
-                                  <%= image_tag ticket.seller.avatar_url  %>
-                                    <div class="card-information-details">
-                                      <h2>
-                                        <%= ticket.seller.first_name %>
-                                          <%= ticket.seller.last_name.chars.first %>.
-                                      </h2>
-                                      <p class="verified">
-                                        <i class="fas fa-user-check"></i> verified
-                                      </p>
-                                    </div>
+                      <% if @tickets.length == 0  %>
+                      <p>Your search has come up empty, we've put other options below</p>
+                        <%= link_to "click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                        <% @other_tickets.each do |ticket| %>
+                          <% if ticket.buyer_id == nil %>
+                            <%= link_to ticket_path(ticket) do %>
+                              <div class="card-ticket">
+                                <div class="card-detail card-detail-user">
+                                  <div class="card-information">
+                                    <%= image_tag ticket.seller.avatar_url  %>
+                                      <div class="card-information-details">
+                                        <h2>
+                                          <%= ticket.seller.first_name %>
+                                            <%= ticket.seller.last_name.chars.first %>.
+                                        </h2>
+                                        <p class="verified">
+                                          <i class="fas fa-user-check"></i> verified
+                                        </p>
+                                      </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="card-detail card-detail-expand card-detail-route">
-                                <div class="card-information">
-                                  <h2>
-                                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%A, %b %d") %>
-                                      <span>
-                                        <i class="far fa-clock"></i> <%= ticket.date.strftime("%l:%M %p") %>
-                                      </span>
-                                  </h2>
-                                  <p class="route-information">
-                                    <%= ticket.departing_city %>
-                                      <span class="route-icon">➞</span>
-                                      <%= ticket.arrival_city %>
-                                  </p>
-                                  <div class="card-information-route">
-                                    <div class="line"></div>
-                                    <p>
-                                      <i class="far fa-circle"></i>
-                                      <%= ticket.departing_city %> central station</p>
-                                    <p>
-                                      <i class="far fa-circle"></i>
-                                      <%= ticket.arrival_city %> central station</p>
+                                <div class="card-detail card-detail-expand card-detail-route">
+                                  <div class="card-information">
+                                    <h2>
+                                      <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%A, %b %d") %>
+                                        <span>
+                                          <i class="far fa-clock"></i> <%= ticket.date.strftime("%l:%M %p") %>
+                                        </span>
+                                    </h2>
+                                    <p class="route-information">
+                                      <%= ticket.departing_city %>
+                                        <span class="route-icon">➞</span>
+                                        <%= ticket.arrival_city %>
+                                    </p>
+                                    <div class="card-information-route">
+                                      <div class="line"></div>
+                                      <p>
+                                        <i class="far fa-circle"></i>
+                                        <%= ticket.departing_city %> central station</p>
+                                      <p>
+                                        <i class="far fa-circle"></i>
+                                        <%= ticket.arrival_city %> central station</p>
+                                    </div>
+
+
+                                  </div>
+                                </div>
+                                <div class="card-detail card-detail-price">
+                                  <div class="card-information">
+                                    <h2>
+                                      <%= currency_symbol %><%= humanized_money(ticket.price) %>
+                                    </h2>
+                                    <p>Incl. VAT</p>
                                   </div>
 
-
                                 </div>
                               </div>
-                              <div class="card-detail card-detail-price">
-                                <div class="card-information">
-                                  <h2>
-                                    <%= currency_symbol %><%= humanized_money(ticket.price) %>
-                                  </h2>
-                                  <p>Incl. VAT</p>
-                                </div>
-
-                              </div>
-                            </div>
-                            <% end %>
                               <% end %>
-
-
-                              <br>
-
                                 <% end %>
+
+
+                                <br>
+
+                                  <% end %>
+
+                      <% else %>
+                        <% @tickets.each do |ticket| %>
+                          <% if ticket.buyer_id == nil %>
+                            <%= link_to ticket_path(ticket) do %>
+                              <div class="card-ticket">
+                                <div class="card-detail card-detail-user">
+                                  <div class="card-information">
+                                    <%= image_tag ticket.seller.avatar_url  %>
+                                      <div class="card-information-details">
+                                        <h2>
+                                          <%= ticket.seller.first_name %>
+                                            <%= ticket.seller.last_name.chars.first %>.
+                                        </h2>
+                                        <p class="verified">
+                                          <i class="fas fa-user-check"></i> verified
+                                        </p>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-detail card-detail-expand card-detail-route">
+                                  <div class="card-information">
+                                    <h2>
+                                      <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%A, %b %d") %>
+                                        <span>
+                                          <i class="far fa-clock"></i> <%= ticket.date.strftime("%l:%M %p") %>
+                                        </span>
+                                    </h2>
+                                    <p class="route-information">
+                                      <%= ticket.departing_city %>
+                                        <span class="route-icon">➞</span>
+                                        <%= ticket.arrival_city %>
+                                    </p>
+                                    <div class="card-information-route">
+                                      <div class="line"></div>
+                                      <p>
+                                        <i class="far fa-circle"></i>
+                                        <%= ticket.departing_city %> central station</p>
+                                      <p>
+                                        <i class="far fa-circle"></i>
+                                        <%= ticket.arrival_city %> central station</p>
+                                    </div>
+
+
+                                  </div>
+                                </div>
+                                <div class="card-detail card-detail-price">
+                                  <div class="card-information">
+                                    <h2>
+                                      <%= currency_symbol %><%= humanized_money(ticket.price) %>
+                                    </h2>
+                                    <p>Incl. VAT</p>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <% end %>
+                                <% end %>
+
+
+                                <br>
+
+                                  <% end %>
+
+                      <% end %>
                     </div>
 
 
