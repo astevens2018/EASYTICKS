@@ -13,7 +13,11 @@ class TicketsController < ApplicationController
     if params[:ticket]
       @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date]).order(date: :asc, time: :asc)
     end
+    if params[:ticket] && @tickets.length == 0
+      @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city]).order(date: :asc, time: :asc)
+    end
     @users = User.all
+
   end
 
   def show

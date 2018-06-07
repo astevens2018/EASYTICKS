@@ -10,7 +10,9 @@
                 <% end %>
 
                 <%= javascript_pack_tag 'datepicker' %>
-
+                 <% if @tickets.length == Ticket.all.length  %>
+                 <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                               <% end %>
 
                   <div class="container">
                     <% @tickets.each do |ticket| %>
@@ -60,9 +62,6 @@
                             <% end %>
                               <% end %>
                               <br>
-                              <% if @tickets.length == 0  %>
-                                <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
-              <% end %>
 
       </div>
   </div>
