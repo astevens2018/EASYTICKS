@@ -53,8 +53,9 @@ class UsersController < ApplicationController
       cellphone: current_user.phone,
       country_code: current_user.country_code
     )
+
     current_user.update(authy_id: authy['id'])
-    Authy::API.request_sms(id: current_user.authy_id)
+    request = Authy::API.request_sms(id: current_user.authy_id)
   end
 
   def verify
@@ -73,6 +74,7 @@ class UsersController < ApplicationController
       # Show the user profile
       redirect_to dashboard_path
     else
+      Rails.logger.info token.errors
       flash.now[:danger] = "Incorrect code, please try again"
       render :show_verify
     end
