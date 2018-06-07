@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.seller = current_user
     if @ticket.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(:anchor => "#selling")
     else
       render :new
     end
@@ -61,7 +61,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path(:anchor => "#selling")
   end
 
   def confirmation
