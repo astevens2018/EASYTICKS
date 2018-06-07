@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="container if_verified text-center">
+        <div class="if_verified text-center">
           <% if current_user.verified? %>
               <button type="button" class="verified-button">
                 <i class="fas fa-check"></i> Verified
@@ -59,7 +59,7 @@
                   <% end %>
 
                     <% end %>
-                      <p>Sold:
+                      <p class="settings">Sold:
                         <%= "#{counter}" %> tickets </p>
         </h2>
 
@@ -78,6 +78,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link dashboard-tab" id="sold-tab" data-toggle="tab" href="#sold" role="tab" aria-controls="sold" aria-selected="false">
+        <% if Ticket.where(seller: current_user).count > 0 %>
+          <span class="notification-num"> <%= Ticket.where(seller: current_user).count %> </span>
+        <% end %>
         <i class="fas fa-money-bill"></i> Sold</a>
     </li>
     <li class="nav-item">
