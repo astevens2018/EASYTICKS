@@ -54,12 +54,8 @@ class UsersController < ApplicationController
       country_code: current_user.country_code
     )
 
-    Rails.logger.info authy.errors
-
     current_user.update(authy_id: authy['id'])
     request = Authy::API.request_sms(id: current_user.authy_id)
-
-    Rails.logger.info request.errors
   end
 
   def verify
