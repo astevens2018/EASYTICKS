@@ -9,16 +9,8 @@
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
 
-                <%= javascript_pack_tag 'datepicker' %>
-<<<<<<< HEAD
-                 <% if @tickets.length == Ticket.all.length  %>
-                 <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
-                               <% end %>
-
                   <%= javascript_pack_tag 'datepicker' %>
     </div>
-=======
->>>>>>> master
                     <div class="container">
                       <% if @tickets.length == 0  %>
                       <p class="empty-card-text-search">Your search has come up empty, we've put other options below
@@ -45,9 +37,9 @@
                                 <div class="card-detail card-detail-expand card-detail-route">
                                   <div class="card-information">
                                     <h2>
-                                      <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%A, %b %d") %>
+                                       <%= ticket.date.strftime("%A, %b %d") %>
                                         <span>
-                                          <i class="far fa-clock"></i> <%= ticket.date.strftime("%l:%M %p") %>
+                                           <%= ticket.date.strftime("%l:%M %p") %>
                                         </span>
                                     </h2>
                                     <p class="route-information">
@@ -145,11 +137,6 @@
                                 <% end %>
 
 
-<<<<<<< HEAD
-
-=======
-                                <br>
->>>>>>> master
 
                                   <% end %>
 
