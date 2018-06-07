@@ -21,11 +21,11 @@
         <%= form_for(current_user, url: create_validation_path, method: "post") do |f| %>
           <div class="form-group ">
             <%= f.label :country_code, "Country code" %>
-              <%= f.text_field :country_code, class: "form-control", id: "authy-countries", placeholder: "Eg. 49" %>
+              <%= f.text_field :country_code, class: "form-control", id: "authy-countries", placeholder: "Eg. 44" %>
           </div>
           <div class="form-group">
             <%= f.label :phone, "Phone number" %>
-              <%= f.text_field :phone, class: "form-control", id: "authy-cellphone", placeholder: "Eg. 17621483811", :hint => "Remove leading zero" %>
+              <%= f.text_field :phone, class: "form-control", id: "authy-cellphone", placeholder: "Eg. 17621483811" %>
           </div>
           <%= f.hidden_field :id, :value => current_user.id %>
           <button class="verified-button">Next step <i class="fas fa-arrow-right"></i></button>
