@@ -4,26 +4,58 @@ User.destroy_all
 
 u1 = User.create!(
   email: "astev2018@gmail.com",
-  password: "Rubyonrails",
-  first_name: "Alexander",
+  password: "easyticks",
+  first_name: "Albert",
   last_name: "Stevens",
   bankaccount: "BE123456789",
   phone: 324744448)
 
 u2 = User.create!(
   email: "umabpatel@gmail.com",
-  password: "Bitchonrails",
-  first_name: "Uma",
+  password: "easyticks",
+  first_name: "Ema",
   last_name: "Patel",
   bankaccount: "AU123456789",
   phone: 494744448)
 
 u3 = User.create!(
-  email: "P",
-  password: "Kingonrails",
-  first_name: "Lui",
+  email: "lui.kohl@gmail.com",
+  password: "easyticks",
+  first_name: "Louis",
   last_name: "Joy",
   bankaccount: "AU987654321",
+  phone: 492382821)
+
+u4 = User.create!(
+  email: "lawsponsor@gmail.com",
+  password: "easyticks",
+  first_name: "Adam",
+  last_name: "Bedford",
+  bankaccount: "ES987654321",
+  phone: 492382821)
+
+u5 = User.create!(
+  email: "lui+@tutanota.com",
+  password: "easyticks",
+  first_name: "Natalie",
+  last_name: "Colman",
+  bankaccount: "IT987654321",
+  phone: 492382821)
+
+u6 = User.create!(
+  email: "luikohlcanada@gmail.com",
+  password: "easyticks",
+  first_name: "Elisa",
+  last_name: "Schwarzbeck",
+  bankaccount: "FR987654321",
+  phone: 492382821)
+
+u7 = User.create!(
+  email: "alexander.stevens.2018@gmail.com",
+  password: "easyticks",
+  first_name: "Nathan",
+  last_name: "Kent",
+  bankaccount: "DE987654321",
   phone: 492382821)
 
 t1 = Ticket.create!(
@@ -57,7 +89,7 @@ t3 = Ticket.create!(
   name_on_ticket: "Joy")
 
 t4 = Ticket.create!(
-  seller_id: u2.id,
+  seller_id: u4.id,
   date: Date.new(2018,7,13),
   time: "18:31",
   departing_city: "London",
@@ -67,7 +99,7 @@ t4 = Ticket.create!(
   name_on_ticket: "Patel")
 
 t5 = Ticket.create!(
-  seller_id: u3.id,
+  seller_id: u5.id,
   date: Date.new(2018,7,13),
   time: "12:30",
   departing_city: "London",
@@ -77,7 +109,7 @@ t5 = Ticket.create!(
   name_on_ticket: "Kohl")
 
 t6 = Ticket.create!(
-  seller_id: u1.id,
+  seller_id: u6.id,
   date: Date.new(2018,7,13),
   time: "14:00",
   departing_city: "London",
@@ -87,7 +119,7 @@ t6 = Ticket.create!(
   name_on_ticket: "Stevens")
 
 t7 = Ticket.create!(
-  seller_id: u2.id,
+  seller_id: u7.id,
   date: Date.new(2018,7,13),
   time: "11:00",
   departing_city: "London",
@@ -97,7 +129,7 @@ t7 = Ticket.create!(
   name_on_ticket: "Kolkman")
 
 t8 = Ticket.create!(
-  seller_id: u3.id,
+  seller_id: u7.id,
   date: Date.new(2018,7,13),
   time: "19:00",
   departing_city: "London",
