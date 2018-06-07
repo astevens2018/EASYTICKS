@@ -9,13 +9,20 @@
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
 
-                  <%= javascript_pack_tag 'datepicker' %>
+                <%= javascript_pack_tag 'datepicker' %>
+
+
     </div>
+
                     <div class="container">
                       <% if @tickets.length == 0  %>
                       <p class="empty-card-text-search">Your search has come up empty, we've put other options below
                       </p>
+                      <p class="empty-card-text-search">
+
                         <%= link_to "Click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                      </p>
+
                         <% @other_tickets.each do |ticket| %>
                           <% if ticket.buyer_id == nil %>
                             <%= link_to ticket_path(ticket) do %>
@@ -136,6 +143,9 @@
                               <% end %>
                                 <% end %>
 
+
+
+                                <br>
 
 
                                   <% end %>
