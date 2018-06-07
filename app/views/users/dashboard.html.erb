@@ -2,66 +2,68 @@
   <div class="container profile-header-container text-center">
     <div class="profile-header-infos">
       <%= image_tag current_user.avatar_url %>
-      <h1 class="profile-information">
-        <%= current_user.first_name %>
-      </h1>
-      <h2>
-        <button type="button" class="settings" data-toggle="modal" data-target="#myModal">
-          <i class="fas fa-cog"></i> Edit profile
-        </button>
-      </h2>
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4 class="modal-title profile-text" id="myModalLabel">Edit Details</h4>
-            </div>
-            <div class="modal-body">
-              <%= simple_form_for(current_user) do |f| %>
-                <%= f.input :first_name %>
-                <%= f.input :last_name %>
-                <%= f.input :email, placeholder: "Insert new email" %>
-                <%= f.input :phone, placeholder: "Insert new phone number" %>
-                <%= f.input :photo, placeholder: "Insert new picture" %>
-                <%= f.input :photo_cache, as: :hidden %>
-                <%= f.submit "Update", class: "ticket-action" %>
-                <% end %>
+        <h1 class="profile-information">
+          <%= current_user.first_name %>
+        </h1>
+        <h2>
+          <button type="button" class="settings" data-toggle="modal" data-target="#myModal">
+            <i class="fas fa-cog"></i> Edit profile
+          </button>
+        </h2>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title profile-text" id="myModalLabel">Edit Details</h4>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for(current_user) do |f| %>
+                  <%= f.input :first_name %>
+                    <%= f.input :last_name %>
+                      <%= f.input :email, placeholder: "Insert new email" %>
+                        <%= f.input :phone, placeholder: "Insert new phone number" %>
+                          <%= f.input :photo, placeholder: "Insert new picture" %>
+                            <%= f.input :photo_cache, as: :hidden %>
+                              <%= f.submit "Update", class: "ticket-action" %>
+                                <% end %>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container if_verified">
-        <% if current_user.verified? %>
-          <p>
-            <button type="button" class="verified-button">
-              <i class="fas fa-check"></i> Verified
-            </button>
-          </p>
-          <% else -%>
-            <% end -%>
-              <% if !current_user.verified? %>
-                <p>
-                  <button type="button" class="not-verified-button">
-                    <i class="fas fa-exclamation-triangle"></i> <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
-                  </button>
-                </p>
-                <% end -%>
-      </div>
-      <h2 class="profile-information">
-      <% counter = 0 %>
-        <% @tickets.each do |ticket| %>
-          <% if ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
-            <% counter = counter + 1 %>
-          <% end %>
+        <div class="container if_verified">
+          <% if current_user.verified? %>
+            <p>
+              <button type="button" class="verified-button">
+                <i class="fas fa-check"></i> Verified
+              </button>
+            </p>
+            <% else -%>
+              <% end -%>
+                <% if !current_user.verified? %>
+                  <p>
+                    <button type="button" class="not-verified-button">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <%= link_to "Get Verified", phone_validation_path, class: 'verified-tag' %>
+                    </button>
+                  </p>
+                  <% end -%>
+        </div>
+        <h2 class="profile-information">
+          <% counter = 0 %>
+            <% @tickets.each do |ticket| %>
+              <% if ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
+                <% counter = counter + 1 %>
+                  <% end %>
 
-        <% end %>
-        <p>Sold: <%= "#{counter}" %> tickets </p>
-      </h2>
+                    <% end %>
+                      <p>Sold:
+                        <%= "#{counter}" %> tickets </p>
+        </h2>
 
 
     </div>
@@ -69,16 +71,20 @@
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item active">
       <a class="nav-link active dashboard-tab" id="purchased-tab" data-toggle="tab" href="#purchased" role="tab" aria-controls="purchased"
-        aria-selected="true"><i class="fas fa-shopping-cart"></i> Purchased</a>
+        aria-selected="true">
+        <i class="fas fa-shopping-cart"></i> Purchased</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false"><i class="far fa-handshake"></i> Selling</a>
+      <a class="nav-link dashboard-tab" id="selling-tab" data-toggle="tab" href="#selling" role="tab" aria-controls="selling" aria-selected="false">
+        <i class="far fa-handshake"></i> Selling</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false"><i class="far fa-bell"></i> Alarm</a>
+      <a class="nav-link dashboard-tab" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">
+        <i class="far fa-bell"></i> Alarm</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false"><i class="far fa-flag"></i> Report</a>
+      <a class="nav-link dashboard-tab" id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="false">
+        <i class="far fa-flag"></i> Report</a>
     </li>
   </ul>
 
@@ -97,65 +103,80 @@
         <!-- Rails purchased content -->
         <% if @buy_tickets.empty? %>
           <div class="card empty-card">
-              <p class="empty-card-text text-center">You haven't purchased any tickets yet.</p>
+            <p class="empty-card-text text-center">You haven't purchased any tickets yet.</p>
           </div>
-        <% else %>
-          <% @buy_tickets.each do |ticket| %>
+          <% else %>
+            <% @buy_tickets.each do |ticket| %>
               <%= link_to ticket_path(ticket) do %>
-                <div class="card">
-                  <div class="card-user">
-                  <%= image_tag ticket.seller.avatar_url  %>
+                <div class="card-ticket">
+                  <div class="card-detail card-detail-user">
+                    <div class="card-information">
+                      <%= image_tag ticket.seller.avatar_url  %>
+                        <div class="card-information-details">
+                          <h2>
+                            <%= ticket.seller.first_name %>
+                              <%= ticket.seller.last_name.chars.first %>.
+                          </h2>
+                          <p class="verified">
+                            <i class="fas fa-user-check"></i> verified
+                          </p>
+                        </div>
+                    </div>
                   </div>
-                  <div class="card-description">
-                    <h2>
-                      <%= ticket.seller.first_name %>
-                        <%= ticket.seller.last_name.chars.first %>.</h2>
-                    <p class="verified">
-                      <i class="fas fa-user-check"></i> Verified</p>
-                  </div>
-                  <div class="card-description destination">
-                    <h2>
-                      <%= ticket.departing_city %> →
-                        <%= ticket.arrival_city %>
-                    </h2>
-                    <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
-                    <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
-                  </div>
-                  <div class="card-description date">
-                    <h5>
-                      <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
+                  <div class="card-detail card-detail-expand card-detail-route">
+                    <div class="card-information">
+                      <h2>
+                        <%= ticket.date.strftime("%A, %b %d") %>
+                          <span>
+                            <%= ticket.date.strftime("%l:%M %p") %>
+                          </span>
+                      </h2>
+                      <p class="route-information">
+                        <%= ticket.departing_city %>
+                          <span class="route-icon">➞</span>
+                          <%= ticket.arrival_city %>
+                      </p>
+                      <div class="card-information-route">
+                        <div class="line"></div>
+                        <p>
+                          <i class="far fa-circle"></i>
+                          <%= ticket.departing_city %> central station</p>
+                        <p>
+                          <i class="far fa-circle"></i>
+                          <%= ticket.arrival_city %> central station</p>
+                      </div>
 
-                    </h5>
+                    </div>
                   </div>
-                  <div class="card-description time">
-                    <h5>
-                      <i class="far fa-clock"></i> <%= ticket.time %>
-                    </h5>
+                  <div class="card-detail card-detail-price">
+                    <div class="card-information">
+                      <h2>
+                        <%= currency_symbol %><%= humanized_money(ticket.price) %>
+                      </h2>
+                      <p>Incl. VAT</p>
+                    </div>
+
                   </div>
-                  <div class="card-description price">
-                    <h5 id="ticket-price">
-                      <%= humanized_money_with_symbol(ticket.price) %>
-                    </h5>
-                  </div>
-                  <div class="card-category label-green">
+                </div>
+                <% end %>
+                <% end %>
+                <% end %>
+      </div>
+
+  <!-- <div class="card-category label-green">
                     <p>Paid</p>
                   </div>
                   <button class="card-category btn-report">
-                    <a data-toggle="tab" href="#report" role="tab"><i class="far fa-flag"></i> Report</a>
+                    <a data-toggle="tab" href="#report" role="tab">
+                      <i class="far fa-flag"></i> Report</a>
                     </p>
                   </button>
                   <button class="card-category btn-download">
                     <a href="https://tickets.eurostar.com/tickets/SQMBOF/7133c742-06b1-40c4-8d64-b8f34b6dba20.pdf?response-content-type=application%2Fpdf&AWSAccessKeyId=AKIAIS4OAMU4IZGEPEAQ&Expires=1531849140&Signature=K%2FYJ%2FaE6jzBx3eKAy5a6Bvt5ycM%3D"
-                    download>
-                    <i class="fas fa-download"> </i> Download</a>
-                  </button>
-                </div>
-              <% end %>
-          <% end %>
-        <% end %>
-                    <!-- Rails buy content ends -->
-                    <!-- BUY TAB ENDS -->
-      </div>
+                      download>
+                      <i class="fas fa-download"> </i> Download</a>
+                  </button> -->
+
       <div class="tab-pane" id="selling" role="tabpanel" aria-labelledby="selling-tab">
 
         <% if @sell_tickets.empty? %>
@@ -166,83 +187,110 @@
         <% @tickets.each do |ticket| %>
           <% if ticket.seller.id == current_user.id && ticket.buyer_id === nil %>
             <%= link_to ticket_path(ticket) do %>
-              <div class="card">
-                <div class="card-user">
-                <%= image_tag ticket.seller.avatar_url  %>
-                </div>
-                <div class="card-description">
-                  <h2>
-                    <%= ticket.seller.first_name %>
-                      <%= ticket.seller.last_name.chars.first %>.</h2>
-                  <p class="verified">
-                    <i class="fas fa-user-check"></i> Verified</p>
-                </div>
-                <div class="card-description destination">
-                  <h2>
-                    <%= ticket.departing_city %> →
-                      <%= ticket.arrival_city %>
-                  </h2>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
-                </div>
-                <div class="card-description date">
-                  <h5>
-                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
-                  </h5>
-                </div>
-                <div class="card-description time">
-                  <h5>
-                    <i class="far fa-clock"></i> <%= ticket.time %>
-                  </h5>
-                </div>
-                <div class="card-description price">
-                  <h5 id="ticket-price">
-                    <%= money_without_cents_and_with_symbol(ticket.price) %>
-                  </h5>
-                </div>
-                <div class="card-category btn-treehouse">
-                  <%= link_to 'Delete', ticket_path(ticket), method: :delete %>
-                </div>
-              </div>
+              <H3>Selling</H3>
+               <div class="card-ticket">
+                              <div class="card-detail card-detail-user">
+                                <div class="card-information">
+                                  <%= image_tag ticket.seller.avatar_url  %>
+                                    <div class="card-information-details">
+                                      <h2>
+                                        <%= ticket.seller.first_name %>
+                                          <%= ticket.seller.last_name.chars.first %>.
+                                      </h2>
+                                      <p class="verified">
+                                        <i class="fas fa-user-check"></i> verified
+                                      </p>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="card-detail card-detail-expand card-detail-route">
+                                <div class="card-information">
+                                  <h2>
+                                    <%= ticket.date.strftime("%A, %b %d") %>
+                                      <span>
+                                        <%= ticket.date.strftime("%l:%M %p") %>
+                                      </span>
+                                  </h2>
+                                  <p class="route-information">
+                                    <%= ticket.departing_city %>
+                                      <span class="route-icon">➞</span>
+                                      <%= ticket.arrival_city %>
+                                  </p>
+                                  <div class="card-information-route">
+                                    <div class="line"></div>
+                                    <p>
+                                      <i class="far fa-circle"></i>
+                                      <%= ticket.departing_city %> central station</p>
+                                    <p>
+                                      <i class="far fa-circle"></i>
+                                      <%= ticket.arrival_city %> central station</p>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <div class="card-detail card-detail-price">
+                                <div class="card-information">
+                                  <h2>
+                                    <%= currency_symbol %><%= humanized_money(ticket.price) %>
+                                  </h2>
+                                  <p class="red">Cancel</p>
+                                </div>
+
+                              </div>
+                            </div>
             <% end %>
           <% elsif ticket.seller.id === current_user.id && ticket.buyer_id != nil %>
             <h3>Sold</h3>
             <%= link_to ticket_path(ticket) do %>
-              <div class="card sold-card">
-                <div class="card-user">
-                <%= image_tag ticket.seller.avatar_url  %>
-                </div>
-                <div class="card-description">
-                  <h2>
-                    <%= ticket.seller.first_name %>
-                      <%= ticket.seller.last_name.chars.first %>.</h2>
-                  <p class="verified">
-                    <i class="fas fa-user-check"></i> Verified</p>
-                </div>
-                <div class="card-description destination">
-                  <h2>
-                    <%= ticket.departing_city %> →
-                      <%= ticket.arrival_city %>
-                  </h2>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.departing_city %> central station</p>
-                  <p class="grey-text"><i class="fas fa-train"></i>  <%= ticket.arrival_city %> central station</p>
-                </div>
-                <div class="card-description date">
-                  <h5>
-                    <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%d %B %Y") %>
-                  </h5>
-                </div>
-                <div class="card-description time">
-                  <h5>
-                    <i class="far fa-clock"></i> <%= ticket.time %>
-                  </h5>
-                </div>
-                <div class="card-description price">
-                  <h5 id="ticket-price">
-                    <%= money_without_cents_and_with_symbol(ticket.price) %>
-                  </h5>
-                </div>
-              </div>
+               <div class="card-ticket mute">
+                              <div class="card-detail card-detail-user">
+                                <div class="card-information">
+                                  <%= image_tag ticket.seller.avatar_url  %>
+                                    <div class="card-information-details">
+                                      <h2>
+                                        <%= ticket.seller.first_name %>
+                                          <%= ticket.seller.last_name.chars.first %>.
+                                      </h2>
+                                      <p class="verified">
+                                        <i class="fas fa-user-check"></i> verified
+                                      </p>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="card-detail card-detail-expand card-detail-route">
+                                <div class="card-information">
+                                  <h2>
+                                    <%= ticket.date.strftime("%A, %b %d") %>
+                                      <span>
+                                        <%= ticket.date.strftime("%l:%M %p") %>
+                                      </span>
+                                  </h2>
+                                  <p class="route-information">
+                                    <%= ticket.departing_city %>
+                                      <span class="route-icon">➞</span>
+                                      <%= ticket.arrival_city %>
+                                  </p>
+                                  <div class="card-information-route">
+                                    <div class="line"></div>
+                                    <p>
+                                      <i class="far fa-circle"></i>
+                                      <%= ticket.departing_city %> central station</p>
+                                    <p>
+                                      <i class="far fa-circle"></i>
+                                      <%= ticket.arrival_city %> central station</p>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <div class="card-detail card-detail-price">
+                                <div class="card-information">
+                                  <h2>
+                                    <%= currency_symbol %><%= humanized_money(ticket.price) %>
+                                  </h2>
+                                  <p>Incl. VAT</p>
+                                </div>
+                              </div>
+                            </div>
             <% end %>
           <% end %>
         <% end %>
