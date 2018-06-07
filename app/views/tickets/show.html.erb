@@ -67,6 +67,7 @@
   </div>
 </div>
 
-
+<% content_for :meta_title, "#{@ticket.price} ticket to #{@ticket.arrival_city} is being sold on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "Ticket from #{@ticket.departing_city} to #{@ticket.arrival_city} on #{@ticket.date} at #{@ticket.time}, is being sold for #{@ticket.price}. Buy it now on easyticks.com, fast and safe !" %>
 
 
