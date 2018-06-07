@@ -15,6 +15,31 @@
   color: white;
 }
 
+.btn-dashboard {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #1F4E99;
+  transition: background 0.3s ease;
+  top: 80px;
+}
+
+.btn-dashboard a {
+  color: white;
+}
+
+.btn-dashboard a:hover {
+  color: white;
+}
+
+.btn-dashboard:hover {
+  opacity: 1;
+  background: #3e6cb7;
+  text-decoration: none;
+  color: white;
+}
+
 .btn-treehouse>a {
   color: white;
 }
@@ -158,7 +183,6 @@
   font-weight: normal !important;
 }
 
-
 .stripe-button-el span {
   font-family: sans-serif !important;
   -webkit-font-smoothing: antialiased;
@@ -171,7 +195,6 @@
   background-color: #FFC417 !important;
 }
 
-
-.stripe-button-el:hover span  {
+.stripe-button-el:hover span {
   color: black !important;
 }
