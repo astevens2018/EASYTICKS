@@ -123,6 +123,14 @@ input {
 
 
 .phone-buttons {
-  .btn-primary, .btn-secondary {display:inline-block;}
+  .btn-primary, .btn-secondary {
+    display:inline-block;
+}
 
+}
+
+.verification {
+  border-radius: 20px;
+  background-color: #fff;
+  border: 3px solid #e6e6e6;
 }

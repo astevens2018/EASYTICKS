@@ -2,17 +2,15 @@
   <div class="ticket-container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
-
-      <h4 class="text-center ">Account Verification</h4>
-      <h5 class="text-center ">Step 3: Insert verification code</h5>
-        <p> Please enter the verification code we just sent to your phone.</p>
+      <h5 class="text-center verification"> <i class="far fa-check-circle"></i> <b>Step 3: Token verification</b></h5>
+      <p>We have sent a SMS to the phone number you have provided, please insert the token code below.</p>
         <%= form_tag verify_path do %>
           <div class="form-group">
-            <%= label_tag :code, "Verification Code:" %>
+            <%= label_tag :code, "Insert token number" %>
             <%= text_field_tag :token, '', class: "form-control" %>
           </div>
           <div class="phone-buttons">
-          <button type="submit" class="btn btn-primary">Verify Token</button>
+          <button type="submit" class="btn btn-primary">Verify token</button>
         <% end %>
 
         <%= form_tag resend_path do %>
