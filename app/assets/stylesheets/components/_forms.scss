@@ -1,3 +1,10 @@
+input[type="file"] {
+  display: inline-flex;
+  padding-left: 80px;
+  padding-top: 14px;
+}
+
+
 .form-container {
   background: white;
   padding: 10px 20px;
@@ -33,6 +40,22 @@
     font-weight: lighter;
     margin-bottom: 30px;
     text-align: center;
+  }
+  .form-control {
+        color: #ccc;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    margin: 10px;
+  }
+  form {
+
+    text-align: center;
+
+    padding: 0px 0px;
+  }
+  label {
+        font-weight: 500;
+    letter-spacing: 1px;
   }
 }
 
