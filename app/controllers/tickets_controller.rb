@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
       @tickets = @tickets.where(departing_city: params[:departing_city], arrival_city: params[:arrival_city], date: params[:date]).order(date: :asc, time: :asc)
     end
     @users = User.all
+
   end
 
   def show

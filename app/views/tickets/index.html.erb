@@ -9,6 +9,11 @@
               <%= submit_tag 'Search', class: "form_submit" %>
                 <% end %>
 
+                <%= javascript_pack_tag 'datepicker' %>
+                 <% if @tickets.length == Ticket.all.length  %>
+                 <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                               <% end %>
+
                   <%= javascript_pack_tag 'datepicker' %>
 
                     <div class="container">
@@ -53,6 +58,7 @@
                                       <%= ticket.arrival_city %> central station</p>
                                   </div>
 
+
                                 </div>
                               </div>
                               <div class="card-detail card-detail-price">
@@ -67,6 +73,12 @@
                             </div>
                             <% end %>
                               <% end %>
+                               <% if @tickets.length == 0  %>
+                                <%= link_to "No tickets available for your choice, make another search or click here to get notified once a ticket shows up", dashboard_path(:anchor => "#request") %>
+                                <% end %>
+
+                              <br>
+
                                 <% end %>
                     </div>
 
