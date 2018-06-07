@@ -46,7 +46,7 @@
                                     <h2>
                                        <%= ticket.date.strftime("%A, %b %d") %>
                                         <span>
-                                           <%= ticket.date.strftime("%l:%M %p") %>
+                                           <%= ticket.time %>
                                         </span>
                                     </h2>
                                     <p class="route-information">
@@ -109,7 +109,7 @@
                                     <h2>
                                       <i class="far fa-calendar-alt"></i> <%= ticket.date.strftime("%A, %b %d") %>
                                         <span>
-                                          <i class="far fa-clock"></i> <%= ticket.date.strftime("%l:%M %p") %>
+                                          <i class="far fa-clock"></i> <%= ticket.time %>
                                         </span>
                                     </h2>
                                     <p class="route-information">
