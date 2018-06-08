@@ -11,10 +11,10 @@ u1 = User.create!(
   phone: 324744448)
 
 u2 = User.create!(
-  email: "umabpatel@gmail.com",
+  email: "lui@juniqe.com",
   password: "easyticks",
   first_name: "Ema",
-  last_name: "Patel",
+  last_name: "Sauremo",
   bankaccount: "AU123456789",
   phone: 494744448)
 
@@ -129,7 +129,7 @@ t7 = Ticket.create!(
   name_on_ticket: "Kolkman")
 
 t8 = Ticket.create!(
-  seller_id: u7.id,
+  seller_id: u1.id,
   date: Date.new(2018,7,13),
   time: "19:00",
   departing_city: "London",
@@ -139,7 +139,7 @@ t8 = Ticket.create!(
   name_on_ticket: "von Hammerstein")
 
 t9 = Ticket.create!(
-  seller_id: u2.id,
+  seller_id: u3.id,
   date: Date.new(2018,7,13),
   time: "06:00",
   departing_city: "London",
